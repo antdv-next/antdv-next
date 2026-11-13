@@ -263,18 +263,24 @@ const Image = defineComponent<
           emit('click', e as MouseEvent)
         },
       } as Pick<VcImageProps, 'onError' | 'onClick'>
-      if (slots?.imageRender) {
-        mergedPreviewConfig.value.imageRender = slots.imageRender
-      }
-      if (slots?.cover && (mergedPreviewConfig.value?.mask || typeof mergedPreviewConfig.value?.mask === 'boolean')) {
-        mergedPreviewConfig.value.cover = slots.cover()
-      }
+      // Merge slots into a copy: `mergedPreviewConfig` is `null` when preview is
+      // disabled, and recomputing it would drop any in-place writes.
+      const mergedPreviewConfigValue = mergedPreviewConfig.value
+      const mergedPreviewConfigWithSlots = mergedPreviewConfigValue
+        ? {
+            ...mergedPreviewConfigValue,
+            ...(slots?.imageRender ? { imageRender: slots.imageRender } : {}),
+            ...(slots?.cover && (mergedPreviewConfigValue.mask || typeof mergedPreviewConfigValue.mask === 'boolean')
+              ? { cover: slots.cover() }
+              : {}),
+          }
+        : mergedPreviewConfigValue
       // ============================== Render ==============================
       return (
         <VcImage
           {...restAttrs}
           prefixCls={prefixCls.value}
-          preview={(mergedPreviewConfig.value || false) as any}
+          preview={(mergedPreviewConfigWithSlots || false) as any}
           rootClassName={mergedRootClassName.value}
           class={mergedClassName}
           style={mergedImageStyle}

@@ -93,6 +93,32 @@ describe('image', () => {
     expect(wrapper.find('.ant-image-cover').exists()).toBe(false)
   })
 
+  it('should not throw when preview is disabled but imageRender slot is provided', () => {
+    // Regression: the slot used to be assigned onto a `null` preview config,
+    // throwing "Cannot set properties of null (setting 'imageRender')".
+    const wrapper = mount(Image, {
+      props: { src, preview: false },
+      slots: {
+        imageRender: () => h('img', { class: 'custom-preview-image' }),
+      },
+    })
+    expect(wrapper.find('.ant-image').exists()).toBe(true)
+  })
+
+  it('should pass imageRender and cover slots through the preview config', async () => {
+    const wrapper = mount(Image, {
+      props: { src, preview: { open: true } },
+      slots: {
+        imageRender: () => h('img', { class: 'custom-preview-image' }),
+        cover: () => h('div', { class: 'custom-cover' }, 'cover'),
+      },
+    })
+    expect(wrapper.find('.custom-cover').exists()).toBe(true)
+    await new Promise(resolve => setTimeout(resolve, 100))
+    expect(document.querySelector('.custom-preview-image')).not.toBeNull()
+    wrapper.unmount()
+  })
+
   it('should support preview config object', () => {
     const wrapper = mount(Image, {
       props: {
