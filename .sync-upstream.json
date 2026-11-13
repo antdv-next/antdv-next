@@ -41,10 +41,11 @@
           "description": "Ant Design cssinjs -> antdv-next cssinjs 包"
         }
       ],
-      "last_synced_commit": "116099459d6fc8b3c4affb051ccdf3e7b5ceaacf",
-      "last_synced_commit_short": "1160994",
-      "last_synced_at": "2026-07-29T00:00:00Z",
-      "sync_count": 2
+      "last_synced_commit": "1fb4508660495240568953603c2b4521b8784b6f",
+      "last_synced_commit_short": "1fb4508",
+      "last_synced_at": "2026-11-13T00:00:00Z",
+      "last_synced_tag": "@ant-design/cssinjs@2.1.2",
+      "sync_count": 3
     },
     {
       "name": "cssinjs-utils",
