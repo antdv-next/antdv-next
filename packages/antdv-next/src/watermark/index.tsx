@@ -4,6 +4,7 @@ import { useMutateObserver } from '@v-c/mutate-observer'
 import canUseDom from '@v-c/util/dist/Dom/canUseDom'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, ref, shallowRef, watch } from 'vue'
+import { useComponentBaseConfig } from '../config-provider/context.ts'
 import { useToken } from '../theme/internal.ts'
 import { WatermarkContextProvider } from './context.ts'
 import useClips, { FontGap } from './useClips.ts'
@@ -73,6 +74,7 @@ const defaults = {
 
 const Watermark = defineComponent<WatermarkProps>(
   (props = defaults, { slots, attrs, expose }) => {
+    const { class: contextClassName, style: contextStyle } = useComponentBaseConfig('watermark', props)
     const [,token] = useToken()
     const mergedZIndex = computed(() => props.zIndex ?? token.value.zIndexPopupBase - WATERMARK_Z_INDEX_OFFSET)
     const onRemove = computed(() => props.onRemove)
@@ -99,6 +101,7 @@ const Watermark = defineComponent<WatermarkProps>(
     const mergedStyle = computed<CSSProperties>(() => {
       return {
         ...fixedStyle,
+        ...contextStyle.value,
         ...(attrs as any).style,
       }
     })
@@ -298,7 +301,7 @@ const Watermark = defineComponent<WatermarkProps>(
       const childNode = props.inherit ? (<WatermarkContextProvider {...watermarkContext}>{children}</WatermarkContextProvider>) : children
 
       return (
-        <div ref={container} class={[props.rootClass, (attrs as any).class]} {...omit(attrs, ['style', 'class'])} style={mergedStyle.value}>
+        <div ref={container} class={[props.rootClass, (attrs as any).class, contextClassName.value]} {...omit(attrs, ['style', 'class'])} style={mergedStyle.value}>
           {childNode}
         </div>
       )

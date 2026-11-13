@@ -237,6 +237,7 @@ const ProviderChildren = defineComponent<
         carousel: props.carousel,
         cardMeta: props.cardMeta,
         ribbon: props.ribbon,
+        watermark: props.watermark,
         warning: props.warning,
       } as ConfigConsumerProps
 

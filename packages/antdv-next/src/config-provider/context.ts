@@ -575,6 +575,7 @@ export interface ConfigComponentProps {
   flex?: FlexConfig
   qrcode?: QRcodeConfig
   wave?: WaveConfig
+  watermark?: ComponentStyleConfig
 }
 
 export interface ConfigConsumerProps extends ConfigComponentProps {

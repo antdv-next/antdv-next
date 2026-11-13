@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { ref } from 'vue'
+import ConfigProvider from '../../config-provider'
 import Watermark from '../index'
 import mountTest from '/@tests/shared/mountTest'
 import rtlTest from '/@tests/shared/rtlTest'
@@ -280,5 +281,37 @@ describe('watermark', () => {
     await waitFakeTimer()
     expect(watermarkRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
     expect(watermarkRef.value.nativeElement).toBe(wrapper.find('.watermark-ref').element)
+  })
+
+  // ========================= ConfigProvider =========================
+  it('should apply ConfigProvider watermark class and style', async () => {
+    const wrapper = mount(
+      <ConfigProvider watermark={{ class: 'ctx-wm', style: { border: '1px solid red', position: 'absolute' } }}>
+        <Watermark content="Ant Design" />
+      </ConfigProvider>,
+    )
+    await waitFakeTimer()
+
+    const root = wrapper.find<HTMLDivElement>('.ctx-wm')
+    expect(root.exists()).toBeTruthy()
+    const style = root.element.style
+    expect(style.border).toBe('1px solid red')
+    // config style overrides fixedStyle, same as ant-design spread order
+    expect(style.position).toBe('absolute')
+  })
+
+  it('user class and style should take priority over ConfigProvider watermark config', async () => {
+    const wrapper = mount(
+      <ConfigProvider watermark={{ class: 'ctx-wm', style: { border: '1px solid red' } }}>
+        <Watermark content="Ant Design" class="own-wm" style={{ border: '2px solid blue' }} />
+      </ConfigProvider>,
+    )
+    await waitFakeTimer()
+
+    const root = wrapper.find<HTMLDivElement>('.own-wm')
+    expect(root.exists()).toBeTruthy()
+    expect(root.classes()).toContain('ctx-wm')
+    expect(root.element.style.border).toBe('2px solid blue')
+    expect(root.element.style.overflow).toBe('hidden')
   })
 })
