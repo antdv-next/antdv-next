@@ -73,6 +73,30 @@ describe('date-picker.Semantic', () => {
     wrapper.unmount()
   })
 
+  it('should support custom time panel item text alignment', async () => {
+    const wrapper = mount(DatePicker, {
+      props: {
+        picker: 'time',
+        open: true,
+        styles: { popup: { item: { textAlign: 'end' } } },
+      },
+      attachTo: document.body,
+    })
+    await nextTick()
+
+    const cell = document.querySelector('.ant-picker-time-panel-cell') as HTMLElement | null
+    const inner = document.querySelector('.ant-picker-time-panel-cell-inner') as HTMLElement | null
+    expect(cell).toBeTruthy()
+    expect(inner).toBeTruthy()
+    expect(cell!.style.textAlign).toBe('end')
+    // The inner cell must inherit alignment from the item instead of forcing its own.
+    expect(getComputedStyle(inner!).textAlign).not.toBe('center')
+
+    await wrapper.setProps({ open: false })
+    await nextTick()
+    wrapper.unmount()
+  })
+
   it('should support semantic classes and styles as functions', () => {
     const classesFn = vi.fn((info: { props: DatePickerProps }) => ({
       root: info.props.disabled ? 'dp-disabled-root' : 'dp-enabled-root',
