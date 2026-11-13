@@ -3,7 +3,7 @@ import type { WatermarkContextProps } from './context.ts'
 import { useMutateObserver } from '@v-c/mutate-observer'
 import canUseDom from '@v-c/util/dist/Dom/canUseDom'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent, getCurrentInstance, ref, shallowRef, watch } from 'vue'
+import { computed, defineComponent, ref, shallowRef, watch } from 'vue'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import { useToken } from '../theme/internal.ts'
 import { WatermarkContextProvider } from './context.ts'
@@ -94,10 +94,8 @@ const Watermark = defineComponent<
   (props = defaults, { slots, attrs, expose, emit }) => {
     const { class: contextClassName, style: contextStyle } = useComponentBaseConfig('watermark', props)
     const [,token] = useToken()
-    const instance = getCurrentInstance()
     const mergedZIndex = computed(() => props.zIndex ?? token.value.zIndexPopupBase - WATERMARK_Z_INDEX_OFFSET)
-    const hasRemoveListener = computed(() => !!instance?.vnode?.props?.onRemove)
-    const onRemove = computed(() => (hasRemoveListener.value ? () => emit('remove') : undefined))
+    const onRemove = computed(() => () => emit('remove'))
     const color = computed(() => props.font?.color ?? token.value.colorFill)
     const fontSize = computed(() => props?.font?.fontSize ?? token.value?.fontSizeLG)
     const fontWeight = computed(() => props?.font?.fontWeight ?? 400)
