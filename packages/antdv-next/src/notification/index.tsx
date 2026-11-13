@@ -1,6 +1,6 @@
 import type { Key } from '@v-c/util/dist/type'
 import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface'
-import { createVNode, defineComponent, getCurrentInstance, onMounted, render, shallowRef, watch } from 'vue'
+import { computed, createVNode, defineComponent, getCurrentInstance, onMounted, render, shallowRef, watch } from 'vue'
 import { useAppConfig } from '../app/context.ts'
 import { useBaseConfig } from '../config-provider/context.ts'
 import ConfigProvider, { globalConfig } from '../config-provider/index.tsx'
@@ -63,15 +63,15 @@ function getGlobalContext() {
 
 const GlobalHolder = defineComponent<{ notificationConfig: GlobalConfigProps, sync: () => void }>(
   (props, { expose }) => {
-    const { notificationConfig, sync } = props
+    const { sync } = props
     const { getPrefixCls } = useBaseConfig()
-    const prefixCls = defaultGlobalConfig?.prefixCls || getPrefixCls('notification')
     const appConfig = useAppConfig()
-    const [api, holder] = useInternalNotification({
-      ...notificationConfig,
-      prefixCls,
+    const mergedNotificationConfig = computed(() => ({
+      ...props.notificationConfig,
+      prefixCls: defaultGlobalConfig?.prefixCls || getPrefixCls('notification'),
       ...(appConfig.notification || {}),
-    })
+    }))
+    const [api, holder] = useInternalNotification(mergedNotificationConfig)
 
     onMounted(() => {
       sync?.()
