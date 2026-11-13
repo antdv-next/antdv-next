@@ -272,6 +272,37 @@ describe('watermark', () => {
     expect(onRemove).not.toHaveBeenCalled()
   })
 
+  it('should emit remove when listener is bound via template @remove', async () => {
+    const onRemove = vi.fn()
+    const wrapper = mount({
+      components: { Watermark },
+      template: '<Watermark content="Ant" @remove="onRemove" />',
+      setup: () => ({ onRemove }),
+    })
+    await waitFakeTimer()
+    wrapper.find<HTMLDivElement>('[style*="background-image"]').element?.remove()
+    await waitFakeTimer()
+    expect(onRemove).toHaveBeenCalledTimes(1)
+  })
+
+  it('should emit remove when listener is bound after first removal', async () => {
+    const onRemove = vi.fn()
+    const bound = ref(false)
+    const wrapper = mount(() => (
+      <Watermark content="Ant" {...(bound.value ? { onRemove } : {})} />
+    ))
+    await waitFakeTimer()
+    wrapper.find<HTMLDivElement>('[style*="background-image"]').element?.remove()
+    await waitFakeTimer()
+    expect(onRemove).not.toHaveBeenCalled()
+
+    bound.value = true
+    await waitFakeTimer()
+    wrapper.find<HTMLDivElement>('[style*="background-image"]').element?.remove()
+    await waitFakeTimer()
+    expect(onRemove).toHaveBeenCalledTimes(1)
+  })
+
   // ========================= Ref =========================
   it('should support nativeElement ref', async () => {
     const watermarkRef = ref<any>()
