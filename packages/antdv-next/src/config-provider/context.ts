@@ -514,6 +514,7 @@ export interface ConfigComponentProps {
   select?: SelectConfig
   app?: ComponentStyleConfig
   alert?: AlertConfig
+  affix?: ComponentStyleConfig
   anchor?: AnchorStyleConfig
   button?: ButtonConfig
   divider?: DividerConfig
