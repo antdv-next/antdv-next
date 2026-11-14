@@ -3,6 +3,7 @@ import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } 
 import { defineComponent, h, onMounted, shallowRef } from 'vue'
 import Affix from '..'
 import Button from '../../button'
+import ConfigProvider from '../../config-provider'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount, triggerResize, waitFakeTimer } from '/@tests/utils'
 
@@ -341,5 +342,43 @@ describe('affix Render', () => {
       wrapper.unmount()
       domMock.mockImplementation(defaultRectMock)
     }
+  })
+
+  // ========================= ConfigProvider =========================
+  it('should apply ConfigProvider affix class and style to the root', async () => {
+    const wrapper = mount(
+      <ConfigProvider affix={{ class: 'custom-config-affix', style: { background: 'red' } }}>
+        <Affix class="custom-affix" offsetTop={10}>
+          <Button>top</Button>
+        </Affix>
+      </ConfigProvider>,
+      { attachTo: document.body },
+    )
+    await waitFakeTimer()
+
+    const affixElement = wrapper.find('.custom-affix')
+    expect(affixElement.exists()).toBeTruthy()
+    expect(affixElement.classes()).toContain('custom-config-affix')
+    expect((affixElement.element as HTMLElement).style.background).toBe('red')
+
+    wrapper.unmount()
+  })
+
+  it('user class and style should take priority over ConfigProvider affix config', async () => {
+    const wrapper = mount(
+      <ConfigProvider affix={{ class: 'custom-config-affix', style: { background: 'red' } }}>
+        <Affix class="custom-affix" style={{ background: 'blue' }}>
+          <Button>top</Button>
+        </Affix>
+      </ConfigProvider>,
+      { attachTo: document.body },
+    )
+    await waitFakeTimer()
+
+    const affixElement = wrapper.find('.custom-affix')
+    expect(affixElement.classes()).toContain('custom-config-affix')
+    expect((affixElement.element as HTMLElement).style.background).toBe('blue')
+
+    wrapper.unmount()
   })
 })

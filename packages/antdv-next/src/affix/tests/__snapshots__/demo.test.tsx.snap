@@ -4,7 +4,9 @@ exports[`affix demo > renders basic correctly 1`] = `
 <div
   data-v-app=""
 >
-  <div>
+  <div
+    class=""
+  >
     <!---->
     <div
       class=""
@@ -35,7 +37,9 @@ exports[`affix demo > renders basic correctly 1`] = `
     </div>
   </div>
   <br />
-  <div>
+  <div
+    class=""
+  >
     <!---->
     <div
       class=""
@@ -69,7 +73,9 @@ exports[`affix demo > renders basic correctly 1`] = `
 `;
 
 exports[`affix demo > renders on-change correctly 1`] = `
-<div>
+<div
+  class=""
+>
   <!---->
   <div
     class=""
@@ -108,7 +114,9 @@ exports[`affix demo > renders target correctly 1`] = `
   <div
     style="width: 100%; height: 1000px;"
   >
-    <div>
+    <div
+      class=""
+    >
       <!---->
       <div
         class=""

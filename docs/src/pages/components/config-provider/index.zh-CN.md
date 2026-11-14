@@ -121,6 +121,7 @@ const { componentDisabled, componentSize } = config.value
 
 以下配置项用于设置对应组件的通用属性或全局效果配置，具体 API 见链接：
 
+- `affix`：[Affix](/components/affix-cn#api)
 - `alert`：[Alert](/components/alert-cn#api)
 - `anchor`：[Anchor](/components/anchor-cn#api)
 - `app`：[App](/components/app-cn#api)

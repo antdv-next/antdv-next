@@ -5,8 +5,10 @@ import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { unrefElement, useResizeObserver } from '@vueuse/core'
 import { computed, createVNode, defineComponent, isVNode, nextTick, onBeforeUnmount, onMounted, shallowRef, watch } from 'vue'
+import { getAttrStyleAndClass } from '../_util/hooks'
 import throttleByAnimationFrameFn from '../_util/throttleByAnimationFrame'
 import { useConfig } from '../config-provider'
+import { useComponentBaseConfig } from '../config-provider/context'
 import useStyle from './style'
 import { getFixedBottom, getFixedTop, getTargetRect } from './utils'
 
@@ -71,7 +73,11 @@ export const Affix = defineComponent<
   (props = affixDefaultProps, { slots, attrs, expose, emit }) => {
     const configContext = useConfig()
 
-    const affixPrefixCls = computed(() => configContext.value.getPrefixCls('affix', props.prefixCls))
+    const {
+      prefixCls: affixPrefixCls,
+      class: contextClassName,
+      style: contextStyle,
+    } = useComponentBaseConfig('affix', props)
 
     const lastAffix = shallowRef(false)
     const affixStyle = shallowRef<CSSProperties>()
@@ -286,8 +292,14 @@ export const Affix = defineComponent<
           },
         })
       }
+      const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
       return (
-        <div {...attrs} ref={placeholderNodeRef}>
+        <div
+          {...restAttrs}
+          ref={placeholderNodeRef}
+          class={classNames(className, contextClassName.value)}
+          style={{ ...contextStyle.value, ...style }}
+        >
           {affixStyle.value && <div style={placeholderStyle.value} aria-hidden="true" />}
           <div class={mergedCls} ref={fixedNodeRef} style={affixStyle.value}>
             {childNode}
