@@ -63,29 +63,27 @@ export function useZIndex(
   const [, token] = useToken()
   const parentZIndex = useZIndexContext()
   const isContainer = isContainerType(componentType)
-  let result: ReturnResult
 
-  if (customZIndex?.value !== undefined) {
-    result = [customZIndex, customZIndex as any]
-  }
-  else {
-    const resIndex = computed(() => {
-      let zIndex = parentZIndex.value ?? 0
+  const resIndex = computed<[number | undefined, number]>(() => {
+    if (customZIndex?.value !== undefined) {
+      return [customZIndex.value, customZIndex.value]
+    }
 
-      if (isContainer) {
-        zIndex
-        // Use preset token zIndex by default but not stack when has parent container
-          += (parentZIndex.value ? 0 : token.value.zIndexPopupBase)
-          // Container offset
-            + containerBaseZIndexOffset[componentType]
-      }
-      else {
-        zIndex += consumerBaseZIndexOffset[componentType]
-      }
-      return [parentZIndex.value === undefined ? customZIndex?.value : zIndex, zIndex]
-    })
-    result = [computed(() => resIndex.value[0]), computed(() => resIndex.value[1]) as any]
-  }
+    let zIndex = parentZIndex.value ?? 0
+
+    if (isContainer) {
+      zIndex
+      // Use preset token zIndex by default but not stack when has parent container
+        += (parentZIndex.value ? 0 : token.value.zIndexPopupBase)
+        // Container offset
+          + containerBaseZIndexOffset[componentType]
+    }
+    else {
+      zIndex += consumerBaseZIndexOffset[componentType]
+    }
+    return [parentZIndex.value === undefined ? customZIndex?.value : zIndex, zIndex]
+  })
+  const result: ReturnResult = [computed(() => resIndex.value[0]), computed(() => resIndex.value[1])]
 
   if (isDev) {
     const warning = devUseWarning(componentType)
