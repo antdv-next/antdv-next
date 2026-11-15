@@ -391,6 +391,12 @@ describe('alert', () => {
     expect(wrapper.find('.ant-alert-close-icon').exists()).toBe(false)
   })
 
+  it('close button should be hidden when closable is null', () => {
+    const closable = ref<any>(null)
+    const wrapper = mount(() => <Alert title="Warning Text" closable={closable.value} />)
+    expect(wrapper.find('.ant-alert-close-icon').exists()).toBe(false)
+  })
+
   it('close button should be support aria-* by closable', async () => {
     const closable = ref<{ 'aria-label'?: string } | undefined>(undefined)
     const closeIcon = ref<string | undefined>(undefined)

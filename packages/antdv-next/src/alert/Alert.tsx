@@ -9,7 +9,7 @@ import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, defineComponent, shallowRef, toRef, Transition } from 'vue'
 import { getAttrStyleAndClass, pureAttrs, useMergeSemanticNoRef } from '../_util/hooks'
-import { isRenderable } from '../_util/is.ts'
+import { isPlainObject, isRenderable } from '../_util/is.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
 import useVariant from '../form/hooks/useVariant'
@@ -237,7 +237,7 @@ const Alert = defineComponent<
       // closeable when closeText or closeIcon is assigned
       const isClosableFn = () => {
         const closeIcon = getSlotPropsFnRun(slots, props, 'closeIcon')
-        if (typeof closable === 'object')
+        if (isPlainObject(closable))
           return true
         if (typeof closable === 'boolean') {
           return closable
