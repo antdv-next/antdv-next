@@ -34,10 +34,9 @@ type AlertToken = FullToken<'Alert'> & {
   // Custom token here
 }
 
-function genAlertTypeStyle(bgColor: string, borderColor: string, iconColor: string, token: AlertToken, alertCls: string): CSSObject {
+function genAlertTypeStyle(bgColor: string, iconColor: string, alertCls: string): CSSObject {
   return {
     background: bgColor,
-    border: `${unit(token.lineWidth)} ${token.lineType} ${borderColor}`,
     [`${alertCls}-icon`]: {
       color: iconColor,
     },
@@ -60,6 +59,13 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     colorTextHeading,
     withDescriptionPadding,
     defaultPadding,
+    lineWidth,
+    lineType,
+
+    colorSuccessBorder,
+    colorWarningBorder,
+    colorErrorBorder,
+    colorInfoBorder,
   } = token
 
   return {
@@ -71,6 +77,28 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
       padding: defaultPadding,
       wordWrap: 'break-word',
       borderRadius: containerBorderRadius,
+      borderWidth: unit(lineWidth),
+      borderStyle: lineType,
+
+      [`&${componentCls}-success`]: {
+        borderColor: colorSuccessBorder,
+      },
+
+      [`&${componentCls}-info`]: {
+        borderColor: colorInfoBorder,
+      },
+
+      [`&${componentCls}-warning`]: {
+        borderColor: colorWarningBorder,
+      },
+
+      [`&${componentCls}-error`]: {
+        borderColor: colorErrorBorder,
+      },
+
+      [`&${componentCls}-filled`]: {
+        borderColor: 'transparent',
+      },
 
       [`&${componentCls}-rtl`]: {
         direction: 'rtl',
@@ -148,41 +176,25 @@ export const genTypeStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     componentCls,
 
     colorSuccess,
-    colorSuccessBorder,
     colorSuccessBg,
 
     colorWarning,
-    colorWarningBorder,
     colorWarningBg,
 
     colorError,
-    colorErrorBorder,
     colorErrorBg,
 
     colorInfo,
-    colorInfoBorder,
     colorInfoBg,
   } = token
 
   return {
     [componentCls]: {
-      '&-success': genAlertTypeStyle(
-        colorSuccessBg,
-        colorSuccessBorder,
-        colorSuccess,
-        token,
-        componentCls,
-      ),
-      '&-info': genAlertTypeStyle(colorInfoBg, colorInfoBorder, colorInfo, token, componentCls),
-      '&-warning': genAlertTypeStyle(
-        colorWarningBg,
-        colorWarningBorder,
-        colorWarning,
-        token,
-        componentCls,
-      ),
+      '&-success': genAlertTypeStyle(colorSuccessBg, colorSuccess, componentCls),
+      '&-info': genAlertTypeStyle(colorInfoBg, colorInfo, componentCls),
+      '&-warning': genAlertTypeStyle(colorWarningBg, colorWarning, componentCls),
       '&-error': {
-        ...genAlertTypeStyle(colorErrorBg, colorErrorBorder, colorError, token, componentCls),
+        ...genAlertTypeStyle(colorErrorBg, colorError, componentCls),
         [`${componentCls}-description > pre`]: {
           margin: 0,
           padding: 0,

@@ -52,8 +52,8 @@ export interface AlertProps extends ComponentBaseProps,
   type?: 'success' | 'info' | 'warning' | 'error'
   /**
    * Visual variant. `filled` keeps the existing solid background, `outlined`
-   * renders with the colored border style introduced in ant-design 6.4.0.
-   * @default 'filled'
+   * renders with the colored border style.
+   * @default 'outlined'
    */
   variant?: AlertVariant
   /** Whether Alert can be closed */

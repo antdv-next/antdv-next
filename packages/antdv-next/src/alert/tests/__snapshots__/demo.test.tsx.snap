@@ -2601,6 +2601,38 @@ exports[`alert demo > renders description correctly 1`] = `
 </div>
 `;
 
+exports[`alert demo > renders filled correctly 1`] = `
+<transition-stub
+  appear="false"
+  css="true"
+  leaveactiveclass="ant-alert-motion-leave ant-alert-motion-leave-active"
+  leavefromclass="ant-alert-motion-leave"
+  leavetoclass="ant-alert-motion-leave ant-alert-motion-leave-active"
+  name="ant-alert-motion"
+  persisted="false"
+>
+  <div
+    class="ant-alert ant-alert-info ant-alert-filled ant-alert-no-icon css-var-root"
+    data-show="true"
+    role="alert"
+  >
+    <!---->
+    <div
+      class="ant-alert-section"
+    >
+      <div
+        class="ant-alert-title"
+      >
+        Info Text
+      </div>
+      <!---->
+    </div>
+    <!---->
+    <!---->
+  </div>
+</transition-stub>
+`;
+
 exports[`alert demo > renders icon correctly 1`] = `
 <div
   data-v-app=""

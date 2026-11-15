@@ -34,6 +34,13 @@ describe('alert style extract', () => {
     expect(style).toContain('outline:')
   })
 
+  it('hides the border for the filled variant', async () => {
+    const { style } = await extractAlertStyle()
+
+    expect(style).toContain('.ant-alert.ant-alert-filled')
+    expect(style).toContain('border-color:transparent')
+  })
+
   it('supports the containerBorderRadius component token', async () => {
     const { style, token } = await extractAlertStyle({
       components: { Alert: { containerBorderRadius: 3 } },
