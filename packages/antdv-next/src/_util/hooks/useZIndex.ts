@@ -64,9 +64,9 @@ export function useZIndex(
   const parentZIndex = useZIndexContext()
   const isContainer = isContainerType(componentType)
 
-  const resIndex = computed<[number | undefined, number]>(() => {
+  const contextZIndex = computed<number>(() => {
     if (customZIndex?.value !== undefined) {
-      return [customZIndex.value, customZIndex.value]
+      return customZIndex.value
     }
 
     let zIndex = parentZIndex.value ?? 0
@@ -81,22 +81,27 @@ export function useZIndex(
     else {
       zIndex += consumerBaseZIndexOffset[componentType]
     }
-    return [parentZIndex.value === undefined ? customZIndex?.value : zIndex, zIndex]
+    return zIndex
   })
-  const result: ReturnResult = [computed(() => resIndex.value[0]), computed(() => resIndex.value[1])]
+
+  const zIndex = computed<number | undefined>(() => {
+    if (customZIndex?.value !== undefined) {
+      return customZIndex.value
+    }
+    return parentZIndex.value === undefined ? undefined : contextZIndex.value
+  })
 
   if (isDev) {
     const warning = devUseWarning(componentType)
 
     const maxZIndex = token.value.zIndexPopupBase + CONTAINER_MAX_OFFSET_WITH_CHILDREN
-    const currentZIndex = computed(() => result[0]?.value ?? 0)
 
     warning(
-      customZIndex?.value !== undefined || currentZIndex!.value! <= maxZIndex,
+      customZIndex?.value !== undefined || (zIndex.value ?? 0) <= maxZIndex,
       'usage',
       '`zIndex` is over design token `zIndexPopupBase` too much. It may cause unexpected override.',
     )
   }
 
-  return result
+  return [zIndex, contextZIndex]
 }
