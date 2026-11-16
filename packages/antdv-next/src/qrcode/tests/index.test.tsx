@@ -2,6 +2,7 @@ import type { QRCodeProps } from '..'
 import { describe, expect, it, vi } from 'vitest'
 import { defineComponent, h, nextTick, ref } from 'vue'
 import QRCode from '..'
+import ConfigProvider from '../../config-provider'
 import { mountTest, rtlTest } from '/@tests/shared'
 import { mount } from '/@tests/utils'
 
@@ -17,6 +18,24 @@ describe('qrcode test', () => {
     })
     expect(wrapper.find('.ant-qrcode canvas').exists()).toBeTruthy()
     expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  it('should apply ConfigProvider qrcode class and style to the root', async () => {
+    const wrapper = mount(
+      () => (
+        <ConfigProvider qrcode={{ class: 'custom-config-qrcode', style: { color: 'red' } }}>
+          <QRCode value="test" class="custom-qrcode" />
+        </ConfigProvider>
+      ),
+    )
+    await nextTick()
+
+    const qrCode = wrapper.find('.custom-qrcode')
+    expect(qrCode.exists()).toBeTruthy()
+    expect(qrCode.classes()).toContain('custom-config-qrcode')
+    expect((qrCode.element as HTMLElement).style.color).toBe('red')
+
+    wrapper.unmount()
   })
 
   it('support custom icon', () => {
