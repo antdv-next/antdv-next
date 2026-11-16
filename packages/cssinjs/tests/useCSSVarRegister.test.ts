@@ -19,6 +19,52 @@ describe('useCSSVarRegister', () => {
     vi.useRealTimers()
   })
 
+  it('keeps origin value for keys in preserve', async () => {
+    let cacheRef: any
+
+    const TestComponent = defineComponent({
+      setup() {
+        const config = ref({
+          path: ['PreserveBox'],
+          key: 'preserve',
+          prefix: 'rc-preserve',
+          token: { _tokenKey: 'token-key' },
+          // Keys in `preserve` keep the origin value instead of `var(--xxx)`
+          preserve: {
+            smallScreen: true,
+            boxWidth: true,
+          },
+        })
+
+        cacheRef = useCSSVarRegister(config, () => ({
+          boxColor: '#5c21ff',
+          boxWidth: 8,
+          smallScreen: 800,
+        }))
+
+        return () => h('div')
+      },
+    })
+
+    const wrapper = mountWithStyleProvider(TestComponent)
+    await nextTick()
+
+    const [mergedToken, , styleId] = cacheRef.value
+    expect(mergedToken).toMatchObject({
+      boxColor: 'var(--rc-preserve-box-color)',
+      boxWidth: 8,
+      smallScreen: 800,
+    })
+
+    const style = document.querySelector(`style[${ATTR_MARK}="${styleId}"]`)
+    expect(style?.innerHTML).toContain('--rc-preserve-box-color:#5c21ff;')
+    // Preserved keys should not generate CSS variables
+    expect(style?.innerHTML).not.toContain('--rc-preserve-box-width')
+    expect(style?.innerHTML).not.toContain('--rc-preserve-small-screen')
+
+    wrapper.unmount()
+  })
+
   it('registers css vars and cleans up on unmount', async () => {
     let cacheRef: any
 

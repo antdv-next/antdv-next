@@ -27,6 +27,7 @@ export interface CSSVarRegisterConfig {
   prefix?: string
   unitless?: Record<string, boolean>
   ignore?: Record<string, boolean>
+  preserve?: Record<string, boolean>
   scope?: string | string[]
   token: any
   hashId?: string
@@ -96,12 +97,13 @@ export default function useCSSVarRegister<V, T extends Record<string, V>>(
     stylePath,
     () => {
       const originToken = fn()
-      const { key, prefix, unitless, ignore, hashId, scope } = config.value
+      const { key, prefix, unitless, ignore, preserve, hashId, scope } = config.value
       const hashPriority = styleContext.value.hashPriority!
       const [mergedToken, cssVarsStr] = transformToken<V, T>(originToken, key, {
         prefix,
         unitless,
         ignore,
+        preserve,
         scope,
         hashPriority,
         hashCls: hashId,
