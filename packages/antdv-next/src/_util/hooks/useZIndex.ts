@@ -63,42 +63,45 @@ export function useZIndex(
   const [, token] = useToken()
   const parentZIndex = useZIndexContext()
   const isContainer = isContainerType(componentType)
-  let result: ReturnResult
 
-  if (customZIndex?.value !== undefined) {
-    result = [customZIndex, customZIndex as any]
-  }
-  else {
-    const resIndex = computed(() => {
-      let zIndex = parentZIndex.value ?? 0
+  const contextZIndex = computed<number>(() => {
+    if (customZIndex?.value !== undefined) {
+      return customZIndex.value
+    }
 
-      if (isContainer) {
-        zIndex
-        // Use preset token zIndex by default but not stack when has parent container
-          += (parentZIndex.value ? 0 : token.value.zIndexPopupBase)
-          // Container offset
-            + containerBaseZIndexOffset[componentType]
-      }
-      else {
-        zIndex += consumerBaseZIndexOffset[componentType]
-      }
-      return [parentZIndex.value === undefined ? customZIndex?.value : zIndex, zIndex]
-    })
-    result = [computed(() => resIndex.value[0]), computed(() => resIndex.value[1]) as any]
-  }
+    let zIndex = parentZIndex.value ?? 0
+
+    if (isContainer) {
+      zIndex
+      // Use preset token zIndex by default but not stack when has parent container
+        += (parentZIndex.value ? 0 : token.value.zIndexPopupBase)
+        // Container offset
+          + containerBaseZIndexOffset[componentType]
+    }
+    else {
+      zIndex += consumerBaseZIndexOffset[componentType]
+    }
+    return zIndex
+  })
+
+  const zIndex = computed<number | undefined>(() => {
+    if (customZIndex?.value !== undefined) {
+      return customZIndex.value
+    }
+    return parentZIndex.value === undefined ? undefined : contextZIndex.value
+  })
 
   if (isDev) {
     const warning = devUseWarning(componentType)
 
     const maxZIndex = token.value.zIndexPopupBase + CONTAINER_MAX_OFFSET_WITH_CHILDREN
-    const currentZIndex = computed(() => result[0]?.value ?? 0)
 
     warning(
-      customZIndex?.value !== undefined || currentZIndex!.value! <= maxZIndex,
+      customZIndex?.value !== undefined || (zIndex.value ?? 0) <= maxZIndex,
       'usage',
       '`zIndex` is over design token `zIndexPopupBase` too much. It may cause unexpected override.',
     )
   }
 
-  return result
+  return [zIndex, contextZIndex]
 }
