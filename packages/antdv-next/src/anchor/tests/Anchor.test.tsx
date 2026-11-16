@@ -208,6 +208,34 @@ describe('anchor Render', () => {
     root.remove()
   })
 
+  it.each([true, false])(
+    'respects reduced motion preference (%s) when scrolling to a link',
+    async (reducedMotion) => {
+      const hash = getHashUrl()
+      const root = createDiv()
+      root.scrollTop = 1000
+      root.innerHTML = `<h1 id="${hash}">Section</h1>`
+      const wrapper = mount(Anchor, {
+        props: {
+          affix: false,
+          getContainer: () => root,
+          targetOffset: 100,
+          items: [{ key: hash, href: `#${hash}`, title: hash }],
+        },
+      })
+      const matchMediaSpy = vi.spyOn(window, 'matchMedia').mockReturnValue({ matches: reducedMotion } as MediaQueryList)
+
+      await wrapper.find(`a[href="#${hash}"]`).trigger('click')
+      expect(root.scrollTop).toBe(reducedMotion ? 900 : 1000)
+      await waitFakeTimer()
+      expect(root.scrollTop).toBe(900)
+
+      matchMediaSpy.mockRestore()
+      wrapper.unmount()
+      root.remove()
+    },
+  )
+
   it('handleScroll should not be triggered when scrolling caused by clicking a link', async () => {
     const hash1 = getHashUrl()
     const hash2 = getHashUrl()
