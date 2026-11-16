@@ -4,7 +4,9 @@ exports[`affix Render > rtl render > component should be rendered correctly in R
 <div
   data-v-app=""
 >
-  <div>
+  <div
+    class=""
+  >
     <!---->
     <div
       class=""

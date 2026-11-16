@@ -120,6 +120,7 @@ const { componentDisabled, componentSize } = config.value
 
 The following config keys set common props for corresponding components or global effects. See the related APIs for details:
 
+- `affix`: [Affix](/components/affix#api)
 - `alert`: [Alert](/components/alert#api)
 - `anchor`: [Anchor](/components/anchor#api)
 - `app`: [App](/components/app#api)

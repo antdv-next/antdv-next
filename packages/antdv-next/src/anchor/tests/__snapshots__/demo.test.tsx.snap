@@ -642,7 +642,9 @@ exports[`anchor demo > renders basic correctly 1`] = `
   <div
     class="ant-col ant-col-8 css-var-root"
   >
-    <div>
+    <div
+      class=""
+    >
       <!---->
       <div
         class=""
@@ -784,7 +786,9 @@ exports[`anchor demo > renders horizontal correctly 1`] = `
   <div
     style="padding: 20px;"
   >
-    <div>
+    <div
+      class=""
+    >
       <!---->
       <div
         class=""
@@ -1036,7 +1040,9 @@ exports[`anchor demo > renders replace correctly 1`] = `
   <div
     class="ant-col ant-col-8 css-var-root"
   >
-    <div>
+    <div
+      class=""
+    >
       <!---->
       <div
         class=""
@@ -1196,7 +1202,9 @@ exports[`anchor demo > renders style-class correctly 1`] = `
   <div
     class="ant-col ant-col-8 css-var-root"
   >
-    <div>
+    <div
+      class=""
+    >
       <!---->
       <div
         class=""
@@ -1285,7 +1293,9 @@ exports[`anchor demo > renders targetOffset correctly 1`] = `
     <div
       class="ant-col ant-col-6 css-var-root"
     >
-      <div>
+      <div
+        class=""
+      >
         <!---->
         <div
           class=""
