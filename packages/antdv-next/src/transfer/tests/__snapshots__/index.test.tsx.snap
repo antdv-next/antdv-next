@@ -65,7 +65,7 @@ exports[`transfer > rtl render > component should be rendered correctly in RTL d
           class="ant-transfer-list-body-not-found"
         >
           <div
-            class="css-var-root ant-empty ant-empty-normal ant-empty-rtl ant-empty-small ant-empty-small"
+            class="css-var-root ant-empty ant-empty-normal ant-empty-rtl ant-empty-small"
           >
             <div
               class="ant-empty-image"
@@ -241,7 +241,7 @@ exports[`transfer > rtl render > component should be rendered correctly in RTL d
           class="ant-transfer-list-body-not-found"
         >
           <div
-            class="css-var-root ant-empty ant-empty-normal ant-empty-rtl ant-empty-small ant-empty-small"
+            class="css-var-root ant-empty ant-empty-normal ant-empty-rtl ant-empty-small"
           >
             <div
               class="ant-empty-image"
@@ -1040,7 +1040,7 @@ exports[`transfer > should support render value and label in item 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="css-var-root ant-empty ant-empty-normal ant-empty-small ant-empty-small"
+          class="css-var-root ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -1307,7 +1307,7 @@ exports[`transfer immutable data > dataSource is frozen 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="css-var-root ant-empty ant-empty-normal ant-empty-small ant-empty-small"
+          class="css-var-root ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
