@@ -21,6 +21,7 @@ group:
 <demo-group>
   <demo src="./demo/basic.vue">Basic</demo>
   <demo src="./demo/style.vue">More types</demo>
+  <demo src="./demo/filled.vue">Filled</demo>
   <demo src="./demo/closable.vue">Closable</demo>
   <demo src="./demo/description.vue">Description</demo>
   <demo src="./demo/icon.vue">Icon</demo>
@@ -42,6 +43,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | type | Type of Alert styles, options: `success`, `info`, `warning`, `error` | 'success' \| 'info' \| 'warning' \| 'error' | `info`, in `banner` mode default is `warning` | - | × |
+| variant | Variant of Alert style | `outlined` \| `filled` | `outlined` | 1.3.0 | ✓ |
 | closable | The config of closable | ClosableType | `false` | - | ✓ |
 | title | Content of Alert | VueNode | - | - | × |
 | message | Content of Alert, please use `title` instead | VueNode | - | - | × |
