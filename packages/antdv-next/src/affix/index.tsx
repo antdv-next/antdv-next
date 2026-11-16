@@ -94,6 +94,7 @@ export const Affix = defineComponent<
     const timer = shallowRef<ReturnType<typeof setTimeout> | null>(null)
 
     const targetFunc = computed(() => props.target ?? configContext.value.getTargetContainer ?? getDefaultTarget)
+    const resolvedTarget = computed(() => targetFunc.value())
 
     const internalOffsetTop = computed(() => {
       const { offsetTop, offsetBottom } = props
@@ -191,14 +192,23 @@ export const Affix = defineComponent<
 
     const addListeners = () => {
       const listenerTarget = targetFunc.value()
+
+      // Detach first so a target that becomes unavailable does not leave stale listeners.
+      const previousTarget = prevTarget
+      const previousListener = prevListener
+      if (previousListener) {
+        TRIGGER_EVENTS.forEach((eventName) => {
+          previousTarget?.removeEventListener(eventName, previousListener)
+        })
+        prevTarget = null
+        prevListener = null
+      }
+
       if (!listenerTarget) {
         return
       }
       TRIGGER_EVENTS.forEach((eventName) => {
-        if (prevListener) {
-          prevTarget?.removeEventListener(eventName, prevListener)
-        }
-        listenerTarget?.addEventListener(eventName, lazyUpdatePosition)
+        listenerTarget.addEventListener(eventName, lazyUpdatePosition)
       })
       prevTarget = listenerTarget
       prevListener = lazyUpdatePosition
@@ -236,6 +246,7 @@ export const Affix = defineComponent<
 
     watch([
       () => props.target,
+      resolvedTarget,
       affixStyle,
       lastAffix,
       () => props.offsetTop,
@@ -253,7 +264,7 @@ export const Affix = defineComponent<
       onCleanup(() => removeListeners(target))
     })
 
-    watch([() => props.target, () => props.offsetTop, () => props.offsetBottom], async () => {
+    watch([() => props.target, resolvedTarget, () => props.offsetTop, () => props.offsetBottom], async () => {
       await nextTick()
       updatePosition()
     })
