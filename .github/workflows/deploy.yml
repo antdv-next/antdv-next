@@ -5,17 +5,24 @@ on:
     workflows: [Test]
     types: [completed]
 
+# Only runs that will actually deploy (Test triggered by a push to main) share
+# the `deploy-site-main` group. Every other Test completion (tags, PRs, other
+# branches) starts a run that is skipped below; giving those their own group
+# keeps them from cancelling a deployment in progress. A release pushes main
+# and a tag together, and the tag's Test run used to cancel the main deploy.
 concurrency:
-  group: deploy-site-main
+  group: ${{ (github.event.workflow_run.event == 'push' && github.event.workflow_run.head_branch == 'main') && 'deploy-site-main' || format('deploy-site-skip-{0}', github.run_id) }}
   cancel-in-progress: true
 
 jobs:
   build:
-    # Test 绿 + main 分支才部署
+    # Test 绿 + push 到 main 分支才部署
+    # （限定 push 事件：来自 fork 的 PR，其 head_branch 也可能叫 main）
     if: >
       ${{
         github.repository == 'antdv-next/antdv-next' &&
         github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.event == 'push' &&
         github.event.workflow_run.head_branch == 'main'
       }}
 
