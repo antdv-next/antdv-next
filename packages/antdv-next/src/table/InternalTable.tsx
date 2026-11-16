@@ -467,8 +467,10 @@ const InternalTable = defineComponent<
         && mergedScroll.value.scrollToFirstRowOnChange !== false
         && internalRefs.body?.value
       ) {
+        const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')
         scrollTo(0, {
           getContainer: () => internalRefs.body.value!,
+          duration: prefersReducedMotion?.matches ? 0 : undefined,
         })
       }
       emit('change', changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, {

@@ -164,6 +164,31 @@ describe('table pagination', () => {
     wrapper.unmount()
   })
 
+  it.each([true, false])(
+    'respects reduced motion preference (%s) when scrolling to the first row',
+    async (reducedMotion) => {
+      vi.mocked(scrollTo).mockClear()
+      const matchMediaSpy = vi.spyOn(window, 'matchMedia').mockReturnValue({ matches: reducedMotion } as MediaQueryList)
+
+      const wrapper = mount(() => (
+        <Table
+          columns={columns}
+          dataSource={generateData(20)}
+          pagination={{ pageSize: 2 }}
+          scroll={{ y: 20 }}
+        />
+      ), { attachTo: document.body })
+
+      await wrapper.find('.ant-pagination-next button').trigger('click')
+
+      expect(scrollTo).toHaveBeenCalledTimes(1)
+      expect(vi.mocked(scrollTo).mock.calls[0]![1]!.duration).toBe(reducedMotion ? 0 : undefined)
+
+      matchMediaSpy.mockRestore()
+      wrapper.unmount()
+    },
+  )
+
   it('should respect scrollToFirstRowOnChange from ConfigProvider', async () => {
     vi.mocked(scrollTo).mockClear()
 
