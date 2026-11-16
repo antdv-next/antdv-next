@@ -174,7 +174,7 @@ const genCardGridStyle: GenerateStyle<CardToken, CSSObject> = (token) => {
 // ============================== Actions ==============================
 const genCardActionsStyle: GenerateStyle<CardToken, CSSObject> = (token) => {
   const {
-    componentCls,
+    antCls,
     iconCls,
     actionsLiMargin,
     cardActionsIconSize,
@@ -209,7 +209,7 @@ const genCardActionsStyle: GenerateStyle<CardToken, CSSObject> = (token) => {
           transition: `color ${token.motionDurationMid}`,
         },
 
-        [`a:not(${componentCls}-btn), > ${iconCls}`]: {
+        [`a:not(${antCls}-btn), > ${iconCls}`]: {
           display: 'inline-block',
           width: '100%',
           color: token.colorIcon,
