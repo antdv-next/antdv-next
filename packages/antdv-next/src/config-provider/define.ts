@@ -45,6 +45,7 @@ import type {
   PopoverConfig,
   PopupOverflow,
   ProgressConfig,
+  QRcodeConfig,
   RadioConfig,
   RangePickerConfig,
   ResultConfig,
@@ -127,6 +128,7 @@ export interface ConfigProviderProps {
   alert?: AlertConfig
   affix?: ComponentStyleConfig
   app?: ComponentStyleConfig
+  borderBeam?: ComponentStyleConfig
   anchor?: AnchorStyleConfig
   button?: ButtonConfig
   calendar?: CalendarConfig
@@ -158,6 +160,7 @@ export interface ConfigProviderProps {
   descriptions?: DescriptionsConfig
   empty?: EmptyConfig
   badge?: BadgeConfig
+  qrcode?: QRcodeConfig
   radio?: RadioConfig
   rate?: ComponentStyleConfig
   ribbon?: RibbonConfig

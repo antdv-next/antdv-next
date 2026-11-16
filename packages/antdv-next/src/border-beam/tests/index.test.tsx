@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { defineComponent, h, nextTick } from 'vue'
 import { resetWarned } from '../../_util/warning'
+import ConfigProvider from '../../config-provider'
 import BorderBeam from '../index'
 import { getBorderBeamGradient, MAX_BEAM_COLOR_STOP_PERCENT } from '../util'
 import mountTest from '/@tests/shared/mountTest'
@@ -37,6 +38,28 @@ describe('borderBeam', () => {
     const beam = host.querySelector('.ant-border-beam') as HTMLElement
     expect(beam).toBeTruthy()
     expect(beam.getAttribute('aria-hidden')).toBe('true')
+
+    wrapper.unmount()
+  })
+
+  it('should apply ConfigProvider borderBeam class and style to the beam', async () => {
+    const wrapper = mount(
+      () => (
+        <ConfigProvider borderBeam={{ class: 'custom-config-beam', style: { opacity: 0.5 } }}>
+          <BorderBeam>
+            <div class="host" style="border: 2px solid red; border-radius: 12px;">child</div>
+          </BorderBeam>
+        </ConfigProvider>
+      ),
+      { attachTo: document.body },
+    )
+    await nextTick()
+    await nextTick()
+
+    const beam = document.querySelector('.ant-border-beam') as HTMLElement
+    expect(beam).toBeTruthy()
+    expect(beam.classList.contains('custom-config-beam')).toBe(true)
+    expect(beam.style.opacity).toBe('0.5')
 
     wrapper.unmount()
   })
