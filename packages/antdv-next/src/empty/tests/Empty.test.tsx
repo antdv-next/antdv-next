@@ -226,6 +226,14 @@ describe('empty', () => {
     expect(wrapper.find('[data-testid="my-empty"]').exists()).toBe(true)
   })
 
+  it('should not duplicate class passed via attrs', () => {
+    const wrapper = mount(() => (
+      <Empty class="my-empty" />
+    ))
+    const className = wrapper.find('.ant-empty').attributes('class') ?? ''
+    expect(className.split(/\s+/).filter(cls => cls === 'my-empty')).toHaveLength(1)
+  })
+
   describe('rTL direction', () => {
     it('should apply rtl class with ConfigProvider', () => {
       const wrapper = mount(() => (
