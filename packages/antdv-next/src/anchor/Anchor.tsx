@@ -293,9 +293,11 @@ const Anchor = defineComponent<
         ?? (targetOffset !== undefined ? targetOffset : offsetTop || 0)
       y -= resolvedOffset
 
+      const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')
       animatingRef.value = true
       scrollRequestIdRef.value = scrollTo(y, {
         getContainer: getCurrentContainer,
+        duration: prefersReducedMotion?.matches ? 0 : undefined,
         callback() {
           animatingRef.value = false
           scrollRequestIdRef.value = null
