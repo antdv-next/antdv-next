@@ -34,6 +34,19 @@ const btnCls = {
         Button in Card extra should be vertically centered with the title.
       </a-card>
 
+      <a-card title="#59725 Card actions">
+        <template #actions>
+          <a-button key="button" :icon="() => h(SmileOutlined)">
+            Edit
+          </a-button>
+          <a-button key="link-button" href="#edit" :icon="() => h(SmileOutlined)">
+            Edit
+          </a-button>
+          <a key="link" href="#details">Details</a>
+        </template>
+        Buttons with and without href should have the same icon spacing.
+      </a-card>
+
       <a-card title="#57896 regression minimum case">
         <div class="simulate-57896">
           <div class="inline-buttons">
