@@ -2406,7 +2406,7 @@ exports[`cascader demo > renders panel correctly 1`] = `
     class="ant-cascader-panel ant-cascader-panel-empty css-var-root ant-cascader-css-var"
   >
     <div
-      class="css-var-root ant-empty ant-empty-normal ant-empty-small ant-empty-small"
+      class="css-var-root ant-empty ant-empty-normal ant-empty-small"
     >
       <div
         class="ant-empty-image"

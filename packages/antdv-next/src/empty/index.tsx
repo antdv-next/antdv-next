@@ -174,6 +174,7 @@ const Empty = defineComponent<
     }
   },
   {
+    inheritAttrs: false,
     name: 'AEmpty',
   },
 )

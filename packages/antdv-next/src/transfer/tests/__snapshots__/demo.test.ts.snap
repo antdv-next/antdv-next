@@ -3226,7 +3226,7 @@ exports[`transfer demo > renders advanced correctly 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="css-var-root ant-empty ant-empty-normal ant-empty-small ant-empty-small"
+          class="css-var-root ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -3500,7 +3500,7 @@ exports[`transfer demo > renders advanced correctly 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="css-var-root ant-empty ant-empty-normal ant-empty-small ant-empty-small"
+          class="css-var-root ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -4305,7 +4305,7 @@ exports[`transfer demo > renders custom-item correctly 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="css-var-root ant-empty ant-empty-normal ant-empty-small ant-empty-small"
+          class="css-var-root ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -4482,7 +4482,7 @@ exports[`transfer demo > renders custom-item correctly 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="css-var-root ant-empty ant-empty-normal ant-empty-small ant-empty-small"
+          class="css-var-root ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -5012,7 +5012,7 @@ exports[`transfer demo > renders large-data correctly 1`] = `
           class="ant-transfer-list-body-not-found"
         >
           <div
-            class="css-var-root ant-empty ant-empty-normal ant-empty-small ant-empty-small"
+            class="css-var-root ant-empty ant-empty-normal ant-empty-small"
           >
             <div
               class="ant-empty-image"
@@ -5175,7 +5175,7 @@ exports[`transfer demo > renders large-data correctly 1`] = `
           class="ant-transfer-list-body-not-found"
         >
           <div
-            class="css-var-root ant-empty ant-empty-normal ant-empty-small ant-empty-small"
+            class="css-var-root ant-empty ant-empty-normal ant-empty-small"
           >
             <div
               class="ant-empty-image"
@@ -6114,7 +6114,7 @@ exports[`transfer demo > renders search correctly 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="css-var-root ant-empty ant-empty-normal ant-empty-small ant-empty-small"
+          class="css-var-root ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -6357,7 +6357,7 @@ exports[`transfer demo > renders search correctly 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="css-var-root ant-empty ant-empty-normal ant-empty-small ant-empty-small"
+          class="css-var-root ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -6477,7 +6477,7 @@ exports[`transfer demo > renders status correctly 1`] = `
           class="ant-transfer-list-body-not-found"
         >
           <div
-            class="css-var-root ant-empty ant-empty-normal ant-empty-small ant-empty-small"
+            class="css-var-root ant-empty ant-empty-normal ant-empty-small"
           >
             <div
               class="ant-empty-image"
@@ -6653,7 +6653,7 @@ exports[`transfer demo > renders status correctly 1`] = `
           class="ant-transfer-list-body-not-found"
         >
           <div
-            class="css-var-root ant-empty ant-empty-normal ant-empty-small ant-empty-small"
+            class="css-var-root ant-empty ant-empty-normal ant-empty-small"
           >
             <div
               class="ant-empty-image"
@@ -6834,7 +6834,7 @@ exports[`transfer demo > renders status correctly 1`] = `
           class="ant-transfer-list-body-not-found"
         >
           <div
-            class="css-var-root ant-empty ant-empty-normal ant-empty-small ant-empty-small"
+            class="css-var-root ant-empty ant-empty-normal ant-empty-small"
           >
             <div
               class="ant-empty-image"
@@ -7077,7 +7077,7 @@ exports[`transfer demo > renders status correctly 1`] = `
           class="ant-transfer-list-body-not-found"
         >
           <div
-            class="css-var-root ant-empty ant-empty-normal ant-empty-small ant-empty-small"
+            class="css-var-root ant-empty ant-empty-normal ant-empty-small"
           >
             <div
               class="ant-empty-image"
@@ -10207,7 +10207,7 @@ exports[`transfer demo > renders tree-transfer correctly 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="css-var-root ant-empty ant-empty-normal ant-empty-small ant-empty-small"
+          class="css-var-root ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
