@@ -6,7 +6,6 @@ import { shallowRef } from 'vue'
 
 export default function useRafDebounce(callback: VoidFunction) {
   const executeRef = shallowRef(false)
-  const rafRef = shallowRef<number | null>(null)
 
   const wrapperCallback = callback
   return () => {
@@ -15,7 +14,7 @@ export default function useRafDebounce(callback: VoidFunction) {
     }
     executeRef.value = true
     wrapperCallback()
-    rafRef.value = raf(() => {
+    raf(() => {
       executeRef.value = false
     })
   }

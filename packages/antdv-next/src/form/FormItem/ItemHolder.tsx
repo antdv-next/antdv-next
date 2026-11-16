@@ -55,10 +55,8 @@ const ItemHolder = defineComponent<ItemHolderProps>(
     }
 
     // ======================== Status ========================
-    function getValidateState(isDebounce = false) {
-      const _errors = isDebounce ? props?.errors : props?.meta?.errors
-      const _warnings = isDebounce ? props?.warnings : props?.meta?.warnings
-      return getStatus(_errors, _warnings, props?.meta, '', !!props?.hasFeedback, props?.validateStatus)
+    function getValidateState() {
+      return getStatus(props?.meta?.errors, props?.meta?.warnings, props?.meta, '', !!props?.hasFeedback, props?.validateStatus)
     }
 
     return () => {
