@@ -2,6 +2,47 @@
 title: 组件更新日志
 ---
 
+## V1.8.2
+
+发布日期：2026-11-16
+
+本次是补丁版本，以问题修复为主。ConfigProvider 新增 `affix` 配置；此前已声明但没有生效的几项组件配置（`qrcode`、`borderBeam`、Watermark 的 `class` / `style`、Upload 的 `accept`）现在可以正常生效。Anchor 和 Table 在滚动时会遵循系统的“减少动态效果”偏好。同时包含一批从 Ant Design 同步的修复，以及 `@antdv-next/cssinjs` 1.2.0。
+
+**✨ 新功能 Features**
+
+* feat(config-provider)：新增 `affix` 配置，可为 Affix 统一设置 `class` 和 `style`（[#1098](https://github.com/antdv-next/antdv-next/pull/1098)）
+
+**🐞 问题修复 Fixes**
+
+* fix(config-provider)：`qrcode`、`borderBeam` 配置生效（[#1102](https://github.com/antdv-next/antdv-next/pull/1102)）
+* fix(watermark)：读取 ConfigProvider `watermark` 配置中的 `class` 和 `style`（[#1090](https://github.com/antdv-next/antdv-next/pull/1090)）；`remove` 改为通过 emit 声明，不再是 `onRemove` 属性，动态绑定的监听也会被调用（[#1092](https://github.com/antdv-next/antdv-next/pull/1092)）
+* fix(upload)：读取 ConfigProvider `upload` 配置中的 `accept`（[#1086](https://github.com/antdv-next/antdv-next/pull/1086)）；自定义操作图标的 `onClick` 不再触发两次（[#1089](https://github.com/antdv-next/antdv-next/pull/1089)）
+* fix(anchor)：用户开启“减少动态效果”时，跳转到目标位置不再播放滚动动画（[#1101](https://github.com/antdv-next/antdv-next/pull/1101)）
+* fix(table)：翻页、排序、筛选后滚回首行时，在用户开启“减少动态效果”的情况下不再播放动画（#59864）；`columns` 变化时刷新生效中的排序状态（#59763）
+* fix(card)：`actions` 中带 `href` 的 Button 保留图标间距和按钮外观，不再被当作普通链接处理（#59726）
+* fix(date-picker, time-picker)：时间面板的单元格居中显示，不再被滚动条裁剪（[#1087](https://github.com/antdv-next/antdv-next/pull/1087)）；可通过 `styles.popup.item` 覆盖其文字对齐方式（#59828）
+* fix(alert)：`closable` 为 `null` 时隐藏关闭按钮（[#1099](https://github.com/antdv-next/antdv-next/pull/1099)）；`filled` 变体不显示边框（[#1100](https://github.com/antdv-next/antdv-next/pull/1100)）
+* fix(affix)：解析出的 `target` 变化时重新绑定滚动监听（[#1097](https://github.com/antdv-next/antdv-next/pull/1097)）
+* fix(z-index)：移除自定义 `zIndex` 后重新计算层级（[#1096](https://github.com/antdv-next/antdv-next/pull/1096)）
+* fix(modal)：通过静态方法创建的 `Modal.confirm` 销毁时停止主题监听，主题变化时刷新已打开的 confirm（[#1093](https://github.com/antdv-next/antdv-next/pull/1093)）
+* fix(notification)：修改全局配置后，已挂载的 holder 会应用新配置（[#1095](https://github.com/antdv-next/antdv-next/pull/1095)）
+* fix(image)：合并预览插槽时不再修改计算属性中的配置（[#1091](https://github.com/antdv-next/antdv-next/pull/1091)）
+* fix(typography)：`id` 透传到根元素（[#1082](https://github.com/antdv-next/antdv-next/pull/1082)）；取消编辑后失焦不再保存内容
+* fix(empty)：根元素上不再重复出现用户传入的 `class`（[#1103](https://github.com/antdv-next/antdv-next/pull/1103)）
+* fix(tag)：`role` 属性透传到 CheckableTagGroup 根元素（[#1088](https://github.com/antdv-next/antdv-next/pull/1088)）
+* fix(breadcrumb)：修正 RTL 类名（[#1083](https://github.com/antdv-next/antdv-next/pull/1083)）
+* fix(locale)：补全并润色印尼语（id_ID）翻译（#59807）；修正乌兹别克语（uz_UZ）翻译（#59876）
+
+**📖 文档 Documentation**
+
+* docs(listy)：说明 `classes` 和 `styles` 支持传入函数（#59814）
+* docs(tag)：修正 `closeIcon` 插槽的说明（[#1088](https://github.com/antdv-next/antdv-next/pull/1088)）
+* docs(site)：页头和页脚新增移动端文档入口
+
+**🧰 基础设施与依赖 Infrastructure & Dependencies**
+
+* chore(deps)：升级 `@antdv-next/cssinjs` 1.2.0，`useCSSVarRegister` 支持 `preserve`，指定的 key 保留原始值、不转换为 CSS 变量；`@v-c/menu` 1.4.7，禁用子菜单的行为与 `@rc-component/menu` 1.6.2 对齐（#59826）；`@v-c/util` 1.4.1、`@v-c/color-picker` 1.0.9、`@v-c/checkbox` 1.0.3
+
 ## V1.8.1
 
 发布日期：2026-11-06

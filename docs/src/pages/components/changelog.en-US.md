@@ -2,6 +2,47 @@
 title: Component Changelog
 ---
 
+## V1.8.2
+
+Release Date: 2026-11-16
+
+This is a patch release that mostly fixes bugs. ConfigProvider gains an `affix` entry, and several component configs that were declared but never applied (`qrcode`, `borderBeam`, the Watermark `class` / `style`, the Upload `accept`) now take effect. Anchor and Table respect the system "reduce motion" preference when they scroll. It also includes a round of fixes synced from Ant Design, and `@antdv-next/cssinjs` 1.2.0.
+
+**✨ Features**
+
+* feat(config-provider): add the `affix` config for a global `class` and `style` on Affix ([#1098](https://github.com/antdv-next/antdv-next/pull/1098))
+
+**🐞 Fixes**
+
+* fix(config-provider): the `qrcode` and `borderBeam` configs are applied ([#1102](https://github.com/antdv-next/antdv-next/pull/1102))
+* fix(watermark): consume `class` and `style` from the ConfigProvider `watermark` config ([#1090](https://github.com/antdv-next/antdv-next/pull/1090)); `remove` is declared as an emit instead of an `onRemove` prop, and listeners bound dynamically are called too ([#1092](https://github.com/antdv-next/antdv-next/pull/1092))
+* fix(upload): consume `accept` from the ConfigProvider `upload` config ([#1086](https://github.com/antdv-next/antdv-next/pull/1086)); a custom action icon's `onClick` no longer fires twice ([#1089](https://github.com/antdv-next/antdv-next/pull/1089))
+* fix(anchor): jump to the target without the scroll animation when the user prefers reduced motion ([#1101](https://github.com/antdv-next/antdv-next/pull/1101))
+* fix(table): scrolling back to the first row after paging, sorting or filtering skips the animation when the user prefers reduced motion (#59864); active sorters are refreshed when `columns` change (#59763)
+* fix(card): a Button with `href` inside `actions` keeps its icon spacing and button look instead of being styled as a plain link (#59726)
+* fix(date-picker, time-picker): time panel cells are centered and no longer clipped beside the scrollbar ([#1087](https://github.com/antdv-next/antdv-next/pull/1087)); `styles.popup.item` can override their text alignment (#59828)
+* fix(alert): hide the close button when `closable` is `null` ([#1099](https://github.com/antdv-next/antdv-next/pull/1099)); the `filled` variant has no border ([#1100](https://github.com/antdv-next/antdv-next/pull/1100))
+* fix(affix): rebind the scroll listeners when the resolved `target` changes ([#1097](https://github.com/antdv-next/antdv-next/pull/1097))
+* fix(z-index): recalculate the z-index when a custom `zIndex` is removed ([#1096](https://github.com/antdv-next/antdv-next/pull/1096))
+* fix(modal): stop the theme watcher when a `Modal.confirm` created by the static method is destroyed, and refresh an open confirm when the theme changes ([#1093](https://github.com/antdv-next/antdv-next/pull/1093))
+* fix(notification): a changed global config is applied to the holder that is already mounted ([#1095](https://github.com/antdv-next/antdv-next/pull/1095))
+* fix(image): merge the preview slots without mutating the computed config ([#1091](https://github.com/antdv-next/antdv-next/pull/1091))
+* fix(typography): pass `id` through to the root element ([#1082](https://github.com/antdv-next/antdv-next/pull/1082)); a canceled edit is no longer saved on blur
+* fix(empty): the user `class` is no longer duplicated on the root element ([#1103](https://github.com/antdv-next/antdv-next/pull/1103))
+* fix(tag): forward the `role` attribute to the CheckableTagGroup root ([#1088](https://github.com/antdv-next/antdv-next/pull/1088))
+* fix(breadcrumb): correct the RTL class name ([#1083](https://github.com/antdv-next/antdv-next/pull/1083))
+* fix(locale): complete and polish the Indonesian (id_ID) translations (#59807); correct the Uzbek (uz_UZ) translations (#59876)
+
+**📖 Documentation**
+
+* docs(listy): clarify that `classes` and `styles` accept callbacks (#59814)
+* docs(tag): correct the `closeIcon` slot description ([#1088](https://github.com/antdv-next/antdv-next/pull/1088))
+* docs(site): add the mobile docs entry to the header and footer
+
+**🧰 Infrastructure & Dependencies**
+
+* chore(deps): upgrade `@antdv-next/cssinjs` 1.2.0, where `useCSSVarRegister` accepts `preserve` to keep the original value of selected keys instead of turning them into CSS variables; `@v-c/menu` 1.4.7, which aligns the disabled submenu behavior with `@rc-component/menu` 1.6.2 (#59826); `@v-c/util` 1.4.1, `@v-c/color-picker` 1.0.9 and `@v-c/checkbox` 1.0.3
+
 ## V1.8.1
 
 Release Date: 2026-11-06
