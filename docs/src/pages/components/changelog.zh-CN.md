@@ -38,10 +38,20 @@ title: 组件更新日志
 * docs(listy)：说明 `classes` 和 `styles` 支持传入函数（#59814）
 * docs(tag)：修正 `closeIcon` 插槽的说明（[#1088](https://github.com/antdv-next/antdv-next/pull/1088)）
 * docs(site)：页头和页脚新增移动端文档入口
+* docs(card)：按钮对齐调试示例新增 `actions` 中带 `href` 的 Button 用例（#59726）
+
+**🛠 重构与维护 Refactor & Maintenance**
+
+* refactor(form)：移除表单项校验状态计算中不会执行到的防抖分支（#59832）
+* refactor(watermark)：移除未使用的动画帧引用（#59797）
+* test(input)：补充 Input.OTP 在输入法组合输入（IME）下的测试用例（#58762）
+* chore(sync)：ant-design 上游跟踪推进到 `608df2cf27`，cssinjs 上游跟踪推进到 `2f3ff72`
 
 **🧰 基础设施与依赖 Infrastructure & Dependencies**
 
 * chore(deps)：升级 `@antdv-next/cssinjs` 1.2.0，`useCSSVarRegister` 支持 `preserve`，指定的 key 保留原始值、不转换为 CSS 变量；`@v-c/menu` 1.4.7，禁用子菜单的行为与 `@rc-component/menu` 1.6.2 对齐（#59826）；`@v-c/util` 1.4.1、`@v-c/color-picker` 1.0.9、`@v-c/checkbox` 1.0.3
+* ci：`@antdv-next/cssinjs` 配置了 npm trusted publishing，1.2.0 是首个由 Release 工作流自动发布的版本，发布的包带有 provenance 签名
+* ci(deploy)：修复发版时文档站部署被取消的问题。推送版本 tag 触发的测试完成后，不再取消 main 分支正在进行的部署；同时只有推送到 main 才会触发部署
 
 ## V1.8.1
 

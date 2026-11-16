@@ -38,10 +38,20 @@ This is a patch release that mostly fixes bugs. ConfigProvider gains an `affix` 
 * docs(listy): clarify that `classes` and `styles` accept callbacks (#59814)
 * docs(tag): correct the `closeIcon` slot description ([#1088](https://github.com/antdv-next/antdv-next/pull/1088))
 * docs(site): add the mobile docs entry to the header and footer
+* docs(card): the button alignment debug demo covers a Button with `href` inside `actions` (#59726)
+
+**🛠 Refactor & Maintenance**
+
+* refactor(form): remove the unreachable debounce branch from the form item validation status (#59832)
+* refactor(watermark): remove the unused animation frame ref (#59797)
+* test(input): cover Input.OTP during IME composition (#58762)
+* chore(sync): advance ant-design upstream tracking to `608df2cf27` and cssinjs upstream tracking to `2f3ff72`
 
 **🧰 Infrastructure & Dependencies**
 
 * chore(deps): upgrade `@antdv-next/cssinjs` 1.2.0, where `useCSSVarRegister` accepts `preserve` to keep the original value of selected keys instead of turning them into CSS variables; `@v-c/menu` 1.4.7, which aligns the disabled submenu behavior with `@rc-component/menu` 1.6.2 (#59826); `@v-c/util` 1.4.1, `@v-c/color-picker` 1.0.9 and `@v-c/checkbox` 1.0.3
+* ci: `@antdv-next/cssinjs` is set up for npm trusted publishing; 1.2.0 is its first version published automatically by the Release workflow, with provenance
+* ci(deploy): fix the docs site deployment being cancelled during a release. The test run started by a version tag no longer cancels the deployment in progress for `main`, and only a push to `main` triggers a deployment
 
 ## V1.8.1
 
