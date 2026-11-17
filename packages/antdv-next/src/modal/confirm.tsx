@@ -74,7 +74,7 @@ export default function confirm(config: ModalFuncProps) {
       iconPrefixCls,
       theme,
     })
-    const configHolderNode = createVNode(
+    const nextVnode = createVNode(
       ConfigProvider,
       {
         prefixCls: rootPrefixCls,
@@ -83,10 +83,9 @@ export default function confirm(config: ModalFuncProps) {
         locale: global.locale,
       },
       {
-        default: () => holderNode,
+        default: () => (global.holderRender ? global.holderRender(holderNode) : holderNode),
       },
-    )
-    const nextVnode = (global.holderRender ? global.holderRender(configHolderNode) : configHolderNode) as VNode
+    ) as VNode
     nextVnode.appContext = appContext
     render(nextVnode, container)
   }

@@ -136,17 +136,16 @@ const GlobalHolderWrapper = defineComponent<{ onReady?: (holder: GlobalHolderRef
           notificationConfig={notificationConfig.value}
         />
       )
-      const configHolderNode = (
+      return (
         <ConfigProvider
           prefixCls={global.getRootPrefixCls()}
           iconPrefixCls={global.getIconPrefixCls()}
           theme={global.theme.value as any}
           locale={globalConfig().locale}
         >
-          {holderNode}
+          {global.holderRender ? global.holderRender(holderNode) : holderNode}
         </ConfigProvider>
       )
-      return global.holderRender ? global.holderRender(configHolderNode) : configHolderNode
     }
   },
 )
