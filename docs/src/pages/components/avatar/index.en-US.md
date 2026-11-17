@@ -56,6 +56,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
+| default | Content of the avatar | () =&gt; any | - |
 | icon | Custom icon type for an icon avatar | () =&gt; any | - |
 | src | The address of the image for an image avatar or image element | () =&gt; any | - |
 
@@ -65,10 +66,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| prefixCls | - | string | - | - |
-| max | - | &#123;     count?: number     style?: CSSProperties     popover?: PopoverProps   &#125; | - | - |
-| size | The size of the avatar | AvatarSize | `medium` | - |
-| shape | The shape of avatar | 'circle' \| 'square' | `circle` | - |
+| max | Set maximum display related configurations | `{ count?: number; style?: CSSProperties; popover?: PopoverProps }` | - | - |
+| size | The size of the avatar | number \| `large` \| `medium` \| `small` \| `{ xs: number, sm: number, ... }` | `medium` | - |
+| shape | The shape of the avatar | `circle` \| `square` | `circle` | - |
 
 ## Design Token
 
