@@ -34,6 +34,7 @@ function flattenDocsLocales(nestedLocales: Menu) {
     '/docs/vue/awesome': vue.awesome,
     '/docs/vue/contributing': vue.contributing,
     '/docs/vue/faq': vue.faq,
+    '/blog/antdv-next-mobile': blog.antdvNextMobile,
     '/blog/antdv-next-release': blog.antdvNextRelease,
   }
 }
@@ -179,6 +180,10 @@ export const docsMenus: Record<string, AntdvMenuItem[]> = {
   ],
   '/components': components,
   '/blog': [
+    {
+      key: '/blog/antdv-next-mobile',
+      label: '/blog/antdv-next-mobile',
+    },
     {
       key: '/blog/antdv-next-release',
       label: '/blog/antdv-next-release',
