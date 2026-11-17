@@ -268,6 +268,58 @@ describe('autoComplete', () => {
     expect(wrapper.find('.ant-select-auto-complete').exists()).toBe(true)
   })
 
+  it('should render Option children as options', async () => {
+    const { Option } = AutoComplete
+    const dropdownCountBefore = document.querySelectorAll('.ant-select-dropdown').length
+    const wrapper = mount(AutoComplete, {
+      props: {
+        open: true,
+      },
+      slots: {
+        default: () => [
+          h(Option, { value: 'test1' }, () => 'Test 1'),
+          h(Option, { value: 'test2' }, () => 'Test 2'),
+        ],
+      },
+      attachTo: document.body,
+    })
+
+    await nextTick()
+    const options = Array
+      .from(document.querySelectorAll('.ant-select-dropdown'))
+      .slice(dropdownCountBefore)
+      .flatMap(dropdown => Array.from(dropdown.querySelectorAll('.ant-select-item-option')))
+    expect(options.length).toBe(2)
+    expect((options[0] as HTMLElement).textContent).toBe('Test 1')
+
+    await wrapper.setProps({ open: false })
+    await nextTick()
+    wrapper.unmount()
+  })
+
+  it('should render dataSource items as options', async () => {
+    const dropdownCountBefore = document.querySelectorAll('.ant-select-dropdown').length
+    const wrapper = mount(AutoComplete, {
+      props: {
+        dataSource: ['Burns Bay Road', 'Downing Street', 'Wall Street'],
+        open: true,
+      },
+      attachTo: document.body,
+    })
+
+    await nextTick()
+    const options = Array
+      .from(document.querySelectorAll('.ant-select-dropdown'))
+      .slice(dropdownCountBefore)
+      .flatMap(dropdown => Array.from(dropdown.querySelectorAll('.ant-select-item-option')))
+    expect(options.length).toBe(3)
+    expect((options[0] as HTMLElement).textContent).toBe('Burns Bay Road')
+
+    await wrapper.setProps({ open: false })
+    await nextTick()
+    wrapper.unmount()
+  })
+
   it('should forward labelRender slot to Select', () => {
     const wrapper = mount(AutoComplete, {
       props: {

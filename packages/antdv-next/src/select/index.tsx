@@ -254,6 +254,7 @@ export interface SelectEmitsProps {
 type OptionParams = Parameters<NonNullable<VcSelectProps['optionRender']>>
 
 export interface SelectSlots {
+  default?: () => any
   suffix?: (info: SelectSuffixRenderInfo) => any
   /** @deprecated Please use `suffix` slot instead. */
   suffixIcon?: () => any
@@ -665,6 +666,9 @@ const Select = defineComponent<
           tagRender={isMultiple.value ? tagRender : undefined}
           popupRender={mergedPopupRender}
           onPopupVisibleChange={mergedOnOpenChange}
+          v-slots={{
+            default: slots?.default,
+          }}
         />
       )
     }

@@ -283,6 +283,34 @@ describe('select', () => {
     expect(wrapper.find('.ant-select').exists()).toBe(true)
   })
 
+  it('should render Option children as options', async () => {
+    const dropdownCountBefore = document.querySelectorAll('.ant-select-dropdown').length
+    const wrapper = mount(Select, {
+      props: {
+        open: true,
+      },
+      slots: {
+        default: () => [
+          h(SelectOption, { value: 'test1' }, () => 'Test 1'),
+          h(SelectOption, { value: 'test2' }, () => 'Test 2'),
+        ],
+      },
+      attachTo: document.body,
+    })
+
+    await nextTick()
+    const options = Array
+      .from(document.querySelectorAll('.ant-select-dropdown'))
+      .slice(dropdownCountBefore)
+      .flatMap(dropdown => Array.from(dropdown.querySelectorAll('.ant-select-item-option')))
+    expect(options.length).toBe(2)
+    expect((options[0] as HTMLElement).textContent).toBe('Test 1')
+
+    await wrapper.setProps({ open: false })
+    await nextTick()
+    wrapper.unmount()
+  })
+
   it('should support OptGroup', async () => {
     const wrapper = mount(Select, {
       props: {
