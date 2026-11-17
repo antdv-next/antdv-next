@@ -1,9 +1,11 @@
+import type { RenderIconInfo } from '@v-c/menu'
 import type { MenuProps } from '..'
 import { MailOutlined } from '@antdv-next/icons'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { nextTick, ref } from 'vue'
+import { nextTick, ref, shallowRef } from 'vue'
 import Menu, { MenuItem, MenuItemGroup, SubMenu } from '..'
 import ConfigProvider from '../../config-provider'
+import { OverrideProvider } from '../OverrideContext'
 import { mountTest, rtlTest } from '/@tests/shared'
 import { mount, waitFakeTimer } from '/@tests/utils'
 
@@ -282,6 +284,88 @@ describe('menu', () => {
     expect(wrapper.find('.menu-prop-icon').exists()).toBe(true)
     expect(wrapper.find('.ant-menu-item-extra').exists()).toBe(true)
     expect(wrapper.find('.ant-menu-item-icon').exists()).toBe(true)
+  })
+
+  describe('expandIcon', () => {
+    it('renders a function with the current submenu state', async () => {
+      const expandIcon: MenuProps['expandIcon'] = ({ isOpen, isSubMenu }: RenderIconInfo) => (
+        <span class="custom-expand-icon">{isSubMenu && (isOpen ? 'Open' : 'Closed')}</span>
+      )
+      const wrapper = mount(Menu, {
+        props: { mode: 'inline', items, expandIcon },
+      })
+
+      expect(wrapper.find('.custom-expand-icon').text()).toBe('Closed')
+      await wrapper.find('.ant-menu-submenu-title').trigger('click')
+      expect(wrapper.find('.custom-expand-icon').text()).toBe('Open')
+      await wrapper.find('.ant-menu-submenu-title').trigger('click')
+      expect(wrapper.find('.custom-expand-icon').text()).toBe('Closed')
+    })
+
+    it('updates the ConfigProvider renderer and lets the prop take precedence', async () => {
+      const contextIcon = shallowRef<MenuProps['expandIcon']>(() => <span class="context-expand-icon">First</span>)
+      const localIcon = shallowRef<MenuProps['expandIcon']>()
+      const wrapper = mount(() => (
+        <ConfigProvider menu={{ expandIcon: contextIcon.value }}>
+          <Menu mode="inline" items={items} expandIcon={localIcon.value} />
+        </ConfigProvider>
+      ))
+
+      expect(wrapper.find('.context-expand-icon').text()).toBe('First')
+      contextIcon.value = () => <span class="context-expand-icon">Second</span>
+      await nextTick()
+      expect(wrapper.find('.context-expand-icon').text()).toBe('Second')
+
+      localIcon.value = () => <span class="local-expand-icon">Local</span>
+      await nextTick()
+      expect(wrapper.find('.local-expand-icon').text()).toBe('Local')
+      expect(wrapper.find('.context-expand-icon').exists()).toBe(false)
+
+      localIcon.value = undefined
+      await nextTick()
+      expect(wrapper.find('.context-expand-icon').text()).toBe('Second')
+
+      contextIcon.value = undefined
+      await nextTick()
+      expect(wrapper.find('.context-expand-icon').exists()).toBe(false)
+      expect(wrapper.find('.ant-menu-submenu-arrow').exists()).toBe(true)
+    })
+
+    it('preserves the class of a VNode expand icon', () => {
+      const wrapper = mount(Menu, {
+        props: {
+          mode: 'inline',
+          items,
+          expandIcon: <span class="custom-expand-icon">Custom</span>,
+        },
+      })
+
+      expect(wrapper.find('.custom-expand-icon').text()).toBe('Custom')
+      expect(wrapper.find('.custom-expand-icon').classes()).toContain('ant-menu-submenu-expand-icon')
+      expect(wrapper.find('.ant-menu-submenu-arrow').exists()).toBe(false)
+    })
+
+    it.each([null, false])('hides the icon for expandIcon=%s and restores the default when cleared', async (expandIcon) => {
+      const wrapper = mount(Menu, {
+        props: { mode: 'inline', items },
+      })
+
+      expect(wrapper.find('.ant-menu-submenu-arrow').exists()).toBe(true)
+      await wrapper.setProps({ expandIcon })
+      expect(wrapper.find('.ant-menu-submenu-arrow').exists()).toBe(false)
+      await wrapper.setProps({ expandIcon: undefined })
+      expect(wrapper.find('.ant-menu-submenu-arrow').exists()).toBe(true)
+    })
+
+    it.each([null, false])('respects an empty override icon (%s)', (expandIcon) => {
+      const wrapper = mount(() => (
+        <OverrideProvider value={{ expandIcon }}>
+          <Menu mode="inline" items={items} />
+        </OverrideProvider>
+      ))
+
+      expect(wrapper.find('.ant-menu-submenu-arrow').exists()).toBe(false)
+    })
   })
 
   it('inlineCollapsed Menu.Item Tooltip can be removed', async () => {

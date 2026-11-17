@@ -321,31 +321,32 @@ const InternalMenu = defineComponent<
     expose({
       menu: menuRef,
     })
-    return () => {
-      // ====================== ExpandIcon ========================
+    // ====================== ExpandIcon ========================
+    function getMergedExpandIcon() {
       const expandIcon = slots?.expandIcon ?? props?.expandIcon
-      const mergedExpandIcon = (props: any) => {
-        if (typeof expandIcon === 'function' || isEmptyIcon(expandIcon)) {
-          return expandIcon || null
-        }
-
-        if (typeof overrideObj.value?.expandIcon === 'function' || isEmptyIcon(overrideObj.value?.expandIcon)) {
-          return overrideObj.value.expandIcon || null
-        }
-
-        if (typeof contextExpandIcon.value === 'function' || isEmptyIcon(contextExpandIcon.value as any)) {
-          return contextExpandIcon.value || null
-        }
-
-        const mergedIcon = expandIcon ?? overrideObj?.value.expandIcon ?? contextExpandIcon.value
-        const icon = typeof mergedIcon === 'function' ? (mergedIcon as any)?.(props) : mergedIcon
-        const iconChild = filterEmpty(Array.isArray(icon) ? icon : [icon])[0]
-        if (isVNode(iconChild)) {
-          return createVNode(iconChild, {
-            class: `${prefixCls.value}-submenu-expand-icon`,
-          })
-        }
+      if (typeof expandIcon === 'function' || isEmptyIcon(expandIcon)) {
+        return expandIcon || null
       }
+
+      if (typeof overrideObj.value?.expandIcon === 'function' || isEmptyIcon(overrideObj.value?.expandIcon)) {
+        return overrideObj.value.expandIcon || null
+      }
+
+      if (typeof contextExpandIcon.value === 'function' || isEmptyIcon(contextExpandIcon.value as any)) {
+        return contextExpandIcon.value || null
+      }
+
+      const mergedIcon = expandIcon ?? overrideObj?.value.expandIcon ?? contextExpandIcon.value
+      const iconChild = filterEmpty(Array.isArray(mergedIcon) ? mergedIcon : [mergedIcon])[0]
+      if (isVNode(iconChild)) {
+        return createVNode(iconChild, {
+          class: `${prefixCls.value}-submenu-expand-icon`,
+        })
+      }
+    }
+
+    return () => {
+      const mergedExpandIcon = getMergedExpandIcon()
       const _getPopupContainer = props?.getPopupContainer ?? getPopupContainer
       const {
         theme,
