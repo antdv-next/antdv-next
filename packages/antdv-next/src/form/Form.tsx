@@ -17,7 +17,7 @@ import type {
   ValidateMessages,
   ValidateOptions,
 } from './types.ts'
-import { clsx, get, set } from '@v-c/util'
+import { clsx, get, merge, set } from '@v-c/util'
 import { getDOM } from '@v-c/util/dist/Dom/findDOMNode'
 import { cloneDeep, pick } from 'es-toolkit'
 import scrollIntoView from 'scroll-into-view-if-needed'
@@ -575,9 +575,11 @@ const InternalForm = defineComponent<
     const setFieldsValue = (values: Record<string, any>) => {
       if (!model.value)
         return
+      let store = {}
       Object.keys(values || {}).forEach((key) => {
-        updateModelValue(getNamePath(key as any), values[key])
+        store = set(store, getNamePath(key), values[key])
       })
+      Object.assign(model.value, merge(model.value, store))
       triggerFieldsChange()
     }
 
