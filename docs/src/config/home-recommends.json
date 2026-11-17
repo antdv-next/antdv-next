@@ -2,11 +2,11 @@
   "items": {
     "cn": [
       {
-        "title": "Antdv Next v1.0 发布：升级 Ant Design v6",
-        "description": "了解 Antdv Next 第一个正式版本的设计取舍、Vue 适配与 Design Token 体系。",
-        "date": "2026-02-03",
+        "title": "Antdv Next Mobile 来了：用写 PC 的方式写移动端",
+        "description": "认识 Antdv Next 家族的移动端组件库：API 与 PC 对齐，为触屏重新设计，纯 CSS 变量主题。",
+        "date": "2026-11-16",
         "source": "blog",
-        "href": "/blog/antdv-next-release"
+        "href": "/blog/antdv-next-mobile"
       },
       {
         "title": "Antdv Next：Vue 3 的 Ant Design 体系",
@@ -25,11 +25,11 @@
     ],
     "en": [
       {
-        "title": "Antdv Next v1.0 Released - Aligning with Ant Design v6",
-        "description": "Learn about the first stable release, Vue adaptation choices, and the Design Token system.",
-        "date": "2026-02-03",
+        "title": "Introducing Antdv Next Mobile",
+        "description": "Meet the mobile library of the Antdv Next family: PC-aligned API, redesigned for touch, pure CSS variable theming.",
+        "date": "2026-11-16",
         "source": "blog",
-        "href": "/blog/antdv-next-release"
+        "href": "/blog/antdv-next-mobile"
       },
       {
         "title": "Antdv Next for Vue 3",

@@ -44,6 +44,7 @@ const menuLocales = {
   },
 
   blog: {
+    antdvNextMobile: 'Introducing Antdv Next Mobile',
     antdvNextRelease: 'Antdv Next 1.0 Released',
   },
 } as const
