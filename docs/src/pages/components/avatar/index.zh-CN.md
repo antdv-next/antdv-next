@@ -57,6 +57,7 @@ group:
 
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
+| default | 头像显示的内容 | () =&gt; any | - |
 | icon | 设置头像的自定义图标 | () =&gt; any | - |
 | src | 图片类头像的资源地址或者图片元素 | () =&gt; any | - |
 
@@ -66,10 +67,9 @@ group:
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| prefixCls | - | string | - | - |
-| max | - | &#123;     count?: number     style?: CSSProperties     popover?: PopoverProps   &#125; | - | - |
-| size | 设置头像的大小 | AvatarSize | `medium` | - |
-| shape | 指定头像的形状 | 'circle' \| 'square' | `circle` | - |
+| max | 设置最多显示相关配置 | `{ count?: number; style?: CSSProperties; popover?: PopoverProps }` | - | - |
+| size | 设置头像的大小 | number \| `large` \| `medium` \| `small` \| `{ xs: number, sm: number, ... }` | `medium` | - |
+| shape | 设置头像的形状 | 'circle' \| 'square' | `circle` | - |
 
 ## 主题变量（Design Token） {#design-token}
 
