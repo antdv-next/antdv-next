@@ -1,5 +1,6 @@
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@antdv-next/icons'
 import { describe, expect, it } from 'vitest'
+import { nextTick, ref } from 'vue'
 import Menu from '..'
 import { mount } from '/@tests/utils'
 
@@ -72,6 +73,31 @@ const items = [
 ] as any
 
 describe('menu slot render', () => {
+  it('prefers the expandIcon slot and falls back to the prop when removed', async () => {
+    const showSlot = ref(true)
+    const label = ref('Slot')
+    const wrapper = mount(() => (
+      <Menu
+        mode="inline"
+        items={items}
+        expandIcon={() => <span class="prop-expand-icon">Prop</span>}
+        v-slots={showSlot.value ? { expandIcon: () => <span class="slot-expand-icon">{label.value}</span> } : {}}
+      />
+    ))
+
+    expect(wrapper.find('.slot-expand-icon').text()).toBe('Slot')
+    expect(wrapper.find('.prop-expand-icon').exists()).toBe(false)
+
+    label.value = 'Updated slot'
+    await nextTick()
+    expect(wrapper.find('.slot-expand-icon').text()).toBe('Updated slot')
+
+    showSlot.value = false
+    await nextTick()
+    expect(wrapper.find('.slot-expand-icon').exists()).toBe(false)
+    expect(wrapper.find('.prop-expand-icon').text()).toBe('Prop')
+  })
+
   it('supports labelRender slot', () => {
     const wrapper = mount(() => (
       <Menu
