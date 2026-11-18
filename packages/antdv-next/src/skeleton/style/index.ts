@@ -182,12 +182,6 @@ const genSkeletonElementImage: GenerateStyle<SkeletonToken, CSSObject> = (token)
         maxWidth: calc(imageSizeBase).mul(4).equal(),
         maxHeight: calc(imageSizeBase).mul(4).equal(),
       },
-      [`${skeletonImageCls}-svg${skeletonImageCls}-svg-circle`]: {
-        borderRadius: '50%',
-      },
-    },
-    [`${skeletonImageCls}${skeletonImageCls}-circle`]: {
-      borderRadius: '50%',
     },
   }
 }
