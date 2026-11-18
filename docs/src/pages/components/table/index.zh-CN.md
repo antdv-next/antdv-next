@@ -99,6 +99,7 @@ const columns = [
   <demo src="./demo/nested-table.vue">嵌套表格</demo>
   <demo src="./demo/tree-data.vue">树形数据</demo>
   <demo src="./demo/row-selection.vue">行选择</demo>
+  <demo src="./demo/row-selection-row-click.vue">点击行选中</demo>
   <demo src="./demo/row-selection-custom.vue">自定义选择</demo>
   <demo src="./demo/row-selection-and-operation.vue">选择与操作</demo>
   <demo src="./demo/reset-filter.vue">重置筛选</demo>

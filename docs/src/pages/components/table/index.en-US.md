@@ -98,6 +98,7 @@ const columns = [
   <demo src="./demo/nested-table.vue">Nested Table</demo>
   <demo src="./demo/tree-data.vue">Tree Data</demo>
   <demo src="./demo/row-selection.vue">Row Selection</demo>
+  <demo src="./demo/row-selection-row-click.vue">Row Click Selection</demo>
   <demo src="./demo/row-selection-custom.vue">Custom Selection</demo>
   <demo src="./demo/row-selection-and-operation.vue">Selection Operations</demo>
   <demo src="./demo/reset-filter.vue">Reset Filter</demo>
