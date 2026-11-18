@@ -90,7 +90,7 @@ const MenuItem = defineComponent<
 
         // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
         // ref: https://github.com/ant-design/ant-design/pull/23456
-        if (!icon || (isVNode(firstChild) && firstChild.type === 'span')) {
+        if (!icon) {
           if (firstChild && inlineCollapsed && firstLevel && typeof label === 'string') {
             return <div class={`${prefixCls}-inline-collapsed-noicon`}>{label.charAt(0)}</div>
           }
