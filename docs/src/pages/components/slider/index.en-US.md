@@ -52,6 +52,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | orientation | Orientation direction | `horizontal` \| `vertical` | `horizontal` | - | × |
 | range | Enable dual thumb mode for range selection | boolean \| [RangeConfig](#rangeconfig) | false | - | × |
 | reverse | Reverse the component | boolean | false | - | × |
+| startPoint | The start value of the highlighted track in single mode | number | `min` | - | × |
 | step | The granularity the slider can step through values. Must be greater than 0, and be divisible by (max - min). When `step` is `null` and `marks` exist, valid points will only be marks, `min` and `max` | number \| null | 1 | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
 | tooltip | The tooltip related props | [TooltipConfig](#tooltipconfig) | - | - | × |

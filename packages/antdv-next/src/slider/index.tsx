@@ -117,6 +117,8 @@ export interface SliderInternalProps extends SliderBaseProps,
   /* @vue-ignore */
   SliderEmitsProps {
   range?: boolean | SliderRange
+  /** The start value of the highlighted track in single mode. Defaults to `min` */
+  startPoint?: number
   value?: number | number[]
   defaultValue?: number | number[]
   // onChange?: (value: number) => void

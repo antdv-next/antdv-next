@@ -48,6 +48,19 @@ describe('slider', () => {
     expect(wrapper.find('.ant-slider-handle').exists()).toBe(true)
   })
 
+  // https://github.com/ant-design/ant-design/pull/59877
+  it.each([
+    { value: 20, left: '50%' },
+    { value: -20, left: '30%' },
+  ])('fills the track from startPoint to $value', ({ value, left }) => {
+    const wrapper = mount(Slider, { props: { min: -50, max: 50, startPoint: 0, value } })
+    expect(wrapper.props('startPoint')).toBe(0)
+    expect(wrapper.attributes('startpoint')).toBeUndefined()
+    const style = wrapper.find('.ant-slider-track').attributes('style')
+    expect(style).toContain(`left: ${left}`)
+    expect(style).toContain('width: 20%')
+  })
+
   // ========================= Value Props =========================
   it('should render with defaultValue', () => {
     const wrapper = mount(Slider, {
