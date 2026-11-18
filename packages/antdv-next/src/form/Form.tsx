@@ -17,7 +17,7 @@ import type {
   ValidateMessages,
   ValidateOptions,
 } from './types.ts'
-import { clsx, get, merge, set } from '@v-c/util'
+import { clsx, get, set } from '@v-c/util'
 import { getDOM } from '@v-c/util/dist/Dom/findDOMNode'
 import { cloneDeep, pick } from 'es-toolkit'
 import scrollIntoView from 'scroll-into-view-if-needed'
@@ -40,6 +40,36 @@ import { defaultValidateMessages } from './utils/messages'
 import { cloneByNamePathList, containsNamePath, getNamePath, getValue, matchNamePath, setValue } from './utils/valueUtil.ts'
 
 import { useValidateMessagesContext, useValidateMessagesProvider } from './validateMessagesContext.tsx'
+
+function isPlainRecord(val: any): val is Record<string, any> {
+  return val !== null
+    && typeof val === 'object'
+    && !Array.isArray(val)
+    && Object.getPrototypeOf(val) === Object.prototype
+}
+
+// Merges into the user-provided reactive model in place so untouched object and
+// array references keep their identity.
+function mergeModelValue(
+  target: Record<string, any>,
+  source: Record<string, any>,
+  ancestors = new Set<object>(),
+) {
+  Object.keys(source).forEach((key) => {
+    const next = source[key]
+    const prev = target[key]
+    if (isPlainRecord(next) && isPlainRecord(prev)) {
+      if (ancestors.has(next))
+        return
+      ancestors.add(next)
+      mergeModelValue(prev, next, ancestors)
+      ancestors.delete(next)
+    }
+    else {
+      target[key] = next
+    }
+  })
+}
 
 export type RequiredMark
   = | boolean
@@ -575,11 +605,11 @@ const InternalForm = defineComponent<
     const setFieldsValue = (values: Record<string, any>) => {
       if (!model.value)
         return
-      let store = {}
+      let store: Record<string, any> = {}
       Object.keys(values || {}).forEach((key) => {
         store = set(store, getNamePath(key), values[key])
       })
-      Object.assign(model.value, merge(model.value, store))
+      mergeModelValue(model.value, store)
       triggerFieldsChange()
     }
 

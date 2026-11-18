@@ -50,6 +50,33 @@ describe('form instance api', () => {
     expect(wrapper.findAll('input').map(input => input.element.value)).toEqual(['B', '18'])
   })
 
+  it('keeps references of untouched values when merging nested updates', async () => {
+    const formRef = ref<FormInstance>()
+    const model = reactive({
+      profile: {
+        name: 'A',
+        address: { city: 'Hangzhou' },
+      },
+      tags: [{ label: 'A' }],
+      other: { enabled: true },
+    })
+    const profile = model.profile
+    const address = model.profile.address
+    const tags = model.tags
+    const other = model.other
+
+    mount(() => <Form ref={formRef} model={model} />)
+
+    formRef.value!.setFieldsValue({ profile: { name: 'B' } })
+    await nextTick()
+
+    expect(model.profile.name).toBe('B')
+    expect(model.profile).toBe(profile)
+    expect(model.profile.address).toBe(address)
+    expect(model.tags).toBe(tags)
+    expect(model.other).toBe(other)
+  })
+
   it.each([
     { value: [{ name: 'C' }] },
     { value: [] },
