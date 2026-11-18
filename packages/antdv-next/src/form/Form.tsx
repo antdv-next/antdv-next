@@ -41,6 +41,52 @@ import { cloneByNamePathList, containsNamePath, getNamePath, getValue, matchName
 
 import { useValidateMessagesContext, useValidateMessagesProvider } from './validateMessagesContext.tsx'
 
+function isPlainRecord(val: any): val is Record<string, any> {
+  return val !== null
+    && typeof val === 'object'
+    && !Array.isArray(val)
+    && Object.getPrototypeOf(val) === Object.prototype
+}
+
+// Clones caller-owned objects and arrays before adopting them, matching antd's
+// merge. Non-plain leaves (dayjs, File, class instances) keep their references.
+function clonePayloadValue(value: any, seen = new Map<object, any>()): any {
+  const isArray = Array.isArray(value)
+  if (!isArray && !isPlainRecord(value))
+    return value
+  if (seen.has(value))
+    return seen.get(value)
+  const cloned: any = isArray ? [] : {}
+  seen.set(value, cloned)
+  Object.keys(value).forEach((key) => {
+    cloned[key] = clonePayloadValue((value as any)[key], seen)
+  })
+  return cloned
+}
+
+// Merges into the user-provided reactive model in place so untouched object and
+// array references keep their identity.
+function mergeModelValue(
+  target: Record<string, any>,
+  source: Record<string, any>,
+  ancestors = new Set<object>(),
+) {
+  Object.keys(source).forEach((key) => {
+    const next = source[key]
+    const prev = target[key]
+    if (isPlainRecord(next) && isPlainRecord(prev)) {
+      if (ancestors.has(next))
+        return
+      ancestors.add(next)
+      mergeModelValue(prev, next, ancestors)
+      ancestors.delete(next)
+    }
+    else {
+      target[key] = clonePayloadValue(next)
+    }
+  })
+}
+
 export type RequiredMark
   = | boolean
     | 'optional'
@@ -575,9 +621,11 @@ const InternalForm = defineComponent<
     const setFieldsValue = (values: Record<string, any>) => {
       if (!model.value)
         return
+      let store: Record<string, any> = {}
       Object.keys(values || {}).forEach((key) => {
-        updateModelValue(getNamePath(key as any), values[key])
+        store = set(store, getNamePath(key), values[key])
       })
+      mergeModelValue(model.value, store)
       triggerFieldsChange()
     }
 
