@@ -48,6 +48,22 @@ function isPlainRecord(val: any): val is Record<string, any> {
     && Object.getPrototypeOf(val) === Object.prototype
 }
 
+// Clones caller-owned objects and arrays before adopting them, matching antd's
+// merge. Non-plain leaves (dayjs, File, class instances) keep their references.
+function clonePayloadValue(value: any, seen = new Map<object, any>()): any {
+  const isArray = Array.isArray(value)
+  if (!isArray && !isPlainRecord(value))
+    return value
+  if (seen.has(value))
+    return seen.get(value)
+  const cloned: any = isArray ? [] : {}
+  seen.set(value, cloned)
+  Object.keys(value).forEach((key) => {
+    cloned[key] = clonePayloadValue((value as any)[key], seen)
+  })
+  return cloned
+}
+
 // Merges into the user-provided reactive model in place so untouched object and
 // array references keep their identity.
 function mergeModelValue(
@@ -66,7 +82,7 @@ function mergeModelValue(
       ancestors.delete(next)
     }
     else {
-      target[key] = next
+      target[key] = clonePayloadValue(next)
     }
   })
 }

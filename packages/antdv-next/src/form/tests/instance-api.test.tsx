@@ -1,6 +1,6 @@
 import type { FormInstance } from '..'
 import { describe, expect, it } from 'vitest'
-import { nextTick, reactive, ref } from 'vue'
+import { nextTick, reactive, ref, toRaw } from 'vue'
 import Form, { FormItem } from '..'
 import { mount } from '/@tests/utils'
 
@@ -75,6 +75,37 @@ describe('form instance api', () => {
     expect(model.profile.address).toBe(address)
     expect(model.tags).toBe(tags)
     expect(model.other).toBe(other)
+  })
+
+  it('does not share object or array references from the payload', async () => {
+    const formRef = ref<FormInstance>()
+    const model = reactive({
+      profile: { name: 'A' },
+    } as any)
+    const payload = {
+      profile: { address: { city: 'Hangzhou' } },
+      tags: [{ label: 'A' }],
+    }
+
+    mount(() => <Form ref={formRef} model={model} />)
+
+    formRef.value!.setFieldsValue(payload)
+    await nextTick()
+
+    expect(toRaw(model.profile.address)).not.toBe(payload.profile.address)
+    expect(toRaw(model.tags)).not.toBe(payload.tags)
+    expect(toRaw(model.tags[0])).not.toBe(payload.tags[0])
+
+    payload.profile.address.city = 'Beijing'
+    payload.tags[0]!.label = 'B'
+    expect(model.profile.address.city).toBe('Hangzhou')
+    expect(model.tags[0].label).toBe('A')
+
+    formRef.value!.setFieldsValue({ profile: { address: { city: 'Shanghai' } } })
+    await nextTick()
+
+    expect(model.profile.address.city).toBe('Shanghai')
+    expect(payload.profile.address.city).toBe('Beijing')
   })
 
   it.each([
