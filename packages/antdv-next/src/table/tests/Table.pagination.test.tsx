@@ -143,6 +143,51 @@ describe('table pagination', () => {
     )
   })
 
+  // https://github.com/ant-design/ant-design/pull/59900
+  it('should emit table change with pagination only when pageSize changes', async () => {
+    const onPaginationChange = vi.fn()
+    const onChange = vi.fn()
+    const SizeChanger = defineComponent({
+      props: {
+        value: { type: Number, required: true },
+        disabled: { type: Boolean, default: false },
+      },
+      emits: ['change'],
+      setup(_, { emit }) {
+        return () => (
+          <button type="button" class="custom-size-changer" onClick={() => emit('change', 20)}>
+            size
+          </button>
+        )
+      },
+    })
+    const wrapper = mount(Table, {
+      props: {
+        columns,
+        dataSource: generateData(100),
+        pagination: {
+          defaultCurrent: 5,
+          showSizeChanger: true,
+          components: { sizeChanger: SizeChanger },
+          onChange: onPaginationChange,
+        },
+        onChange,
+      },
+    })
+
+    await wrapper.find('.custom-size-changer').trigger('click')
+    await nextTick()
+
+    // user-provided pagination.onChange still receives the pagination info
+    expect(onPaginationChange).toHaveBeenCalledWith(5, 20, expect.objectContaining({ recommendPage: 3 }))
+    // table change event receives the merged pagination, not the internal info object
+    expect(onChange).toHaveBeenCalledTimes(1)
+    const args = onChange.mock.calls[0]!
+    expect(args[0]).toEqual(expect.objectContaining({ current: 5, pageSize: 20 }))
+    expect(args[0]).not.toHaveProperty('recommendPage')
+    expect(args[3].action).toBe('paginate')
+  })
+
   it('should scroll to first row when page changes with scroll from ConfigProvider', async () => {
     vi.mocked(scrollTo).mockClear()
 

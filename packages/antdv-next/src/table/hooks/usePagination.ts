@@ -1,5 +1,5 @@
 import type { Ref } from 'vue'
-import type { PaginationEmits, PaginationOnChangeInfo } from '../../pagination'
+import type { PaginationEmits } from '../../pagination'
 import type { TablePaginationConfig } from '../interface.ts'
 import { computed, shallowRef, unref } from 'vue'
 import extendsObject from '../../_util/extendsObject.ts'
@@ -32,7 +32,7 @@ type MaybeRef<T> = T | Ref<T>
 
 export default function usePagination(
   total: MaybeRef<number>,
-  onChange: (current: number, pageSize: number, info?: PaginationOnChangeInfo) => void,
+  onChange: (current: number, pageSize: number) => void,
   pagination?: MaybeRef<TablePaginationConfig | false>,
 ) {
   const paginationRef = computed(() => unref(pagination))
@@ -82,13 +82,7 @@ export default function usePagination(
       }
     }
     refreshPagination(current, pageSize)
-    const mergedPageSize = pageSize || mergedPagination.value.pageSize || DEFAULT_PAGE_SIZE
-    if (info) {
-      onChange(current, mergedPageSize, info)
-    }
-    else {
-      onChange(current, mergedPageSize)
-    }
+    onChange(current, pageSize || mergedPagination.value.pageSize || DEFAULT_PAGE_SIZE)
   }
 
   const mergedPaginationConfig = computed<TablePaginationConfig>(() => {
