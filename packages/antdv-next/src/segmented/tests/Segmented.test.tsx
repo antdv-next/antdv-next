@@ -1,5 +1,7 @@
+import { createCache, extractStyle, StyleProvider } from '@antdv-next/cssinjs'
 import { describe, expect, it, vi } from 'vitest'
-import { h, nextTick, ref } from 'vue'
+import { createSSRApp, h, nextTick, ref } from 'vue'
+import { renderToString } from 'vue/server-renderer'
 import Segmented from '..'
 import ConfigProvider from '../../config-provider'
 import mountTest from '/@tests/shared/mountTest'
@@ -501,6 +503,38 @@ describe('segmented', () => {
       const iconEl = wrapper.find(`.${prefixCls}-item-icon`)
       expect(iconEl.classes()).toContain('c-icon')
       expect(iconEl.attributes('style')).toContain('padding: 2px')
+    })
+  })
+
+  // ===================== Style =====================
+
+  describe('icon alignment style', () => {
+    // https://github.com/antdv-next/antdv-next/issues/1114
+    it('centres the icon wrapper on the label text at any icon size', async () => {
+      const cache = createCache()
+      const app = createSSRApp({
+        render: () =>
+          h(ConfigProvider, { theme: { hashed: false } }, {
+            default: () =>
+              h(StyleProvider, { cache, mock: 'server' }, {
+                default: () =>
+                  h(Segmented, {
+                    options: [{ value: 'A', label: 'A', icon: h('span', { style: { fontSize: '26px' } }, 'ic') }],
+                  }),
+              }),
+          }),
+      })
+      await renderToString(app)
+      const styleText = extractStyle(cache, { plain: true, types: 'style' })
+
+      const iconRule = styleText.match(/\.ant-segmented \.ant-segmented-item-icon\{([^}]*)\}/)
+      expect(iconRule).toBeTruthy()
+      expect(iconRule![1]).toContain('display:inline-flex')
+      expect(iconRule![1]).toContain('align-items:center')
+      expect(iconRule![1]).toContain('vertical-align:middle')
+      expect(iconRule![1]).toContain('margin-block-end:0.2em')
+      // the wrapper handles bare `<svg>` icons too, so no extra lift is applied to them
+      expect(styleText).not.toContain('.ant-segmented-item-icon>svg')
     })
   })
 
