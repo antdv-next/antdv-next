@@ -655,7 +655,8 @@ export function useBaseConfig<K extends string>(suffixCls?: K, props?: Component
     getPrefixCls: (suffixCls?: string, prefixCls?: string) => config.value?.getPrefixCls(suffixCls, prefixCls),
     prefixCls: toRef(() => config.value?.getPrefixCls(suffixCls, props?.prefixCls)),
     direction: toRef(() => config.value?.direction),
-    getPopupContainer: config?.value.getPopupContainer,
+    getPopupContainer: ((...args: Parameters<NonNullable<ConfigConsumerProps['getPopupContainer']>>) =>
+      config.value?.getPopupContainer?.(...args)) as NonNullable<ConfigConsumerProps['getPopupContainer']>,
   }
 }
 
@@ -721,9 +722,11 @@ export function useComponentBaseConfig<
     direction: toRef(() => context.value.direction),
     prefixCls: toRef(() => context.value?.getPrefixCls(suffixCls ?? propName, props?.prefixCls)),
     rootPrefixCls: toRef(() => context.value?.getPrefixCls()),
-    getPopupContainer: context.value.getPopupContainer,
+    getPopupContainer: ((...args: Parameters<NonNullable<ConfigConsumerProps['getPopupContainer']>>) =>
+      context.value?.getPopupContainer?.(...args)) as NonNullable<ConfigConsumerProps['getPopupContainer']>,
     getPrefixCls: context.value.getPrefixCls,
-    getTargetContainer: context.value.getTargetContainer,
+    getTargetContainer: (() =>
+      context.value?.getTargetContainer?.()) as NonNullable<ConfigConsumerProps['getTargetContainer']>,
     virtual: toRef(() => context.value.virtual),
     renderEmpty: toRef(() => context.value.renderEmpty),
     popupMatchSelectWidth: toRef(() => context.value.popupMatchSelectWidth),
