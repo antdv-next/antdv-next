@@ -71,6 +71,10 @@ export interface BadgeSlots {
   text?: () => any
 }
 
+export interface BadgeRef {
+  nativeElement: HTMLSpanElement
+}
+
 const defaultProps = {
   count: null,
   overflowCount: 99,
@@ -98,8 +102,8 @@ const InternalBadge = defineComponent<
     // =========== Merged Props for Semantic ===========
     const mergedProps = computed(() => props)
 
-    const badgeRef = shallowRef<HTMLSpanElement>()
-    expose({ badgeRef })
+    const nativeElementRef = shallowRef<HTMLSpanElement>()
+    expose({ nativeElement: nativeElementRef })
     const [hashId, cssVarCls] = useStyle(prefixCls)
 
     if (isDev) {
@@ -272,7 +276,7 @@ const InternalBadge = defineComponent<
         return (
           <span
             {...restAttrs}
-            ref={badgeRef}
+            ref={nativeElementRef}
             class={badgeClassName}
             style={[offsetStyle.value, mergedStyles.value.root]}
           >
@@ -313,7 +317,7 @@ const InternalBadge = defineComponent<
       return (
         <span
           {...restAttrs}
-          ref={badgeRef}
+          ref={nativeElementRef}
           class={badgeClassName}
           style={mergedStyles.value.root}
         >
