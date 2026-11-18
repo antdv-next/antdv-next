@@ -64,6 +64,8 @@ describe('config-provider holderRender priority', () => {
     expect(document.querySelectorAll('.prefix-2-modal')).toHaveLength(0)
 
     // holderRender output renders inside the static ConfigProvider.
-    expect(document.querySelector('.holder-context-probe')?.textContent).toBe('prefix-1-probe')
+    const probes = Array.from(document.querySelectorAll('.holder-context-probe'))
+    expect(probes.length).toBeGreaterThan(0)
+    probes.forEach(probe => expect(probe.textContent).toBe('prefix-1-probe'))
   })
 })
