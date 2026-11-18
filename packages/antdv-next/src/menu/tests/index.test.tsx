@@ -116,6 +116,26 @@ describe('menu', () => {
     expect(noicons[1]?.text()).toBe('B')
   })
 
+  // https://github.com/ant-design/ant-design/pull/59820
+  it('keeps span children with icon wrapped in title content when collapsed', () => {
+    const wrapper = mount(() => (
+      <Menu mode="inline" inlineCollapsed>
+        <MenuItem key="mail" icon={<MailOutlined />}>
+          <span>Mail</span>
+        </MenuItem>
+        <MenuItem key="plain">
+          <span>Plain</span>
+        </MenuItem>
+      </Menu>
+    ))
+
+    expect(wrapper.find('.ant-menu-inline-collapsed-noicon').exists()).toBe(false)
+    const contents = wrapper.findAll('.ant-menu-title-content')
+    expect(contents).toHaveLength(2)
+    expect(contents[0]!.find('span').text()).toBe('Mail')
+    expect(contents[1]!.find('span').text()).toBe('Plain')
+  })
+
   it('Use first char as Icon when collapsed with items', () => {
     const wrapper = mount(Menu, {
       props: {
