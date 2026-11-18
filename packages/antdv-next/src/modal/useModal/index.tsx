@@ -50,6 +50,9 @@ export default function useModal(): readonly [instance: HookAPI, contextHolder: 
     },
     {
       immediate: true,
+      // The holder renders the modal on the next flush, so queued updates must
+      // run after render effects to see the mounted `modalRef`.
+      flush: 'post',
     },
   )
 
@@ -102,12 +105,14 @@ export default function useModal(): readonly [instance: HookAPI, contextHolder: 
 
       const instance: ReturnType<ModalFuncWithPromise> = {
         destroy: () => {
-          const destroyAction = () => modalRef.value?.destroy()
           if (modalRef.value) {
-            destroyAction()
+            modalRef.value.destroy()
           }
           else {
-            actionQueue.value = [...actionQueue.value, destroyAction]
+            // The modal has not rendered yet, so a queued close would never run
+            // its leave animation. Drop the pending element instead.
+            closeFunc()
+            withFunc(config).afterClose?.()
           }
         },
         update: (newConfig: ConfigUpdate) => {
