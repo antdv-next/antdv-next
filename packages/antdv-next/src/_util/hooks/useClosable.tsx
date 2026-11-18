@@ -157,11 +157,11 @@ export default function useClosable(
             ...ariaOrDataProps,
           })
         : (<span aria-label={contextLocale?.value?.close} {...ariaOrDataProps}>{mergedCloseIcon}</span>)
-      return [true, mergedCloseIcon, closeBtnIsDisabled.value, {
-        'aria-label': contextLocale?.value?.close ?? defaultLocale.global?.close,
-        ...ariaOrDataProps,
-      }] as const
     }
+    return [true, mergedCloseIcon, closeBtnIsDisabled.value, {
+      'aria-label': contextLocale?.value?.close ?? defaultLocale.global?.close,
+      ...ariaOrDataProps,
+    }] as const
   })
 }
 

@@ -335,6 +335,34 @@ describe('modal integration', () => {
     vi.useRealTimers()
   })
 
+  it('should render and remain closable when closable.closeIcon is null', async () => {
+    const onCancel = vi.fn()
+    const wrapper = mount(Modal, {
+      attachTo: document.body,
+      props: {
+        open: true,
+        title: 'Modal',
+        closable: { closeIcon: null, 'aria-label': 'Dismiss modal' },
+        onCancel,
+      },
+      slots: { default: () => <p>Body</p> },
+    })
+
+    await waitFakeTimer(20, 10)
+
+    expect(document.querySelector('.ant-modal-title')?.textContent).toBe('Modal')
+    expect(document.querySelector('.ant-modal-body')?.textContent).toBe('Body')
+    const closeBtn = document.querySelector<HTMLButtonElement>('.ant-modal-close')!
+    expect(closeBtn.children).toHaveLength(0)
+    expect(closeBtn.getAttribute('aria-label')).toBe('Dismiss modal')
+
+    closeBtn.click()
+    await waitFakeTimer(20, 10)
+
+    expect(onCancel).toHaveBeenCalledTimes(1)
+    wrapper.unmount()
+  })
+
   it('keeps focus on a body-mounted popover input when modal is open', async () => {
     mount(Modal, {
       attachTo: document.body,

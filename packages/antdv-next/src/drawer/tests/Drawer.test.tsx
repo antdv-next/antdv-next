@@ -245,6 +245,27 @@ describe('drawer', () => {
     wrapper.unmount()
   })
 
+  it('renders without a close button when closable.closeIcon is null', async () => {
+    const onClose = vi.fn()
+    const wrapper = mount(Drawer, {
+      props: { open: true, title: 'Drawer', closable: { closeIcon: null }, onClose },
+      slots: { default: () => <p>Body</p> },
+      attachTo: document.body,
+    })
+    await nextTick()
+    await nextTick()
+
+    expect(document.querySelector('.ant-drawer-title')?.textContent).toBe('Drawer')
+    expect(document.querySelector('.ant-drawer-body')?.textContent).toBe('Body')
+    expect(document.querySelector('.ant-drawer-close')).toBeNull()
+
+    document.querySelector<HTMLElement>('.ant-drawer-mask')!.click()
+    await nextTick()
+
+    expect(onClose).toHaveBeenCalledTimes(1)
+    wrapper.unmount()
+  })
+
   it('emits close on close button click', async () => {
     const onClose = vi.fn()
     const wrapper = mount(Drawer, {
