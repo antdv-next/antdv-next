@@ -19,7 +19,7 @@ export type {
 export { default as Avatar, AvatarGroup } from './avatar'
 export type { AvatarEmits, AvatarGroupProps, AvatarGroupRef, AvatarProps, AvatarSlots } from './avatar'
 export { default as Badge, BadgeRibbon } from './badge'
-export type { BadgeProps, BadgeSlots } from './badge'
+export type { BadgeProps, BadgeRef, BadgeSlots } from './badge'
 export type { RibbonProps as BadgeRibbonProps, RibbonRef as BadgeRibbonRef } from './badge/Ribbon'
 export { default as BorderBeam } from './border-beam'
 export type { BorderBeamColor, BorderBeamGradient, BorderBeamProps } from './border-beam'

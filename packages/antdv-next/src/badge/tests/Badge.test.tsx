@@ -1,6 +1,6 @@
 import { ClockCircleOutlined, NotificationOutlined } from '@antdv-next/icons'
 import { describe, expect, it } from 'vitest'
-import { h } from 'vue'
+import { h, nextTick, ref } from 'vue'
 import Badge from '..'
 import Avatar from '../../avatar'
 import ConfigProvider from '../../config-provider'
@@ -258,5 +258,18 @@ describe('badge', () => {
       </div>
     ))
     expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  // ========================= Ref =========================
+  it('should support nativeElement ref', async () => {
+    const badgeRef = ref<any>()
+    const wrapper = mount(() => (
+      <Badge ref={badgeRef} count={5}>
+        <span>test</span>
+      </Badge>
+    ))
+    await nextTick()
+    expect(badgeRef.value?.nativeElement).toBeInstanceOf(HTMLSpanElement)
+    expect(badgeRef.value.nativeElement).toBe(wrapper.find('.ant-badge').element)
   })
 })
