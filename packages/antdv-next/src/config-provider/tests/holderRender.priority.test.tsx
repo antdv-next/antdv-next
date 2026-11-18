@@ -1,13 +1,23 @@
 import type { VNodeChild } from 'vue'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { h } from 'vue'
+import { defineComponent, h } from 'vue'
 import ConfigProvider from '..'
 import message, { actDestroy as destroyMessageInstance } from '../../message'
+import Modal from '../../modal'
 import notification, { actDestroy as destroyNotificationInstance } from '../../notification'
+import { useBaseConfig } from '../context'
 import { waitFakeTimer } from '/@tests/utils'
 
+const ContextProbe = defineComponent(() => {
+  const { getPrefixCls } = useBaseConfig()
+  return () => h('span', { class: 'holder-context-probe' }, getPrefixCls('probe'))
+})
+
 function withHolderProvider(children: VNodeChild): VNodeChild {
-  return h(ConfigProvider, { prefixCls: 'prefix-2' }, { default: () => children })
+  return h('div', [
+    h(ContextProbe),
+    h(ConfigProvider, { prefixCls: 'prefix-2' }, { default: () => children }),
+  ])
 }
 
 describe('config-provider holderRender priority', () => {
@@ -18,6 +28,7 @@ describe('config-provider holderRender priority', () => {
   afterEach(async () => {
     message.destroy()
     notification.destroy()
+    Modal.destroyAll()
     ConfigProvider.config({ prefixCls: '', holderRender: undefined })
     destroyMessageInstance()
     destroyNotificationInstance()
@@ -26,7 +37,7 @@ describe('config-provider holderRender priority', () => {
     vi.useRealTimers()
   })
 
-  it('applies holderRender prefix over the global prefix for message and notification', async () => {
+  it('applies holderRender prefix over the global prefix for message, notification and Modal.confirm', async () => {
     ConfigProvider.config({
       prefixCls: 'prefix-1',
       holderRender: withHolderProvider,
@@ -43,5 +54,16 @@ describe('config-provider holderRender priority', () => {
 
     expect(document.querySelectorAll('.prefix-2-notification')).toHaveLength(1)
     expect(document.querySelectorAll('.prefix-1-notification')).toHaveLength(0)
+
+    Modal.confirm({ title: 'holder modal', content: 'holder content' })
+    await waitFakeTimer(1, 10)
+
+    // Modal.confirm derives its prefix from the static root prefix; the
+    // holderRender Provider cannot override it, matching Ant Design.
+    expect(document.querySelectorAll('.prefix-1-modal')).toHaveLength(1)
+    expect(document.querySelectorAll('.prefix-2-modal')).toHaveLength(0)
+
+    // holderRender output renders inside the static ConfigProvider.
+    expect(document.querySelector('.holder-context-probe')?.textContent).toBe('prefix-1-probe')
   })
 })
