@@ -158,6 +158,44 @@ describe('modal static', () => {
     })
   })
 
+  it('applies update queued before the hook modal mounts', async () => {
+    let hookModal!: ReturnType<typeof Modal.useModal>[0]
+
+    const Confirm = defineComponent(() => {
+      const [modal, contextHolder] = Modal.useModal()
+      hookModal = modal
+      return () => h(contextHolder)
+    })
+
+    mount(Confirm, { attachTo: document.body })
+    await waitFakeTimer(1, 5)
+
+    hookModal.confirm({ title: 'Original title' }).update({ title: 'Updated title' })
+    await waitFakeTimer(1, 5)
+
+    expect(document.querySelector('.ant-modal-confirm-title')?.textContent).toBe('Updated title')
+  })
+
+  it('applies destroy queued before the hook modal mounts', async () => {
+    let hookModal!: ReturnType<typeof Modal.useModal>[0]
+
+    const Confirm = defineComponent(() => {
+      const [modal, contextHolder] = Modal.useModal()
+      hookModal = modal
+      return () => h(contextHolder)
+    })
+
+    mount(Confirm, { attachTo: document.body })
+    await waitFakeTimer(1, 5)
+
+    const afterClose = vi.fn()
+    hookModal.confirm({ title: 'Should be destroyed', afterClose }).destroy()
+    await waitFakeTimer(20, 20)
+
+    expect(afterClose).toHaveBeenCalled()
+    expect(document.querySelector('.ant-modal')).toBeNull()
+  })
+
   it('bodyStyle should apply to confirm content instead of modal body', async () => {
     Modal.confirm({
       title: 'Bamboo',
