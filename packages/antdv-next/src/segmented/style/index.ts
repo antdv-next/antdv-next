@@ -207,18 +207,21 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
           marginInlineStart: token.calc(token.marginSM).div(2).equal(),
         },
 
-        // Icons from third-party libraries render as a bare `<svg>` inside the icon wrapper,
-        // which the `.anticon` reset never reaches. An `<svg>` has no baseline of its own, so it
-        // is aligned by its bottom margin edge (CSS 2.1 §10.8.1) and rides above the label.
-        // `display: inline-block` keeps it an atomic inline box so `vertical-align` still applies
-        // even under a CSS reset that forces `svg { display: block }` (e.g. Tailwind Preflight),
-        // which would otherwise drop the icon onto its own line. `vertical-align: middle` centres its
-        // margin box on the x-height line; `margin-block-end` then lifts it by half its own value onto
-        // the cap-height centre (capHeight − xHeight ≈ 0.2em across typical fonts), keeping it centred
-        // at any icon size.
-        // Only matches a bare `<svg>`: an `.anticon` keeps its `<svg>` one level deeper.
-        '&-icon > svg': {
-          display: 'inline-block',
+        // Centre the icon wrapper on the label text, whatever icon it holds and at any size.
+        // An `.anticon` keeps the `vertical-align: -0.125em` reset, which is measured in the icon's
+        // own `em`: it only lines up for a `1em` icon, so an icon given a larger `fontSize` rides
+        // further above the text the bigger it gets. A bare third-party `<svg>` has no baseline of
+        // its own and rides above the label as well.
+        // The wrapper is an inline flex box, so its child (`.anticon` or bare `<svg>`) is centred
+        // inside it and its own `vertical-align` / `display` (e.g. Tailwind Preflight's
+        // `svg { display: block }`) no longer matter. The wrapper itself keeps the label font size:
+        // `vertical-align: middle` centres its margin box on the x-height line, and
+        // `margin-block-end` lifts it by half its own value onto the cap-height centre
+        // (capHeight − xHeight ≈ 0.2em across typical fonts), the same correction ant-design uses
+        // for bare `<svg>` icons (ant-design/ant-design#58862).
+        '&-icon': {
+          display: 'inline-flex',
+          alignItems: 'center',
           verticalAlign: 'middle',
           marginBlockEnd: '0.2em',
         },
