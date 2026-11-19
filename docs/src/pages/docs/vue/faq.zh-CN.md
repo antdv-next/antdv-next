@@ -4,7 +4,7 @@ title: FAQ
 
 ## 多个组件放一排时没有垂直对齐怎么办？ {#components-are-not-vertically-aligned-when-placed-in-single-row}
 
-尝试使用 [Space](/components/space-cn) 组件来使它们对齐。
+尝试使用 [Space](/components/space) 组件来使它们对齐。
 
 ## 为什么第三方 SVG 图标设置了 margin-block-end？ {#faq-icon-margin-block-end}
 
@@ -18,7 +18,7 @@ Breadcrumb、Collapse、Segmented、Tabs、Tag 等组件会对相应图标插槽
 
 ## 我的组件默认语言是英文的？如何切回中文？ {#how-to-switch-the-default-locale-to-chinese}
 
-请尝试使用 [ConfigProvider](/components/config-provider-cn#config-provider-demo-locale) 组件来包裹你的应用。
+请尝试使用 [ConfigProvider](/components/config-provider#config-provider-demo-locale) 组件来包裹你的应用。
 
 如果日期组件的国际化仍未生效，请配置 `dayjs.locale('zh-cn')` 并**检查你本地的 `dayjs` 版本和 `antdv-next` 依赖的 `dayjs` 版本是否一致**。
 

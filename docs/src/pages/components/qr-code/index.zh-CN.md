@@ -38,7 +38,7 @@ group:
 
 ### 属性 {#props}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | value | 扫描后的文本 | string \| string[] | - | - | × |
 | type | 渲染类型 | `canvas` \| `svg` | `canvas` | - | × |

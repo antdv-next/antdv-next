@@ -47,13 +47,13 @@ antdv setup --client claude          # 为 AI Agent 接入 MCP/Skill
 antdv upgrade                        # 升级 CLI 到最新版本
 ```
 
-完整参考：[CLI](/docs/vue/cli-cn)
+完整参考：[CLI](/docs/vue/cli)
 
 ### design.md — 设计语言上下文 {#design-md}
 
 [design.md](https://antdv-next.com/design.md) 面向 AI 设计工具，描述 antdv-next 默认 Light 主题的视觉语言、组件范式和主题 Token。
 
-完整参考：[design.md](/docs/vue/design-md-cn)
+完整参考：[design.md](/docs/vue/design-md)
 
 ### MCP Server — IDE 集成 {#mcp}
 
@@ -70,7 +70,7 @@ CLI 同时支持作为 MCP 服务器运行，提供 6 个工具，支持 IDE 集
 }
 ```
 
-完整参考：[MCP Server](/docs/vue/mcp-cn)
+完整参考：[MCP Server](/docs/vue/mcp)
 
 ### LLMs.txt — LLM 结构化文档 {#llms-txt}
 
@@ -85,4 +85,4 @@ CLI 同时支持作为 MCP 服务器运行，提供 6 个工具，支持 IDE 集
 
 也可以获取单个组件文档：`https://antdv-next.com/components/<name>.md`。
 
-完整参考：[LLMs.txt](/docs/vue/llms-cn)、[design.md](/docs/vue/design-md-cn)
+完整参考：[LLMs.txt](/docs/vue/llms)、[design.md](/docs/vue/design-md)

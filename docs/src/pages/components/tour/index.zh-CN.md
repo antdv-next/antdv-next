@@ -33,7 +33,7 @@ demo:
 
 ### 属性 {#props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | steps | 引导步骤配置 | TourStepItem[\] | - | - | × |
 | open | 打开引导，支持 `v-model:open` | boolean | false | - | × |

@@ -121,5 +121,5 @@ title: Ant Design of Vue
 
 ## 链接 {#links}
 
-- [首页](/index-cn)
-- [所有组件](/components/overview-cn)
+- [首页](/)
+- [所有组件](/components/overview)

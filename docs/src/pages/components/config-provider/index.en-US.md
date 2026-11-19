@@ -67,7 +67,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | popupMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | - | - |
 | popupOverflow | Select like component popup logic. Can set to show in viewport or follow window scroll | `viewport` \| `scroll` | `viewport` | - |
 | prefixCls | Set prefix className | string | `ant` | - |
-| renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | (componentName?: string) => VueNode | - | - |
+| renderEmpty | Set empty content of components. Ref [Empty](/components/empty) | (componentName?: string) => VueNode | - | - |
 | theme | Set theme, ref [Customize Theme](/docs/vue/customize-theme) | ThemeConfig | - | - |
 | variant | Set variant of data entry components | `outlined` \| `filled` \| `borderless` \| `underlined` | - | - |
 | virtual | Disable virtual scroll when set to `false` | boolean | - | - |
@@ -77,7 +77,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
-| renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | (componentName?: string) => any | - |
+| renderEmpty | Set empty content of components. Ref [Empty](/components/empty) | (componentName?: string) => any | - |
 
 ### ConfigProvider.config() {#config}
 

@@ -60,7 +60,7 @@ demo:
 
 ### 国际化配置 {#localization}
 
-默认配置为 en-US，如果你需要设置其他语言，推荐在入口处使用我们提供的国际化组件，详见：[ConfigProvider](/components/config-provider/)。
+默认配置为 en-US，如果你需要设置其他语言，推荐在入口处使用我们提供的国际化组件，详见：[ConfigProvider](/components/config-provider)。
 
 如有特殊需求（仅修改单一组件的语言），请使用 locale 参数，参考：[默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)。
 
@@ -85,7 +85,7 @@ dayjs.locale('zh-cn')
 
 以下 API 为 DatePicker、RangePicker 共享的 API。
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | allowClear | 是否显示清除按钮 | boolean \| [AllowClearConfig](#allowclearconfig) | true | - | ✓ |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - | ✓ |
@@ -133,7 +133,7 @@ dayjs.locale('zh-cn')
 
 `components` 支持按面板类型自定义面板组件，以及通过 `input` 自定义输入框组件，还支持以下底部按钮。这些配置同样适用于 RangePicker、TimePicker 和 TimePicker.RangePicker。
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | nowButton | 自定义“今天／此刻”按钮 | Component \| string | `button` | 1.8.1 | × |
 | okButton | 自定义确认按钮 | Component \| string | 小号主按钮 | 1.8.1 | × |
@@ -146,7 +146,7 @@ dayjs.locale('zh-cn')
 
 支持全局配置的字段按组件配置、全局配置、默认值的顺序取值。`allowClear` 为 `true` 时继承全局配置；`disabled: false` 和 `tabIndex: 0` 可覆盖全局值。
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | clearIcon | 自定义清除图标 | VueNode | - | - | ✓ |
 | disabled | `true` 时等同于 `allowClear: false` | boolean | false | 1.8.0 | 1.8.0 |
@@ -172,7 +172,7 @@ dayjs.locale('zh-cn')
 | pickerValue | 面板日期，可以用于受控切换面板所在日期。配合 `onPanelChange` 使用。 | [dayjs](https://day.js.org/) | - | - |
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => VueNode | - | - |
 | showNow | 显示当前日期时间的快捷选择 | boolean | - | - |
-| showTime | 增加时间选择功能 | Object \| boolean | [TimePicker Options](/components/time-picker-cn#api) | - |
+| showTime | 增加时间选择功能 | Object \| boolean | [TimePicker Options](/components/time-picker#api) | - |
 | ~~showTime.defaultValue~~ | 请使用 `showTime.defaultOpenValue` | [dayjs](https://day.js.org/) | dayjs() | - |
 | showTime.defaultOpenValue | 设置用户选择日期时默认的时分秒，[例子](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() | - |
 | showWeek | DatePicker 下展示当前周 | boolean | false | - |
@@ -222,7 +222,7 @@ dayjs.locale('zh-cn')
 
 ### RangePicker
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | allowEmpty | 允许起始项部分为空 | [boolean, boolean] | [false, false] | - | × |
 | cellRender | 自定义单元格的内容 | (current: dayjs, info: { originNode: VueNode, today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => VueNode | - | - | × |
@@ -237,7 +237,7 @@ dayjs.locale('zh-cn')
 | presets | 预设时间范围快捷选择，value 支持函数返回值 | { label: VueNode, value: (Dayjs \| (() => Dayjs))[] }[] | - | - | × |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => VueNode | - | - | × |
 | separator | 设置分隔符 | VueNode | `<SwapRightOutlined />` | - | ✓ |
-| showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker-cn#api) | - | × |
+| showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker#api) | - | × |
 | ~~showTime.defaultValue~~ | 请使用 `showTime.defaultOpenValue` | [dayjs](https://day.js.org/)[] | [dayjs(), dayjs()] | - | × |
 | showTime.defaultOpenValue | 设置用户选择日期时默认的时分秒，[例子](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)[] | [dayjs(), dayjs()] | - | × |
 | value | 日期，支持 `v-model:value` | [dayjs](https://day.js.org/)[] | - | - | × |

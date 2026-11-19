@@ -39,7 +39,7 @@ demo:
 
 ### 属性 {#props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
 | defaultValue | 设置初始取值。当 `range` 为 false 时，使用 number，否则用 [number, number] | number \| [number, number] | 0 \| [0, 0] | - | × |
@@ -77,7 +77,7 @@ demo:
 | formatter | Slider 会把当前值传给 `formatter`，并在 Tooltip 中显示 `formatter` 的返回值，若为 null，则隐藏 Tooltip | (value: number) =&gt; VueNode \| null | IDENTITY | - |
 | getPopupContainer | Tooltip 渲染父节点，默认渲染到 body 上 | (triggerNode: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - |
 | open | 值为 true 时，Tooltip 将会始终显示；否则始终不显示，哪怕在拖拽及移入时 | boolean | - | - |
-| placement | 设置 Tooltip 展示位置。参考 [Tooltip](/components/tooltip/) | string | - | - |
+| placement | 设置 Tooltip 展示位置。参考 [Tooltip](/components/tooltip) | string | - | - |
 
 ### 事件 {#events}
 

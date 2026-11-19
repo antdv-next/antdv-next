@@ -36,7 +36,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 #### 属性 {#typography-props}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | direction | 方向控制 | 'ltr' \| 'rtl' | - | - | × |
 
@@ -44,7 +44,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 #### 属性 {#typography-text-props}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | code | 添加代码样式 | boolean | false |  | × |
 | copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  | × |
@@ -72,7 +72,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 #### 属性 {#typography-title-props}
 
-| 参数 | 说明 | 类型 | 默认值 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- |
 | code | 添加代码样式 | boolean | false | × |
 | copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false | × |
@@ -99,7 +99,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 #### 属性 {#typography-paragraph-props}
 
-| 参数 | 说明 | 类型 | 默认值 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- |
 | code | 添加代码样式 | boolean | false | × |
 | copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false | × |
@@ -172,7 +172,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | rows | 最多显示的行数 | number | - |
 | suffix | 自定义省略内容后缀 | string | - |
 | symbol | 自定义展开描述文案 | VueNode \| ((expanded: boolean) =&gt; VueNode) | `展开` `收起` |
-| tooltip | 省略时，展示提示信息 | VueNode \| [TooltipProps](/components/tooltip-cn#api) | - |
+| tooltip | 省略时，展示提示信息 | VueNode \| [TooltipProps](/components/tooltip#api) | - |
 | defaultExpanded | 默认展开或收起 | boolean | - |
 | expanded | 展开或收起 | boolean | - |
 

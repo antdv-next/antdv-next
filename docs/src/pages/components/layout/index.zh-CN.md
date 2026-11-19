@@ -93,7 +93,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 
 #### 属性 {#layout-props}
 
-| 参数 | 说明 | 类型 | 默认值 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- |
 | hasSider | 表示子元素里有 Sider，一般不用指定。可用于服务端渲染时避免样式闪动 | boolean | - | × |
 
@@ -103,7 +103,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| breakpoint | 触发响应式布局的[断点](/components/grid-cn#col) | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` \| `xxxl` | - | xxxl: 1.0.3 |
+| breakpoint | 触发响应式布局的[断点](/components/grid#col) | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` \| `xxxl` | - | xxxl: 1.0.3 |
 | classes | 用于自定义 Sider 组件内部各语义化结构（`root`、`body`）的 class，支持对象或函数 | Record<string, string> \| (info: { props }) => Record<string, string> | - | 1.4.0 |
 | collapsed | 当前收起状态 | boolean | - |  |
 | collapsedWidth | 收缩宽度，设置为 0 会出现特殊 trigger | number | 80 |  |
@@ -119,7 +119,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 
 | 参数         | 说明 | 类型                         | 默认值 |
 |------------| --- |----------------------------| --- |
-| breakpoint | 触发响应式布局[断点](/components/grid-cn#api)时的回调 | (broken: boolean) => void          | - |
+| breakpoint | 触发响应式布局[断点](/components/grid#api)时的回调 | (broken: boolean) => void          | - |
 | collapse   | 展开-收起时的回调函数，有点击 trigger 以及响应式反馈两种方式可以触发 | (collapsed: boolean, type: string) => void | - |
 
 #### 插槽 {#layoutsider-slots}

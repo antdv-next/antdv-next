@@ -47,7 +47,7 @@ demo:
 
 #### Props {#input-props}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | ~~addonAfter~~ | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | VueNode | - | - | × |
 | ~~addonBefore~~ | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | VueNode | - | - | × |
@@ -102,7 +102,7 @@ Input 的其他属性和 Vue 自带的 [input](https://cn.vuejs.org/guide/essent
 
 同 Input 属性，外加：
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | autoSize | 自适应内容高度，可设置为 true \| false 或对象：&#123; minRows: 2, maxRows: 6 &#125; | boolean \| object | false | - | × |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-textarea), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-textarea), string&gt; | - | - | ✓ |
@@ -114,7 +114,7 @@ Input 的其他属性和 Vue 自带的 [input](https://cn.vuejs.org/guide/essent
 
 #### 属性 {#input-search-props}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-search), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-search), string&gt; | - | - | ✓ |
 | enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 `addonAfter` 冲突。 | VueNode | false | - | × |
@@ -143,7 +143,7 @@ Input 的其他属性和 Vue 自带的 [input](https://cn.vuejs.org/guide/essent
 
 #### 属性 {#input-password-props}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classes | 语义化结构 class | Record&lt;[SemanticDOM](#semantic-password), string&gt; | - | - | × |
 | iconRender | 自定义切换按钮 | (visible) =&gt; VueNode | (visible) =&gt; (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | - | × |
@@ -161,7 +161,7 @@ Input 的其他属性和 Vue 自带的 [input](https://cn.vuejs.org/guide/essent
 
 #### 属性 {#input-otp-props}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-otp), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-otp), string&gt; | - | - | ✓ |
 | defaultValue | 设置初始默认值 | string | - | - | × |
@@ -190,7 +190,7 @@ Input 的其他属性和 Vue 自带的 [input](https://cn.vuejs.org/guide/essent
 
 支持全局配置的字段按组件配置、全局配置、默认值的顺序取值。`allowClear` 为 `true` 时继承全局配置；`disabled: false` 和 `tabIndex: 0` 可覆盖全局值。
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | clearIcon | 自定义清除图标 | VueNode | - | - | ✓ |
 | disabled | 禁用清除按钮 | boolean | false | - | ✓ |

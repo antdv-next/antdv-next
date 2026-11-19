@@ -52,7 +52,7 @@ demo:
 
 ### 属性 {#props}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | accept | 接受上传的文件类型，详见 [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string \| [AcceptConfig](#acceptconfig) | - |  | ✓ |
 | action | 上传的地址 | string \| (file) => Promise&lt;string> | - |  | × |
@@ -75,7 +75,7 @@ demo:
 | openFileDialogOnClick | 点击打开文件对话框 | boolean | true |  | × |
 | pastable | 是否支持粘贴文件 | boolean | false | - | × |
 | previewFile | 自定义文件预览逻辑 | (file: File \| Blob) => Promise&lt;dataURL: string> | - |  | × |
-| progress | 自定义进度条样式 | [ProgressProps](/components/progress-cn#api)（仅支持 `type="line"`） | \{ strokeWidth: 2, showInfo: false \} | - | ✓ |
+| progress | 自定义进度条样式 | [ProgressProps](/components/progress#api)（仅支持 `type="line"`） | \{ strokeWidth: 2, showInfo: false \} | - | ✓ |
 | showUploadList | 是否展示文件列表, 可设为一个对象，用于单独设定 `extra`, `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` 和 `downloadIcon` | boolean \| \{ extra?: VueNode \| (file: UploadFile) => VueNode, showPreviewIcon?: boolean \| (file: UploadFile) => boolean, showDownloadIcon?: boolean \| (file: UploadFile) => boolean, showRemoveIcon?: boolean \| (file: UploadFile) => boolean, previewIcon?: VueNode \| (file: UploadFile) => VueNode, removeIcon?: VueNode \| (file: UploadFile) => VueNode, downloadIcon?: VueNode \| (file: UploadFile) => VueNode \} | true | - | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | ✓ |
 | withCredentials | 上传请求时是否携带 cookie | boolean | false |  | × |

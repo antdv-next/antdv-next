@@ -1,9 +1,9 @@
 <docs lang="zh-CN">
-和 [数字输入框](/components/input-number-cn) 组件保持同步。
+和 [数字输入框](/components/input-number) 组件保持同步。
 </docs>
 
 <docs lang="en-US">
-Synchronize with [InputNumber](/components/input-number/) component.
+Synchronize with [InputNumber](/components/input-number) component.
 </docs>
 
 <script setup lang="ts">

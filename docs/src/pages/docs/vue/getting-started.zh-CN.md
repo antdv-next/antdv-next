@@ -42,7 +42,7 @@ const value = ref()
 
 ### 3. 探索更多组件用法 {#explore-components}
 
-你可以在组件页面的左侧菜单查看组件列表，比如 [Alert](/components/alert-cn) 组件，组件文档中提供了各类演示，最下方有组件 API 文档可以查阅。
+你可以在组件页面的左侧菜单查看组件列表，比如 [Alert](/components/alert) 组件，组件文档中提供了各类演示，最下方有组件 API 文档可以查阅。
 
 在代码演示部分找到第一个例子，点击“显示代码”图标查看源码。你可以直接复制代码到 StackBlitz 中尝试并自行调整。
 

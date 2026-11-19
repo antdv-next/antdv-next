@@ -33,7 +33,7 @@ demo:
 
 #### 属性 {#statistic-props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classes | 用于自定义 Statistic 组件内部各语义化结构的 class，支持对象或函数 | StatisticClassNamesType | - | - | ✓ |
 | decimalSeparator | 设置小数点 | string | `.` | - | × |

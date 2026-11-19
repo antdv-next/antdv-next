@@ -76,7 +76,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | formatter | Slider will pass its value to `formatter`, display its value in Tooltip, and hide the Tooltip when the returned value is null | (value: number) =&gt; VueNode \| null | IDENTITY | - |
 | getPopupContainer | The DOM container of the Tooltip. The default behavior is to create a div element in the body | (triggerNode: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - |
 | open | If true, Tooltip will always be visible; if false, it will never be visible, even when dragging or hovering | boolean | - | - |
-| placement | Set Tooltip display position. Ref [Tooltip](/components/tooltip/) | string | - | - |
+| placement | Set Tooltip display position. Ref [Tooltip](/components/tooltip) | string | - | - |
 
 ### Events {#events}
 

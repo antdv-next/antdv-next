@@ -36,7 +36,7 @@ demo:
 
 ### 属性 {#props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | cancelButtonProps | cancel 按钮 props | ButtonProps | - | - | × |
 | cancelText | 取消按钮文字 | VueNode | `取消` | - | × |
@@ -51,7 +51,7 @@ demo:
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | PopconfirmClassNamesType | - | - | ✓ |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | PopconfirmStylesType | - | - | ✓ |
 
-Popconfirm 还支持 Popover 的所有属性，详见 [Popover](/components/popover-cn#api)。
+Popconfirm 还支持 Popover 的所有属性，详见 [Popover](/components/popover#api)。
 
 ### 事件 {#events}
 
@@ -85,4 +85,4 @@ Popconfirm 还支持 Popover 的所有属性，详见 [Popover](/components/popo
 
 ## FAQ
 
-更多问题，请参考 [Tooltip FAQ](/components/tooltip-cn#faq)。
+更多问题，请参考 [Tooltip FAQ](/components/tooltip#faq)。

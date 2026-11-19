@@ -124,7 +124,7 @@ type DisabledTime = (now: Dayjs) => {
 
 ### RangePicker
 
-Same props from [RangePicker](/components/date-picker/#rangepicker) of DatePicker. And includes additional props:
+Same props from [RangePicker](/components/date-picker#rangepicker) of DatePicker. And includes additional props:
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |

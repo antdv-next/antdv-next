@@ -66,7 +66,7 @@ demo:
 
 `config` 对象属性如下：
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | class | 自定义 CSS class | string | - | - | ✓ |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | ArgsClassNamesType | - | - | ✓ |
@@ -96,7 +96,7 @@ message.config({
 })
 ```
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | duration | 默认自动关闭延时，单位秒 | number | 3 | - | × |
 | getContainer | 配置渲染节点的输出位置，但依旧为全屏展示 | () =&gt; HTMLElement \| ShadowRoot | () =&gt; document.body | - | × |
@@ -138,7 +138,7 @@ const [api, ContextHolder] = message.useMessage()
 
 **注意：** 通过 hooks 创建的 `ContextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用静态方法。
 
-> 可通过 [App 包裹组件](/components/app-cn) 简化 `useMessage` 等方法需要手动植入 ContextHolder 的问题。
+> 可通过 [App 包裹组件](/components/app) 简化 `useMessage` 等方法需要手动植入 ContextHolder 的问题。
 
 如果你仍然需要使用静态方法，并希望它读取 `locale`、`theme` 或其他 ConfigProvider 配置，可以在应用初始化时统一配置一次 `holderRender`：
 
@@ -159,4 +159,4 @@ ConfigProvider.config({
 
 ### 静态方法如何设置 prefixCls？ {#faq-set-prefix-cls}
 
-你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#config) 进行设置。
+你可以通过 [`ConfigProvider.config`](/components/config-provider#config) 进行设置。

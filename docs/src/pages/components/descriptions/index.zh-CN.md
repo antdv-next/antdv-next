@@ -32,7 +32,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*d27AQJrowGAAAA
 
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | bordered | 是否展示边框 | boolean | false | - | × |
 | size | 设置列表的大小。可以设置为 `medium` 、`small`, 或不填（只有设置 `bordered=&#123;true&#125;` 生效） | `large` \| `medium` \| `small` | `large` | - | × |

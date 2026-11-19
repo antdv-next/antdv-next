@@ -42,7 +42,7 @@ demo:
 
 #### 属性 {#tree-props}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | allowDrop | 是否允许拖拽时放置在该节点 | (&#123; dropNode, dropPosition &#125;) =&gt; boolean | - | - | × |
 | autoExpandParent | 是否自动展开父节点 | boolean | false | - | × |

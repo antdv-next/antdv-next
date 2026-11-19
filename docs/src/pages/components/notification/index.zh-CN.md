@@ -56,7 +56,7 @@ demo:
 
 `config` 参数如下：
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | title | 通知提醒标题 | VueNode | - | - | × |
 | description | 通知提醒内容 | VueNode | - | - | × |
@@ -83,7 +83,7 @@ demo:
 
 `config` 参数如下：
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素 | number | 24 | - | × |
 | bottom | 消息从底部弹出时，距离底部的位置，单位像素 | number | 24 | - | × |
@@ -165,7 +165,7 @@ const [api, ContextHolder] = notification.useNotification()
 
 **注意：** 通过 hooks 创建的 `ContextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用静态方法。
 
-> 可通过 [App 包裹组件](/components/app-cn) 简化 `useNotification` 等方法需要手动植入 ContextHolder 的问题。
+> 可通过 [App 包裹组件](/components/app) 简化 `useNotification` 等方法需要手动植入 ContextHolder 的问题。
 
 如果你仍然需要使用静态方法，并希望它读取 `locale`、`theme` 或其他 ConfigProvider 配置，可以在应用初始化时统一配置一次 `holderRender`：
 
@@ -186,7 +186,7 @@ ConfigProvider.config({
 
 ### 静态方法如何设置 prefixCls？ {#faq-set-prefix-cls}
 
-你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#config) 进行设置。
+你可以通过 [`ConfigProvider.config`](/components/config-provider#config) 进行设置。
 
 ### 为什么 `style="width: max-content"` 在 Notification 上不生效？ {#faq-notification-width}
 

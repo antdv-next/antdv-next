@@ -37,7 +37,7 @@ group:
 
 #### 属性 {#anchor-props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | affix | 固定模式 | boolean \| Omit&lt;AffixProps, 'offsetTop' \| 'target' \| 'children'&gt; | true | | × |
 | bounds | 锚点区域边界 | number | 5 | - | × |

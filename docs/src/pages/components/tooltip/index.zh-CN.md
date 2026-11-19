@@ -37,7 +37,7 @@ demo:
 
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | align | 浮层对齐方式配置 | AlignType | - | - | × |
 | arrow | 支持显示、隐藏以及将箭头保持居中定位 | boolean \| &#123; pointAtCenter?: boolean &#125; | - | - | ✓ |

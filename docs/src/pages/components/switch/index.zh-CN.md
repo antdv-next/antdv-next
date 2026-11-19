@@ -33,7 +33,7 @@ demo:
 
 ### 属性 {#props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | autoFocus | 组件挂载时自动获取焦点 | boolean | false | - | × |
 | checked | 指定当前是否选中，支持 `v-model:checked` | string \| number \| boolean \| object | false | - | × |
