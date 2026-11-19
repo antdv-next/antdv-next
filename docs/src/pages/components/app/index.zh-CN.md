@@ -125,7 +125,7 @@ App 组件只能在 `ConfigProvider` 之下才能使用 Design Token， 如果�
 通用属性参考：[通用属性](/docs/vue/common-props)
 
 
-| 属性         | 说明                                      | 类型               | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性         | 说明                                      | 类型               | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | ------------ | ----------------------------------------- | ------------------ | ------ | ---- | --- |
 | message      | App 内 Message 的全局配置                 | MessageConfig      | -      |      | × |
 | notification | App 内 Notification 的全局配置            | NotificationConfig | -      |      | × |

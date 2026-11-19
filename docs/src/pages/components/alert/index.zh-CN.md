@@ -41,7 +41,7 @@ group:
 
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | type | 指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error` | 'success' \| 'info' \| 'warning' \| 'error' | `info`，`banner` 模式下默认值为 `warning` | - | × |
 | variant | 警告提示样式变体 | `outlined` \| `filled` | `outlined` | 1.3.0 | ✓ |

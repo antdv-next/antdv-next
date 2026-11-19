@@ -46,7 +46,7 @@ demo:
 
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | afterOpenChange | 切换抽屉时动画结束后的回调 | (open: boolean) => void | - | - | × |
 | classes | 用于自定义 Drawer 组件内部各语义化结构的 class，支持对象或函数 | DrawerClassNamesType | - | - | ✓ |

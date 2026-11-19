@@ -16,7 +16,7 @@ Antdv Next 依次提供了三级选项卡，分别用于不同的场景。
 
 - 卡片式的页签，提供可关闭的样式，常用于容器顶部。
 - 既可用于容器顶部，也可用于容器内部，是最通用的 Tabs。
-- [Radio.Button](/components/radio-cn/#radio-demo-radiobutton) 可作为更次级的页签来使用。
+- [Radio.Button](/components/radio#radio-demo-radiobutton) 可作为更次级的页签来使用。
 
 ## 示例 {#examples}
 
@@ -46,7 +46,7 @@ Antdv Next 依次提供了三级选项卡，分别用于不同的场景。
 
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | activeKey | 当前激活 tab 面板的 key，支持 `v-model:active-key` | string | - | - | × |
 | addIcon | 自定义添加按钮，设置 `type="editable-card"` 时有效 | VueNode | `<PlusOutlined />` | - | ✓ |

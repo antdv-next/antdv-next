@@ -32,7 +32,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAA
 
 ### 通用图标 {#common-icon}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | class | 设置图标的样式名 | string | - | | × |
 | rotate | 图标旋转角度（IE9 无效） | number | - | | × |
@@ -56,7 +56,7 @@ import { StarFilled, StarOutlined, StarTwoTone } from '@antdv-next/icons'
 
 ### 自定义 Icon {#custom-icon}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 React 组件 | ComponentType&lt;CustomIconComponentProps> | - | | × |
 | rotate | 图标旋转角度（IE9 无效） | number | - | | × |

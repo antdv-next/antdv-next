@@ -4,7 +4,7 @@ title: FAQ
 
 ## Components are not vertically aligned when placed in single row.
 
-Try [Space](/components/space/) component to make them aligned.
+Try [Space](/components/space) component to make them aligned.
 
 ## Why do third-party SVG icons have margin-block-end? {#faq-icon-margin-block-end}
 

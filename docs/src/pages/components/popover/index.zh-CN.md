@@ -35,14 +35,14 @@ demo:
 
 ### 属性 {#props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | title | 卡片标题 | VueNode | - | - | × |
 | content | 卡片内容 | VueNode | - | - | × |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | PopoverClassNamesType | - | - | ✓ |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | PopoverStylesType | - | - | ✓ |
 
-Popover 还支持 Tooltip 的所有属性，详见 [Tooltip](/components/tooltip-cn#api)。
+Popover 还支持 Tooltip 的所有属性，详见 [Tooltip](/components/tooltip#api)。
 
 ### 事件 {#events}
 
@@ -73,4 +73,4 @@ Popover 还支持 Tooltip 的所有属性，详见 [Tooltip](/components/tooltip
 
 ## FAQ
 
-更多问题，请参考 [Tooltip FAQ](/components/tooltip-cn#faq)。
+更多问题，请参考 [Tooltip FAQ](/components/tooltip#faq)。

@@ -122,7 +122,7 @@ antdv design.md --format json  # JSON 格式输出
 | `antdv upgrade` | 将 CLI 升级到最新版本                                                |
 
 `antdv mcp` 命令启动 [Model Context Protocol](https://modelcontextprotocol.io/) 服务器，让 AI 助手可以直接访问 Antdv Next
-知识。详细配置参见 [MCP Server](/docs/vue/mcp-cn) 指南。
+知识。详细配置参见 [MCP Server](/docs/vue/mcp) 指南。
 
 `antdv setup` 命令可以写入 MCP 配置、安装内置 Antdv Next Skill，或同时完成两者：
 
@@ -166,5 +166,5 @@ npx skills add antdv-next/cli
 
 - [@antdv-next/cli GitHub 仓库](https://github.com/antdv-next/cli)
 - [@antdv-next/cli npm 地址](https://www.npmjs.com/package/@antdv-next/cli)
-- [Antdv-Next LLMs.txt 指南](/docs/vue/llms-cn)
-- [Antdv-Next MCP Server](/docs/vue/mcp-cn)
+- [Antdv-Next LLMs.txt 指南](/docs/vue/llms)
+- [Antdv-Next MCP Server](/docs/vue/mcp)

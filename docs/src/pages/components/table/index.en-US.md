@@ -125,16 +125,16 @@ Common props ref：[Common props](/docs/vue/common-props)
 | expandable | Config expandable content | [expandable](#expandable) | - |  | ✓ |
 | footer | Table footer renderer. You can also use the `#footer` slot. | VueNode \| function(currentPageData) | - | - | × |
 | getPopupContainer | The render container of dropdowns in table| (triggerNode) => HTMLElement | () => TableHtmlElement | - | × |
-| loading | Loading status of table | boolean \| [Spin Props](/components/spin/#props) | false | - | × |
+| loading | Loading status of table | boolean \| [Spin Props](/components/spin#props) | false | - | × |
 | locale | The i18n text including filter, sort, empty text, etc | object | [默认值](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/zh_CN.tsx#L20-L37) | - | × |
-| pagination |Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | false \| TablePaginationConfig | - | - | × |
+| pagination |Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination) document, hide it by setting it to `false` | false \| TablePaginationConfig | - | - | × |
 | rowClassName | Row's className | function(record, index): string | - |  | × |
 | rowKey | Row's unique key, could be a string or function that returns a string | string \| function(record): string | `key` | - | ✓ |
 | rowSelection | Row selection [config](#rowselection) | object | - | - | × |
 | rowHoverable | Row hover | boolean | true | - | × |
 | scroll | Whether the table can be scrollable, [config](#scroll) | object | - | - | ✓ |
 | showHeader | Whether to show table header | boolean | true | - | × |
-| showSorterTooltip | The header show next sorter direction tooltip. It will be set as the property of Tooltip if its type is object | boolean \| [Tooltip props](/components/tooltip/) & `{target?: 'full-header' \| 'sorter-icon' }` | \{ target: 'full-header' \} | - | × |
+| showSorterTooltip | The header show next sorter direction tooltip. It will be set as the property of Tooltip if its type is object | boolean \| [Tooltip props](/components/tooltip) & `{target?: 'full-header' \| 'sorter-icon' }` | \{ target: 'full-header' \} | - | × |
 | size | Size of table | `large` \| `medium` \| `small` | `large` |  | × |
 | sortDirections | Supported sort way, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] | - | × |
 | sticky | Set sticky header and scroll bar | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | - | × |
@@ -237,7 +237,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | responsive | The list of breakpoints at which to display this column. Always visible if not set | [Breakpoint](https://github.com/antdv-next/antdv-next/blob/main/packages/antdv-next/src/_util/responsiveObserver.ts#L9)\[] | - | - |
 | rowScope | Set scope attribute for all cells in this column | `row` \| `rowgroup` | - | - |
 | shouldCellUpdate | Control cell render logic | (record, prevRecord) => boolean | - | - |
-| showSorterTooltip | If header show next sorter direction tooltip, override `showSorterTooltip` in table | boolean \| [Tooltip props](/components/tooltip/) & `{target?: 'full-header' \| 'sorter-icon' }` | \{ target: 'full-header' \} | - |
+| showSorterTooltip | If header show next sorter direction tooltip, override `showSorterTooltip` in table | boolean \| [Tooltip props](/components/tooltip) & `{target?: 'full-header' \| 'sorter-icon' }` | \{ target: 'full-header' \} | - |
 | sortDirections | Supported sort way, override `sortDirections` in `Table`, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] | - |
 | sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If it is server-side sorting, set to `true`, but if you want to support multi-column sorting, you can set it to `{ multiple: number }` | function \| boolean \| \{ compare: function, multiple: number \} | - | - |
 | sortOrder | Order of sorted values: `ascend` `descend` `null` | `ascend` \| `descend` \| null | - | - |
@@ -279,7 +279,7 @@ Properties for pagination.
 | --- | --- | --- | --- |
 | placement | Specify the placement of `Pagination`, could be`topStart` \| `topCenter` \| `topEnd` \|`bottomStart` \| `bottomCenter` \| `bottomEnd` \| `none` | Array | \[`bottomEnd`] |
 
-More about pagination, please check [`Pagination`](/components/pagination/).
+More about pagination, please check [`Pagination`](/components/pagination).
 
 ### expandable
 

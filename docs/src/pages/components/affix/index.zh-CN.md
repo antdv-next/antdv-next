@@ -32,7 +32,7 @@ group:
 
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | offsetTop | 距离窗口顶部达到指定偏移量后触发 | number | 0 | - | × |
 | offsetBottom | 距离窗口底部达到指定偏移量后触发 | number | - | - | × |

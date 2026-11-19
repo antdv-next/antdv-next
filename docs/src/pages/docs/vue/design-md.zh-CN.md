@@ -16,7 +16,7 @@ tag: New
 | 来源 | 说明 |
 | --- | --- |
 | [design.md](https://antdv-next.com/design.md) | 已发布的原始文件,AI 工具可直接通过 URL 读取 |
-| `antdv design.md` | CLI 命令输出相同内容(见 [CLI 指南](/docs/vue/cli-cn)) |
+| `antdv design.md` | CLI 命令输出相同内容(见 [CLI 指南](/docs/vue/cli)) |
 | [llms.txt](https://antdv-next.com/llms.txt) | 导航文件,包含 design.md 与所有组件文档的链接 |
 
 ## Design Token
@@ -78,6 +78,6 @@ npx @google/design.md diff design.md design-v2.md
 
 ## 相关链接 {#related}
 
-- [LLMs.txt 指南](/docs/vue/llms-cn) — 面向 AI 工具的结构化文档
-- [CLI 指南](/docs/vue/cli-cn) — `antdv design.md` 等离线命令
-- [定制主题](/docs/vue/customize-theme-cn) — 主题 Token 与算法
+- [LLMs.txt 指南](/docs/vue/llms) — 面向 AI 工具的结构化文档
+- [CLI 指南](/docs/vue/cli) — `antdv design.md` 等离线命令
+- [定制主题](/docs/vue/customize-theme) — 主题 Token 与算法

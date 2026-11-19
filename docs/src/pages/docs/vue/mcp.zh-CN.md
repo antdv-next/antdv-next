@@ -94,7 +94,7 @@ antdv setup --client codex
 
 ## 备选方案：使用 LLMs.txt {#alternative-llms-txt}
 
-如果您的 AI 工具不支持 MCP，可以使用我们的 [LLMs.txt](/docs/vue/llms-cn) 支持。我们提供：
+如果您的 AI 工具不支持 MCP，可以使用我们的 [LLMs.txt](/docs/vue/llms) 支持。我们提供：
 
 - [llms.txt](https://antdv-next.com/llms.txt) - 所有组件的结构化概览
 - [llms-full.txt](https://antdv-next.com/llms-full.txt) - 包含示例的完整文档
@@ -102,6 +102,6 @@ antdv setup --client codex
 ## 了解更多 {#learn-more}
 
 - [Model Context Protocol 文档](https://modelcontextprotocol.io/)
-- [Antdv Next CLI](/docs/vue/cli-cn)
+- [Antdv Next CLI](/docs/vue/cli)
 - [@antdv-next/cli GitHub 仓库](https://github.com/antdv-next/cli)
-- [Antdv Next LLMs.txt 指南](/docs/vue/llms-cn)
+- [Antdv Next LLMs.txt 指南](/docs/vue/llms)

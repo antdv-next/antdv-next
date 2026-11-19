@@ -41,13 +41,13 @@ demo:
 
 ### TimePicker
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | allowClear | 是否显示清除按钮 | boolean \| [AllowClearConfig](#allowclearconfig) | true | - | ✓ |
 | ~~addon~~ | TimePicker 面板底部的附加内容渲染函数，请使用 `renderExtraFooter` 替代 | () => VueNode | - | - | × |
 | cellRender | 自定义单元格的内容 | (current: number, info: \{ originNode: VueNode, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' \}) => VueNode | - | - | × |
 | changeOnScroll | 在滚动时改变选择值 | boolean | false | - | × |
-| components | 自定义面板、输入框和底部按钮，详见 [DatePicker Components](/components/date-picker-cn#components) | [Components](/components/date-picker-cn#components) | - | `nowButton` 和 `okButton`：1.8.1 | × |
+| components | 自定义面板、输入框和底部按钮，详见 [DatePicker Components](/components/date-picker#components) | [Components](/components/date-picker#components) | - | `nowButton` 和 `okButton`：1.8.1 | × |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), string> | - |  | ✓ |
 | defaultValue | 默认时间 | [dayjs](http://day.js.org/) | - |  | × |
 | disabled | 禁用全部操作 | boolean | false |  | × |
@@ -83,7 +83,7 @@ demo:
 
 支持全局配置的字段按组件配置、全局配置、默认值的顺序取值。`allowClear` 为 `true` 时继承全局配置；`disabled: false` 和 `tabIndex: 0` 可覆盖全局值。
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | clearIcon | 自定义清除图标 | VueNode | - | - | ✓ |
 | disabled | `true` 时等同于 `allowClear: false` | boolean | false | 1.8.0 | 1.8.0 |
@@ -125,7 +125,7 @@ type DisabledTime = (now: Dayjs) => {
 
 ### RangePicker
 
-属性与 DatePicker 的 [RangePicker](/components/date-picker-cn#rangepicker) 相同。还包含以下属性：
+属性与 DatePicker 的 [RangePicker](/components/date-picker#rangepicker) 相同。还包含以下属性：
 
 | 参数         | 说明                 | 类型                                    | 默认值 | 版本   |
 | ------------ | -------------------- | --------------------------------------- | ------ | ------ |

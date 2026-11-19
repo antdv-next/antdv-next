@@ -32,7 +32,7 @@ demo:
 
 #### 属性 {#checkbox-props}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | checked | 指定当前是否选中，支持 `v-model:checked` | string \| number \| boolean \| object | false | - | × |
 | checkedValue | 选中时的值 | string \| number \| boolean \| object | true | - | × |

@@ -36,7 +36,7 @@ group:
 
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- |
 | dashed | 是否虚线 | boolean | false | × |
 | orientation | 水平或垂直类型 | `horizontal` \| `vertical` | `horizontal` | × |

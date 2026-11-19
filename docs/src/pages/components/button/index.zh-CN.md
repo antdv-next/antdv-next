@@ -59,7 +59,7 @@ group:
 
 通过设置 Button 的属性来产生不同的按钮样式，推荐顺序为：`type` -> `shape` -> `size` -> `loading` -> `disabled`。
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | autoInsertSpace | 我们默认提供两个汉字之间的空格，可以设置 `autoInsertSpace` 为 `false` 关闭 | boolean | `true` | - | ✓ |
 | block | 将按钮宽度调整为其父宽度的选项 | boolean | false | - | × |
@@ -135,7 +135,7 @@ group:
 
 ### 如何关闭点击波纹效果？ {#faq-close-wave-effect}
 
-如果你不需要这个特性，可以设置 [ConfigProvider](/components/config-provider-cn#api) 的 `wave` 的 `disabled` 为 `true`。
+如果你不需要这个特性，可以设置 [ConfigProvider](/components/config-provider#api) 的 `wave` 的 `disabled` 为 `true`。
 
 ```vue
 <template>

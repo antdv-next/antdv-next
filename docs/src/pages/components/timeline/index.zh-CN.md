@@ -39,7 +39,7 @@ demo:
 
 ### 属性 {#props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;SemanticDOM, string&gt; | - | - | ✓ |
 | items | 选项配置 | TimelineItemProps[] | - | - | × |

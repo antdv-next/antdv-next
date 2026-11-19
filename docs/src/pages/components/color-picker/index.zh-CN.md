@@ -41,7 +41,7 @@ group:
 
 ### 属性 {#props}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | allowClear | 允许清除选择的颜色 | boolean | false | - | × |
 | arrow | 配置弹出的箭头 | boolean \| &#123; pointAtCenter: boolean &#125; | true | - | ✓ |

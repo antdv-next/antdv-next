@@ -40,7 +40,7 @@ tag: 1.3.0
 
 ### 属性 {#props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | color | 流光颜色配置，支持单色字符串或渐变停靠点数组。`percent` 使用 `0 ~ 100` 的输入区间，组件会在内部为尾部透明过渡预留空间 | `string \| { color: string, percent: number }[]` | - | - | × |
 | count | 均匀分布的流光数量，应为正整数 | number | 1 | - | × |

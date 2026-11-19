@@ -38,7 +38,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 
 #### 属性 {#card-props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | title | 卡片标题 | VueNode | - | - | × |
 | extra | 卡片右上角的操作区域 | VueNode | - | - | × |
@@ -56,7 +56,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 | tabBarExtraContent | tab bar 上额外的元素 | VueNode \| &#123; [key: string]: VueNode &#125; | - | - | × |
 | activeTabKey | 当前激活页签的 key | string | - | - | × |
 | defaultActiveTabKey | 初始化选中页签的 key，如果没有设置 activeTabKey | string | `第一个页签的 key` | - | × |
-| tabProps | [Tabs](/components/tabs-cn#tabs) | Record&lt;string, any&gt; | - | - | × |
+| tabProps | [Tabs](/components/tabs#tabs) | Record&lt;string, any&gt; | - | - | × |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | CardClassNamesType | - | - | ✓ |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | CardStylesType | - | - | ✓ |
 | variant | 形态变体 | 'borderless' \| 'outlined' | `outlined` | - | ✓ |
@@ -93,7 +93,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 
 #### 属性 {#card-meta-props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | prefixCls | - | string | - | - | × |
 | avatar | - | VueNode | - | - | × |

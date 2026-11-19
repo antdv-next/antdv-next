@@ -38,7 +38,7 @@ demo:
 
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | allowClear | 是否显示清除按钮 | boolean \| [AllowClearConfig](#allowclearconfig) | false | - | 1.8.0 |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
@@ -83,7 +83,7 @@ demo:
 | treeExpandAction | 点击节点 title 时的展开逻辑，可选：false \| `click` \| `doubleClick` | string \| boolean | false | - | × |
 | treeExpandedKeys | 设置展开的树节点 | string[] | - | - | × |
 | treeIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | boolean | false | - | × |
-| treeLine | 是否展示线条样式，请参考 [Tree - showLine](/components/tree-cn#tree-demo-line) | boolean \| object | false | - | × |
+| treeLine | 是否展示线条样式，请参考 [Tree - showLine](/components/tree#tree-demo-line) | boolean \| object | false | - | × |
 | treeLoadedKeys | （受控）已经加载的节点，需要配合 `loadData` 使用 | Key[] | [] | - | × |
 | treeNodeLabelProp | 作为显示的 prop 设置 | string | `title` | - | × |
 | value | 指定当前选中的条目，支持 `v-model:value` | string \| string[] | - | - | × |
@@ -126,7 +126,7 @@ demo:
 
 支持通过 `ConfigProvider.treeSelect.allowClear` 进行全局配置（1.8.0）。字段按组件配置、全局配置、默认值的顺序取值。`allowClear` 为 `true` 时继承全局配置；`disabled: false` 和 `tabIndex: 0` 可覆盖全局值。
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | clearIcon | 自定义清除图标 | VueNode | - | - | 1.8.0 |
 | disabled | `true` 时等同于 `allowClear: false` | boolean | false | 1.8.0 | 1.8.0 |
@@ -174,7 +174,7 @@ demo:
 
 ### 自定义 Option 样式导致滚动异常怎么办？ {#faq-custom-option-scroll}
 
-请参考 Select 的 [FAQ](/components/select-cn)。
+请参考 Select 的 [FAQ](/components/select)。
 
 ### 为何在搜索时 `loadData` 不会触发展开？ {#faq-load-data-expand}
 
