@@ -11,6 +11,7 @@ import type { FormLabelAlign, ScrollFocusOptions } from './interface'
 import type {
   FieldData,
   FormInstance,
+  FormValues,
   InternalNamePath,
   NamePath,
   RulesMap,
@@ -124,7 +125,7 @@ export type FormStylesType = SemanticStylesType<FormProps, FormSemanticStyles>
 
 export interface FormProps<Values = Record<string, any>> extends ComponentBaseProps,
   /* @vue-ignore */
-  FormEmitsProps {
+  FormEmitsProps<Values> {
   classes?: FormClassNamesType
   styles?: FormStylesType
   colon?: boolean
@@ -152,23 +153,23 @@ export interface FormProps<Values = Record<string, any>> extends ComponentBasePr
   tooltip?: FormTooltipProps
 }
 
-export interface FormEmits {
-  finish: (values: Record<string, any>) => void
-  finishFailed: (errorInfo: ValidateErrorEntity) => void
+export interface FormEmits<Values = any> {
+  finish: (values: FormValues<Values>) => void
+  finishFailed: (errorInfo: ValidateErrorEntity<FormValues<Values>>) => void
   submit: (e: Event) => void
   reset: (e: Event) => void
   validate: (name: InternalNamePath, status: boolean, errors: any[] | null) => void
-  valuesChange: (changedValues: Record<string, any>, values: Record<string, any>) => void
+  valuesChange: (changedValues: Record<string, any>, values: FormValues<Values>) => void
   fieldsChange: (changedFields: FieldData[], allFields: FieldData[]) => void
 }
-export interface FormEmitsProps {
-  onFinish?: FormEmits['finish']
-  onFinishFailed?: FormEmits['finishFailed']
-  onSubmit?: FormEmits['submit']
-  onReset?: FormEmits['reset']
-  onValidate?: FormEmits['validate']
-  onValuesChange?: FormEmits['valuesChange']
-  onFieldsChange?: FormEmits['fieldsChange']
+export interface FormEmitsProps<Values = any> {
+  onFinish?: FormEmits<Values>['finish']
+  onFinishFailed?: FormEmits<Values>['finishFailed']
+  onSubmit?: FormEmits<Values>['submit']
+  onReset?: FormEmits<Values>['reset']
+  onValidate?: FormEmits<Values>['validate']
+  onValuesChange?: FormEmits<Values>['valuesChange']
+  onFieldsChange?: FormEmits<Values>['fieldsChange']
 }
 
 export interface FormSlots {

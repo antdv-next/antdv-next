@@ -104,6 +104,57 @@ describe('form.TypeScript', () => {
     expect(wrapper.exists()).toBeTruthy()
   })
 
+  it('infers model generics in Form emits and keeps untyped subsets narrowed', () => {
+    interface ProfileForm {
+      username: string
+      profile: { age: number }
+    }
+
+    const model: ProfileForm = { username: 'A', profile: { age: 1 } }
+    const vnode = (
+      <Form
+        model={model}
+        onFinish={(_values) => {
+          const check: Equal<typeof _values, ProfileForm> = true
+          expect(check).toBe(true)
+        }}
+        onValuesChange={(_changed, _values) => {
+          const check: Equal<typeof _values, ProfileForm> = true
+          expect(check).toBe(true)
+        }}
+        onFinishFailed={(_errorInfo) => {
+          const check: Equal<typeof _errorInfo.values, ProfileForm> = true
+          expect(check).toBe(true)
+        }}
+      />
+    )
+    const untypedVNode = (
+      <Form
+        model={{ username: 'A' } as any}
+        onFinish={(_values) => {
+          const check: Equal<typeof _values, Record<string, any>> = true
+          expect(check).toBe(true)
+        }}
+      />
+    )
+
+    const untyped = {} as FormInstance
+    const typed = {} as FormInstance<ProfileForm>
+    const flag = true as true | undefined
+    const _untypedSubset = () => untyped.getFieldsValue(['username'])
+    const _typedSubset = () => typed.getFieldsValue([['profile', 'age']])
+    const _dynamic = () => typed.getFieldsValue(flag)
+    const subsetChecks: [
+      Equal<ReturnType<typeof _untypedSubset>, Record<string, any>>,
+      Equal<ReturnType<typeof _typedSubset>, Record<string, any>>,
+      Equal<ReturnType<typeof _dynamic>, Record<string, any>>,
+    ] = [true, true, true]
+
+    expect(subsetChecks).toEqual([true, true, true])
+    expect(vnode).toBeTruthy()
+    expect(untypedVNode).toBeTruthy()
+  })
+
   it('supports semantic props and emits typing', () => {
     const props: FormProps = {
       layout: 'horizontal',
