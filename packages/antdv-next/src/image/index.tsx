@@ -122,11 +122,11 @@ export interface ImageEmitsProps {
 }
 
 export interface ImageSlots {
-  fallback: () => any
-  placeholder: () => any
-  imageRender: () => any
-  cover: () => any
-  actionsRender: () => OriginPreviewConfig['actionsRender']
+  fallback?: () => any
+  placeholder?: () => any
+  imageRender?: () => any
+  cover?: () => any
+  actionsRender?: () => OriginPreviewConfig['actionsRender']
 }
 const Image = defineComponent<
   ImageProps,

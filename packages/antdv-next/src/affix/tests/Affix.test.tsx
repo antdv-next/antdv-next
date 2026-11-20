@@ -220,7 +220,7 @@ describe('affix Render', () => {
       expect(secondEvents.scroll).toBeTypeOf('function')
 
       classRect.placeholder = { top: -100, bottom: -100 } as DOMRect
-      secondEvents.scroll({ type: 'scroll' } as Event)
+      secondEvents.scroll!({ type: 'scroll' } as Event)
       await waitFakeTimer()
       expect(wrapper.element.querySelector('.ant-affix')).toBeTruthy()
 
