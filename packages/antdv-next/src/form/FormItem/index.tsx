@@ -40,8 +40,8 @@ export type FeedbackIcons = (itemStatus: {
   warnings?: any[]
 }) => { [key in ValidateStatus]?: any }
 
-export interface BaseFormItemProps {
-  name?: NamePath
+export interface BaseFormItemProps<Values = any> {
+  name?: NamePath<Values>
   rules?: Rule[]
   trigger?: TriggerType | TriggerType[]
   validateTrigger?: TriggerType | TriggerType[] | false
@@ -50,7 +50,7 @@ export interface BaseFormItemProps {
   preserve?: boolean
 }
 
-export type FormItemProps = BaseFormItemProps
+export type FormItemProps<Values = any> = BaseFormItemProps<Values>
   & ComponentBaseProps
   & Omit<FormItemLabelProps, 'requiredMark'>
   & FormItemInputProps

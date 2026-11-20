@@ -1,6 +1,5 @@
 import type { InjectionKey, ShallowRef } from 'vue'
-import type { FormInstance } from '../Form'
-import type { NamePath } from '../types'
+import type { FormInstance, NamePath } from '../types'
 import { warning } from '@v-c/util/dist/warning'
 import { getCurrentInstance, inject, provide, shallowRef } from 'vue'
 import { toArray } from '../util'
@@ -45,7 +44,7 @@ function useFormHookRegistry(): FormHookRegistry {
   return registry
 }
 
-export type FormHookInstance = FormInstance & ((instance: any) => void)
+export type FormHookInstance<Values = any> = FormInstance<Values> & ((instance: any) => void)
 
 /**
  * Create a form instance proxy before the Form component mounts.
@@ -61,8 +60,8 @@ export type FormHookInstance = FormInstance & ((instance: any) => void)
  * Form mounts, capturing a no-op and losing connection to the instance.
  * Always keep the whole reference: `const form = useForm()` then `form.xxx()`.
  */
-export function useForm(name?: string): FormHookInstance {
-  const instanceRef = shallowRef<FormInstance>()
+export function useForm<Values = any>(name?: string): FormHookInstance<Values> {
+  const instanceRef = shallowRef<FormInstance<Values>>()
   const registry = useFormHookRegistry()
   const entry: FormHookEntry = { name, instanceRef }
   registry.entries.push(entry)
@@ -101,12 +100,12 @@ export function useForm(name?: string): FormHookInstance {
     },
   })
 
-  return proxy as unknown as FormHookInstance
+  return proxy as unknown as FormHookInstance<Values>
 }
 
 /**
  * Get the closest Form instance from context. Only usable inside a Form.
  */
-export function useFormInstance(): FormInstance {
+export function useFormInstance<Values = any>(): FormInstance<Values> {
   return inject(FormInstanceContextKey, undefined as any)
 }
