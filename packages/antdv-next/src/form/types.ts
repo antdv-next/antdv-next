@@ -305,7 +305,7 @@ export interface GetFieldsValueConfig {
   filter?: FilterFunc
 }
 
-type FormValues<T> = 0 extends 1 & T ? Record<string, any> : T
+export type FormValues<T> = 0 extends 1 & T ? Record<string, any> : T
 
 export interface FormInstance<Values = any> {
   // Origin Form API

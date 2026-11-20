@@ -20,4 +20,4 @@ export {
 }
 export type { FormItemEmits, FormItemProps, FormItemSlots } from './FormItem'
 export type { FormHookInstance } from './hooks/useForm'
-export type { Rule, RuleObject, RuleRender, RuleType } from './types'
+export type { FormValues, Rule, RuleObject, RuleRender, RuleType } from './types'
