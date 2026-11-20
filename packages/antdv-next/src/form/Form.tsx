@@ -10,6 +10,7 @@ import type { FormHookEntry } from './hooks/useForm.ts'
 import type { FormLabelAlign, ScrollFocusOptions } from './interface'
 import type {
   FieldData,
+  FormInstance,
   InternalNamePath,
   NamePath,
   RulesMap,
@@ -95,6 +96,7 @@ export type FormLayout = 'horizontal' | 'inline' | 'vertical'
 export type FormItemLayout = 'horizontal' | 'vertical'
 
 export type { ScrollFocusOptions }
+export type { FormInstance } from './types.ts'
 
 export type FormSemanticName = keyof FormSemanticClassNames & keyof FormSemanticStyles
 
@@ -120,7 +122,7 @@ export type FormClassNamesType = SemanticClassNamesType<FormProps, FormSemanticC
 
 export type FormStylesType = SemanticStylesType<FormProps, FormSemanticStyles>
 
-export interface FormProps extends ComponentBaseProps,
+export interface FormProps<Values = Record<string, any>> extends ComponentBaseProps,
   /* @vue-ignore */
   FormEmitsProps {
   classes?: FormClassNamesType
@@ -139,7 +141,7 @@ export interface FormProps extends ComponentBaseProps,
   requiredMark?: RequiredMark
   variant?: Variant
   validateMessages?: ValidateMessages
-  model?: Record<string, any>
+  model?: Values
   rules?: RulesMap
   validateTrigger?: string | string[] | false
   preserve?: boolean
@@ -173,29 +175,6 @@ export interface FormSlots {
   default: () => any
 }
 
-export interface FormInstance {
-  getFieldValue: (name: NamePath) => any
-  getFieldsValue: (nameList?: NamePath[] | true) => Record<string, any>
-  getFieldError: (name: NamePath) => string[]
-  getFieldsError: (nameList?: NamePath[]) => { name: InternalNamePath, errors: string[], warnings: string[] }[]
-  getFieldWarning: (name: NamePath) => string[]
-  isFieldsTouched: (nameList?: NamePath[] | boolean, allFieldsTouched?: boolean) => boolean
-  isFieldTouched: (name: NamePath) => boolean
-  isFieldsValidating: (nameList?: NamePath[]) => boolean
-  isFieldValidating: (name: NamePath) => boolean
-  resetFields: (nameList?: NamePath[] | InternalNamePath[]) => void
-  clearValidate: (nameList?: NamePath[] | InternalNamePath[]) => void
-  setFields: (data: FieldData[]) => void
-  setFieldValue: (name: NamePath, value: any) => void
-  setFieldsValue: (values: Record<string, any>) => void
-  validateFields: (nameList?: NamePath[] | ValidateOptions, options?: ValidateOptions) => Promise<Record<string, any>>
-  validate: (nameList?: NamePath[] | ValidateOptions, options?: ValidateOptions) => Promise<Record<string, any>>
-  submit: () => void
-  nativeElement: HTMLFormElement | undefined
-  scrollToField: (fieldName: NamePath, options?: ScrollFocusOptions | boolean) => void
-  focusField: (fieldName: NamePath) => void
-  getFieldInstance: (name: NamePath) => any
-}
 const defaults = {
   layout: 'horizontal',
 } as any

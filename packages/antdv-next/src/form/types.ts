@@ -1,5 +1,6 @@
 import type { Component } from 'vue'
 import type { VueNode } from '../_util/type'
+import type { ScrollFocusOptions } from './interface'
 import type { DeepNamePath } from './namePathType'
 
 /**
@@ -190,8 +191,8 @@ export interface ValidateOptions {
 }
 
 export interface ValidateFields<Values = any> {
-  (opt?: ValidateOptions): Promise<Values>
-  (nameList?: NamePath[], opt?: ValidateOptions): Promise<Values>
+  (opt?: ValidateOptions): Promise<FormValues<Values>>
+  (nameList?: NamePath[], opt?: ValidateOptions): Promise<FormValues<Values>>
 }
 
 export interface InternalValidateOptions extends ValidateOptions {
@@ -304,28 +305,38 @@ export interface GetFieldsValueConfig {
   filter?: FilterFunc
 }
 
+type FormValues<T> = 0 extends 1 & T ? Record<string, any> : T
+
 export interface FormInstance<Values = any> {
   // Origin Form API
   getFieldValue: (name: NamePath<Values>) => StoreValue
-  getFieldsValue: (() => Values)
-    & ((nameList: NamePath<Values>[] | true, filterFunc?: FilterFunc) => any)
-    & ((config: GetFieldsValueConfig) => any)
+  getFieldsValue:
+    & (() => FormValues<Values>)
+    & ((all: true) => FormValues<Values>)
+    & ((nameList?: NamePath<Values>[] | true) => any)
   getFieldError: (name: NamePath<Values>) => string[]
   getFieldsError: (nameList?: NamePath<Values>[]) => FieldError[]
   getFieldWarning: (name: NamePath<Values>) => string[]
-  isFieldsTouched: ((nameList?: NamePath<Values>[], allFieldsTouched?: boolean) => boolean)
-    & ((allFieldsTouched?: boolean) => boolean)
+  isFieldsTouched: (nameList?: NamePath<Values>[] | boolean, allFieldsTouched?: boolean) => boolean
   isFieldTouched: (name: NamePath<Values>) => boolean
   isFieldValidating: (name: NamePath<Values>) => boolean
   isFieldsValidating: (nameList?: NamePath<Values>[]) => boolean
-  resetFields: (fields?: NamePath<Values>[]) => void
+  resetFields: (nameList?: NamePath<Values>[] | InternalNamePath[]) => void
+  clearValidate: (nameList?: NamePath<Values>[] | InternalNamePath[]) => void
   setFields: (fields: FieldData<Values>[]) => void
   setFieldValue: (name: NamePath<Values>, value: any) => void
-  setFieldsValue: (values: RecursivePartial<Values>) => void
+  setFieldsValue: (values: RecursivePartial<Values> | Partial<Values>) => void
   validateFields: ValidateFields<Values>
+  validate: ValidateFields<Values>
 
   // New API
   submit: () => void
+
+  // Additional helpers exposed by this implementation
+  nativeElement: HTMLFormElement | undefined
+  scrollToField: (fieldName: NamePath<Values>, options?: ScrollFocusOptions | boolean) => void
+  focusField: (fieldName: NamePath<Values>) => void
+  getFieldInstance: (name: NamePath<Values>) => any
 }
 
 export type FormRef<Values = any> = FormInstance<Values> & { nativeElement?: HTMLElement }
