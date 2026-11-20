@@ -76,3 +76,28 @@ jobs:
           else
             pnpm ci:lint .
           fi
+
+  typecheck:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          run_install: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      # `@antdv-next/cssinjs` is built by its `prepare` script during install,
+      # which antdv-next resolves through its `dist` type declarations.
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck antdv-next
+        run: pnpm -F antdv-next typecheck
