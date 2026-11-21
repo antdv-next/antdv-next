@@ -102,6 +102,31 @@ describe('affix Render', () => {
     wrapper.unmount()
   })
 
+  it('re-measures on every scroll and emits change once per transition', async () => {
+    const onChange = vi.fn()
+    const wrapper = mount(AffixMounter, {
+      props: { onChange },
+      attachTo: document.body,
+    })
+    await waitFakeTimer()
+    onChange.mockClear()
+
+    await movePlaceholder(-100)
+    await movePlaceholder(-120)
+    expect(wrapper.element.querySelector('.ant-affix')).toBeTruthy()
+
+    await movePlaceholder(0)
+    await movePlaceholder(10)
+    expect(wrapper.element.querySelector('.ant-affix')).toBeFalsy()
+
+    await movePlaceholder(-50)
+    expect(wrapper.element.querySelector('.ant-affix')).toBeTruthy()
+
+    expect(onChange.mock.calls.map(([affixed]) => affixed)).toEqual([true, false, true])
+
+    wrapper.unmount()
+  })
+
   it('bindnder correct render when target is null', async () => {
     const wrapper = mount(
       () => h(Affix, { target: () => null }, { default: () => 'test' }),
