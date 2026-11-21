@@ -36,9 +36,6 @@ const SliderTooltip = defineComponent<
         if (mergedOpen.value) {
           keepAlign()
         }
-        else {
-          cancelKeepAlign()
-        }
         onCleanup(() => {
           cancelKeepAlign()
         })
