@@ -352,6 +352,29 @@ describe('descriptions', () => {
     expect(rows).toHaveLength(2)
   })
 
+  it('calculates rows for mixed span, filled and overflowing items', () => {
+    const wrapper = mount(Descriptions, {
+      props: {
+        column: 3,
+        bordered: true,
+        items: [
+          { label: 'a', content: 'a', span: 2 },
+          { label: 'b', content: 'b', span: 2 },
+          { label: 'c', content: 'c', span: 'filled' },
+          { label: 'd', content: 'd' },
+          { label: 'e', content: 'e' },
+        ],
+      },
+    })
+    const rows = wrapper.findAll('tr.ant-descriptions-row')
+    // [a(2), b(overflow → 1)] / [c(filled → 3)] / [d(1), e(last → 2)]
+    expect(rows).toHaveLength(3)
+    const colspans = rows.map(row =>
+      row.findAll('td.ant-descriptions-item-content').map(td => td.attributes('colspan')),
+    )
+    expect(colspans).toEqual([['3', '1'], ['5'], ['1', '3']])
+  })
+
   // ==================== Attrs Passthrough ====================
   it('renders id prop on root element', () => {
     const wrapper = mount(Descriptions, {
