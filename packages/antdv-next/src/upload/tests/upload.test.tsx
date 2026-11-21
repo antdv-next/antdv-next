@@ -5,6 +5,7 @@ import { mount } from '@vue/test-utils'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { defineComponent, nextTick, ref } from 'vue'
 import Upload from '..'
+import { resetWarned } from '../../_util/warning'
 import ConfigProvider from '../../config-provider'
 import { setup, teardown } from './mock'
 import mountTest from '/@tests/shared/mountTest'
@@ -451,6 +452,32 @@ describe('upload', () => {
     const linkNode = wrapper.find('a.ant-upload-list-item-name')
     expect(linkNode.attributes('download')).toBe('image')
     expect(linkNode.attributes('rel')).toBe('noopener')
+  })
+
+  it('should ignore linkProps when it is not a valid json string', () => {
+    resetWarned()
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const fileList = [
+      {
+        uid: '-1',
+        name: 'foo.png',
+        status: 'done',
+        url: 'https://ant.design/foo.png',
+        linkProps: '{"download": "image"',
+      },
+    ] as UploadFile[]
+    const wrapper = mount({
+      render: () => (
+        <Upload fileList={fileList} />
+      ),
+    })
+    const linkNode = wrapper.find('a.ant-upload-list-item-name')
+    expect(linkNode.exists()).toBe(true)
+    expect(linkNode.attributes('download')).toBeUndefined()
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Upload] `linkProps` is not a valid JSON string. It will be ignored.',
+    )
+    errorSpy.mockRestore()
   })
 
   it('should stop remove when return value of onRemove is false', async () => {
