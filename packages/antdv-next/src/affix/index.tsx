@@ -45,17 +45,11 @@ export interface AffixEmitsProps {
   onChange?: AffixEmits['change']
 }
 
-const AFFIX_STATUS_NONE = 0
-const AFFIX_STATUS_PREPARE = 1
-
-type AffixStatus = typeof AFFIX_STATUS_NONE | typeof AFFIX_STATUS_PREPARE
-
 const affixDefaultProps = {} as any
 
 interface AffixState {
   affixStyle?: CSSProperties
   placeholderStyle?: CSSProperties
-  status: AffixStatus
   lastAffix: boolean
 }
 
@@ -83,8 +77,6 @@ export const Affix = defineComponent<
     const affixStyle = shallowRef<CSSProperties>()
     const placeholderStyle = shallowRef<CSSProperties>()
 
-    const status = shallowRef<AffixStatus>(AFFIX_STATUS_NONE)
-
     let prevTarget: Window | HTMLElement | null = null
     let prevListener: EventListener | null = null
 
@@ -103,19 +95,13 @@ export const Affix = defineComponent<
 
     // =================== Measure ===================
     const measure = () => {
-      if (
-        status.value !== AFFIX_STATUS_PREPARE
-        || !fixedNodeRef.value
-        || !placeholderNodeRef.value
-      ) {
+      if (!fixedNodeRef.value || !placeholderNodeRef.value) {
         return
       }
 
       const targetNode = targetFunc.value()
       if (targetNode) {
-        const newState: Partial<AffixState> = {
-          status: AFFIX_STATUS_NONE,
-        }
+        const newState: Partial<AffixState> = {}
         const placeholderRect = getTargetRect(placeholderNodeRef.value)
         const contentRect = getTargetRect(contextRef.value || fixedNodeRef.value)
         const contentHeight = contentRect.height || placeholderRect.height
@@ -151,7 +137,6 @@ export const Affix = defineComponent<
           emit('change', newState.lastAffix)
         }
 
-        status.value = newState.status!
         affixStyle.value = newState.affixStyle
         placeholderStyle.value = newState.placeholderStyle
         lastAffix.value = newState.lastAffix
@@ -159,7 +144,6 @@ export const Affix = defineComponent<
     }
 
     const prepareMeasure = () => {
-      status.value = AFFIX_STATUS_PREPARE
       measure()
     }
 
