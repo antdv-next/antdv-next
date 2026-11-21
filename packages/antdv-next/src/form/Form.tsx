@@ -10,8 +10,10 @@ import type { FormHookEntry } from './hooks/useForm.ts'
 import type { FormLabelAlign, ScrollFocusOptions } from './interface'
 import type {
   FieldData,
+  FilterFunc,
   FormInstance,
   FormValues,
+  GetFieldsValueConfig,
   InternalNamePath,
   NamePath,
   RulesMap,
@@ -344,14 +346,54 @@ const InternalForm = defineComponent<
       return get(model.value ?? {}, namePath)
     }
 
-    const getFieldsValue = (nameList?: InternalNamePath[] | true) => {
-      if (nameList === true)
-        return cloneDeep(model.value ?? {})
+    const getFieldsValue = (
+      nameList?: NamePath[] | true | GetFieldsValueConfig,
+      filterFunc?: FilterFunc,
+    ) => {
+      let mergedNameList: InternalNamePath[] | true | undefined
+      let mergedFilterFunc: FilterFunc | undefined
+      if (nameList === true || Array.isArray(nameList)) {
+        mergedNameList = nameList
+        mergedFilterFunc = filterFunc
+      }
+      else if (nameList && typeof nameList === 'object') {
+        mergedFilterFunc = nameList.filter
+      }
 
-      const registeredNameList = nameList === undefined
-        ? Object.values(fields).map(field => field.namePath())
-        : nameList
-      return cloneByNamePathList(model.value ?? {}, registeredNameList)
+      const store = model.value ?? {}
+      const filter = mergedFilterFunc
+      if (mergedNameList === true && !filter)
+        return cloneDeep(store)
+
+      const fieldList = Object.values(fields)
+      const filteredNameList: InternalNamePath[] = []
+
+      if (Array.isArray(mergedNameList)) {
+        for (const name of mergedNameList) {
+          const namePath = getNamePath(name)
+          let matched = false
+          for (const field of fieldList) {
+            const fieldNamePath = field.namePath()
+            if (!matchNamePath(fieldNamePath, namePath, true))
+              continue
+            matched = true
+            if (!filter || filter({ ...field.getMeta() }))
+              filteredNameList.push(fieldNamePath)
+          }
+          // Match upstream: narrow parent paths to registered fields, and offer
+          // `null` meta to the filter when no registered field matches.
+          if (!matched && (!filter || filter(null)))
+            filteredNameList.push(namePath)
+        }
+      }
+      else {
+        for (const field of fieldList) {
+          if (!filter || filter({ ...field.getMeta() }))
+            filteredNameList.push(field.namePath())
+        }
+      }
+
+      return cloneByNamePathList(store, filteredNameList)
     }
 
     const getFields = (namePathList?: InternalNamePath[]): FieldData[] => {

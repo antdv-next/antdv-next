@@ -121,7 +121,7 @@ const formRef = ref<FormInstance>()
 | Method | Description | Type | Version |
 | --- | --- | --- | --- |
 | getFieldValue | Get the value of a single field | (name: NamePath) =&gt; StoreValue | - |
-| getFieldsValue | Get values of a group of fields. Pass `true` to return values of all currently collected fields | (nameList?: NamePath[] \| true) =&gt; Record&lt;string, any&gt; | - |
+| getFieldsValue | Get values of a group of fields. Supports filtering by field state; pass `true` to return all values. See [getFieldsValue](#getfieldsvalue) | ((nameList: NamePath[] \| true, filterFunc?: FilterFunc) =&gt; any) &amp; ((config: GetFieldsValueConfig) =&gt; any) | - |
 | getFieldError | Get error messages of a single field | (name: NamePath) =&gt; string[] | - |
 | getFieldsError | Get field error info list, including `errors` and `warnings` | (nameList?: NamePath[]) =&gt; FieldError[] | - |
 | getFieldWarning | Get warning messages of a single field | (name: NamePath) =&gt; string[] | - |
@@ -273,6 +273,33 @@ ConfigProvider also provides a global configuration scheme that allows for unifo
 ```
 
 > Note: Vue version does not provide `Form.List`. You can use `v-for` with reactive arrays to build dynamic form items.
+
+### getFieldsValue {#getfieldsvalue}
+
+`getFieldsValue` supports filtering values by field state:
+
+- `getFieldsValue()` returns values of all registered fields.
+- `getFieldsValue(true)` returns every value in the store, including unregistered fields.
+- `getFieldsValue(nameList, filterFunc?)` returns values of registered fields under the given paths. A parent path only includes its registered fields; unregistered nested values are excluded. If a path matches no registered field, it falls back to the store value at that path. When `filterFunc` is provided, fields are filtered by their `meta`, and paths without a registered match invoke the filter with `null`.
+- `getFieldsValue({ filter })` applies the filter to all registered fields.
+
+```ts
+type FilterFunc = (meta: Meta | null) => boolean
+
+interface Meta {
+  touched: boolean
+  validating: boolean
+  errors: string[]
+  warnings: string[]
+  name: (string | number)[]
+  validated: boolean
+}
+```
+
+```ts
+const touchedValues = form.getFieldsValue([['username'], ['profile', 'age']], meta => !!meta?.touched)
+const touchedValues2 = form.getFieldsValue({ filter: meta => !!meta?.touched })
+```
 
 ## Semantic DOM {#semantic-dom}
 
