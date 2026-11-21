@@ -241,6 +241,14 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
           padding: 0,
           width: 'auto',
 
+          [`${componentCls}-prefix`]: {
+            marginInlineStart: varRef('input-padding-inline'),
+          },
+
+          [`${componentCls}-suffix`]: {
+            marginInlineEnd: varRef('input-padding-inline'),
+          },
+
           [`${componentCls}-action`]: {
             flex: 'none',
             paddingInline: varRef('input-padding-inline'),
@@ -257,10 +265,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
           [`${componentCls}-input`]: {
             textAlign: 'center',
             paddingInline: varRef('input-padding-inline'),
-          },
-
-          [`${componentCls}-suffix`]: {
-            marginInlineEnd: varRef('input-padding-inline'),
           },
         },
       },
