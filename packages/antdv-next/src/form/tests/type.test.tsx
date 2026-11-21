@@ -37,6 +37,8 @@ describe('form.TypeScript', () => {
     const _validated = await formRef.value!.validateFields()
     const _validatedByOptions = await formRef.value!.validateFields({ recursive: true })
     const _validatedByNameList = await formRef.value!.validateFields([['users', 0, 'name']], { recursive: true })
+    formRef.value!.getFieldsValue([['users', 0, 'name']], meta => !!meta?.touched)
+    formRef.value!.getFieldsValue({ filter: meta => !!meta?.touched })
     const untypedChecks: [
       Equal<typeof _fieldsValue, Record<string, any>>,
       Equal<typeof _allFieldsValue, Record<string, any>>,
@@ -72,6 +74,8 @@ describe('form.TypeScript', () => {
     const _validated = await formRef.value!.validateFields()
     const _validatedByOptions = await formRef.value!.validateFields({ recursive: true })
     const _validatedByNameList = await formRef.value!.validateFields([['profile', 'age']], { recursive: true })
+    formRef.value!.getFieldsValue([['profile', 'age']], meta => !!meta?.touched)
+    formRef.value!.getFieldsValue({ filter: meta => !!meta?.touched })
     const typedChecks: [
       Equal<typeof _fieldsValue, ProfileForm>,
       Equal<typeof _allFieldsValue, ProfileForm>,

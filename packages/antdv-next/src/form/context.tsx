@@ -6,7 +6,7 @@ import type { FormLayout, FormSemanticName, RequiredMark } from './Form'
 import type { FeedbackIcons, ValidateStatus } from './FormItem'
 import type { ColPropsWithClass, FormTooltipProps } from './FormItemLabel'
 import type { FormLabelAlign } from './interface'
-import type { InternalNamePath, Meta, NamePath, Rule, RulesMap, ValidateMessages } from './types.ts'
+import type { FilterFunc, GetFieldsValueConfig, InternalNamePath, Meta, NamePath, Rule, RulesMap, ValidateMessages } from './types.ts'
 import { computed, defineComponent, inject, provide, ref } from 'vue'
 
 /** Form Context. Set top form style and pass to Form Item usage. */
@@ -48,7 +48,7 @@ export interface FormContextProps {
   triggerValuesChange?: (namePath: InternalNamePath, value: any) => void
   triggerFieldsChange?: (namePathList?: InternalNamePath[]) => void
   getFieldValue?: (namePath: InternalNamePath) => any
-  getFieldsValue?: (nameList?: InternalNamePath[] | true) => any
+  getFieldsValue?: (nameList?: NamePath[] | true | GetFieldsValueConfig, filterFunc?: FilterFunc) => any
   tooltip?: FormTooltipProps
 }
 
