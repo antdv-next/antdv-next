@@ -313,7 +313,8 @@ export interface FormInstance<Values = any> {
   getFieldsValue:
     & (() => FormValues<Values>)
     & ((all: true) => FormValues<Values>)
-    & ((nameList?: NamePath<Values>[] | true) => Record<string, any>)
+    & ((nameList?: NamePath<Values>[] | true, filterFunc?: FilterFunc) => Record<string, any>)
+    & ((config: GetFieldsValueConfig) => Record<string, any>)
   getFieldError: (name: NamePath<Values>) => string[]
   getFieldsError: (nameList?: NamePath<Values>[]) => FieldError[]
   getFieldWarning: (name: NamePath<Values>) => string[]

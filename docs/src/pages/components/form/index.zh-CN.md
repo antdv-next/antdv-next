@@ -122,7 +122,7 @@ const formRef = ref<FormInstance>()
 | 方法 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | getFieldValue | 获取单个字段值 | (name: NamePath) =&gt; StoreValue | - |
-| getFieldsValue | 获取一组字段值；传 `true` 时返回当前已收集字段的值 | (nameList?: NamePath[] \| true) =&gt; Record&lt;string, any&gt; | - |
+| getFieldsValue | 获取一组字段值；支持按字段状态过滤，传 `true` 时返回全部值，说明见 [getFieldsValue](#getfieldsvalue) | ((nameList: NamePath[] \| true, filterFunc?: FilterFunc) =&gt; any) &amp; ((config: GetFieldsValueConfig) =&gt; any) | - |
 | getFieldError | 获取单个字段的错误信息 | (name: NamePath) =&gt; string[] | - |
 | getFieldsError | 获取字段错误信息列表，包含 `errors` 和 `warnings` | (nameList?: NamePath[]) =&gt; FieldError[] | - |
 | getFieldWarning | 获取单个字段的警告信息 | (name: NamePath) =&gt; string[] | - |
@@ -274,6 +274,33 @@ ConfigProvider 也支持统一配置校验文案：
 ```
 
 > 注意：Vue 版本没有 `Form.List`，可以使用 `v-for` + 响应式数组实现动态表单项。
+
+### getFieldsValue {#getfieldsvalue}
+
+`getFieldsValue` 支持按字段状态过滤返回值：
+
+- `getFieldsValue()`：返回所有已注册字段的值。
+- `getFieldsValue(true)`：返回 store 中全部值，包含未注册字段。
+- `getFieldsValue(nameList, filterFunc?)`：返回指定路径下已注册字段的值；父路径只包含其下的已注册字段，未注册的嵌套值不会返回。若某个路径没有匹配到任何已注册字段，则回退为 store 中该路径的值。传入 `filterFunc` 时按字段 `meta` 过滤，未匹配到注册字段的路径会以 `null` 调用过滤函数。
+- `getFieldsValue({ filter })`：对全部已注册字段应用过滤。
+
+```ts
+type FilterFunc = (meta: Meta | null) => boolean
+
+interface Meta {
+  touched: boolean
+  validating: boolean
+  errors: string[]
+  warnings: string[]
+  name: (string | number)[]
+  validated: boolean
+}
+```
+
+```ts
+const touchedValues = form.getFieldsValue([['username'], ['profile', 'age']], meta => !!meta?.touched)
+const touchedValues2 = form.getFieldsValue({ filter: meta => !!meta?.touched })
+```
 
 ## 语义化 DOM {#semantic-dom}
 
