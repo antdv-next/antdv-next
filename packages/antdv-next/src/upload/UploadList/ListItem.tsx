@@ -16,6 +16,7 @@ import { getTransitionProps } from '@v-c/util/dist/utils/transition'
 import { computed, defineComponent, onMounted, shallowRef, Transition, watch } from 'vue'
 import { getAttrStyleAndClass } from '../../_util/hooks'
 import { isRenderable } from '../../_util/is'
+import { devUseWarning, isDev } from '../../_util/warning'
 import { useComponentBaseConfig } from '../../config-provider/context.ts'
 import Progress from '../../progress'
 import Tooltip from '../../tooltip'
@@ -150,13 +151,24 @@ const ListItem = defineComponent<
       )
 
       let linkProps = file.linkProps
+      let invalidLinkProps = false
       if (typeof linkProps === 'string') {
         try {
           linkProps = JSON.parse(linkProps)
         }
         catch {
           linkProps = {}
+          invalidLinkProps = true
         }
+      }
+
+      if (isDev) {
+        const warning = devUseWarning('Upload')
+        warning(
+          !invalidLinkProps,
+          'usage',
+          '`linkProps` is not a valid JSON string. It will be ignored.',
+        )
       }
       const { onClick: linkOnClick, ...restLinkProps } = linkProps || {}
 
