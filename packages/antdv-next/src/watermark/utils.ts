@@ -33,8 +33,10 @@ export function getFontSize(font: Required<WatermarkFont>, ratio = 1) {
 
 export function getCanvasFont(font: Required<WatermarkFont>, ratio = 1, lineHeight?: number) {
   const mergedLineHeight = lineHeight === undefined ? '' : `/${lineHeight}px`
+  // `none` is not a valid CSS font-style, and an invalid canvas font is ignored entirely
+  const fontStyle = font.fontStyle === 'none' ? 'normal' : font.fontStyle
 
-  return `${font.fontStyle} normal ${font.fontWeight} ${getFontSize(font, ratio)}px${mergedLineHeight} ${font.fontFamily}`
+  return `${fontStyle} normal ${font.fontWeight} ${getFontSize(font, ratio)}px${mergedLineHeight} ${font.fontFamily}`
 }
 
 /** Merge per-line font over the base font, ignoring `undefined` overrides. */
