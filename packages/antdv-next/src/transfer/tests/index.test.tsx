@@ -302,6 +302,62 @@ describe('transfer', () => {
     expect(getItemCheckbox().checked).toBe(false)
   })
 
+  it('should keep controlled selectedKeys when dataSource is temporarily cleared', async () => {
+    const dataSource = ref(listCommonProps.dataSource)
+    const selectedKeys = ['a']
+    const handleSelectChange = vi.fn()
+    const handleUpdateSelectedKeys = vi.fn()
+
+    const wrapper = mount(() => (
+      <Transfer
+        dataSource={dataSource.value}
+        targetKeys={[]}
+        selectedKeys={selectedKeys}
+        onSelectChange={handleSelectChange}
+        render={item => item.title}
+        {...{ 'onUpdate:selectedKeys': handleUpdateSelectedKeys }}
+      />
+    ))
+
+    const isChecked = () =>
+      (getTransferItemByTitle(wrapper, 'a')?.querySelector('input[type="checkbox"]') as HTMLInputElement | null)?.checked
+
+    expect(isChecked()).toBe(true)
+
+    dataSource.value = []
+    await nextTick()
+    expect(getTransferItemByTitle(wrapper, 'a')).toBeNull()
+
+    dataSource.value = listCommonProps.dataSource
+    await nextTick()
+
+    expect(isChecked()).toBe(true)
+    expect(handleSelectChange).not.toHaveBeenCalled()
+    expect(handleUpdateSelectedKeys).not.toHaveBeenCalled()
+  })
+
+  it('should still prune selection in uncontrolled mode when dataSource removes the key', async () => {
+    const dataSource = ref(listCommonProps.dataSource)
+
+    const wrapper = mount(() => (
+      <Transfer dataSource={dataSource.value} targetKeys={[]} render={item => item.title} />
+    ))
+
+    const isChecked = () =>
+      (getTransferItemByTitle(wrapper, 'a')?.querySelector('input[type="checkbox"]') as HTMLInputElement | null)?.checked
+
+    clickElement(getTransferItemByTitle(wrapper, 'a'))
+    await nextTick()
+    expect(isChecked()).toBe(true)
+
+    dataSource.value = listCommonProps.dataSource.filter(item => item.key !== 'a')
+    await nextTick()
+    dataSource.value = listCommonProps.dataSource
+    await nextTick()
+
+    expect(isChecked()).toBe(false)
+  })
+
   it('multiple select/deselect by hold down the shift key', () => {
     const handleSelectChange = vi.fn()
     const wrapper = mount(Transfer, {

@@ -42,8 +42,11 @@ function useSelection<T extends { key: TransferKey }>(
   const targetSelectedKeys = computed(() => filterKeys(mergedSelectedKeys.value, rightKeys.value))
 
   watch(
-    () => [flattenKeys(leftKeys.value), flattenKeys(rightKeys.value)],
+    [() => flattenKeys(leftKeys.value), () => flattenKeys(rightKeys.value)],
     () => {
+      if (unref(selectedKeys) !== undefined) {
+        return
+      }
       mergedSelectedKeys.value = [
         ...filterKeys(mergedSelectedKeys.value, leftKeys.value),
         ...filterKeys(mergedSelectedKeys.value, rightKeys.value),
