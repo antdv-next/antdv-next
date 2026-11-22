@@ -120,6 +120,22 @@ describe('layout', () => {
     expect(wrapper.find('.ant-layout').classes()).toContain('my-root')
   })
 
+  it('should apply rootClass on Header, Content and Footer', () => {
+    const wrapper = mount(() => (
+      <Layout>
+        <LayoutHeader rootClass="header-root" class="header-class">Header</LayoutHeader>
+        <LayoutContent rootClass="content-root">Content</LayoutContent>
+        <LayoutFooter rootClass="footer-root">Footer</LayoutFooter>
+      </Layout>
+    ))
+    const header = wrapper.find('.ant-layout-header')
+    expect(header.classes()).toContain('header-root')
+    expect(header.classes()).toContain('header-class')
+    expect(header.attributes('rootclass')).toBeUndefined()
+    expect(wrapper.find('.ant-layout-content').classes()).toContain('content-root')
+    expect(wrapper.find('.ant-layout-footer').classes()).toContain('footer-root')
+  })
+
   describe('attrs passthrough', () => {
     it('should pass style and class on layout', () => {
       const wrapper = mount(() => <Layout class="custom-cls" style={{ color: 'red' }} />)
