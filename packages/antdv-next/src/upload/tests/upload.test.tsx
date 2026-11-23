@@ -44,10 +44,10 @@ function mountControlledUpload(
   return { wrapper, fileList }
 }
 
-async function pickFile(wrapper: ReturnType<typeof mount>) {
+async function pickFile(wrapper: ReturnType<typeof mount>, name = 'foo.png') {
   const input = wrapper.find('input').element as HTMLInputElement
   Object.defineProperty(input, 'files', {
-    value: [{ name: 'foo.png' }],
+    value: [{ name }],
     writable: true,
   })
   await wrapper.find('input').trigger('change')
@@ -553,6 +553,67 @@ describe('upload', () => {
 
     expect(fileList.value).toHaveLength(0)
     expect(onChange).toHaveBeenCalledTimes(1)
+  })
+
+  it('should drop callbacks and later updates for a file rejected by the controlled parent', async () => {
+    const onChange = vi.fn()
+    let succeed: (() => void) | undefined
+    const customRequest = vi.fn(({ onSuccess }: any) => {
+      succeed = () => onSuccess?.('ok')
+    })
+    const fileList = ref<UploadFile[]>([])
+
+    const wrapper = mount({
+      render: () => (
+        <Upload
+          action=""
+          fileList={fileList.value}
+          {...{
+            'onUpdate:fileList': (list: UploadFile[]) => {
+              // The parent refuses any update that still contains `reject.png`
+              if (list.some(file => file.name === 'reject.png')) {
+                return
+              }
+              fileList.value = list
+            },
+          }}
+          customRequest={customRequest}
+          beforeUpload={() => true}
+          onChange={onChange}
+        >
+          <button type="button">upload</button>
+        </Upload>
+      ),
+    })
+
+    await pickFile(wrapper, 'reject.png')
+    await waitFakeTimer()
+
+    expect(fileList.value).toHaveLength(0)
+    expect(onChange).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        file: expect.objectContaining({ name: 'reject.png', status: 'uploading' }),
+      }),
+    )
+
+    succeed?.()
+    await waitFakeTimer()
+
+    // The rejected file must not report done nor be carried into the next update
+    expect(onChange).toHaveBeenCalledTimes(1)
+    expect(onChange).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        file: expect.objectContaining({ name: 'reject.png', status: 'uploading' }),
+      }),
+    )
+
+    await pickFile(wrapper, 'ok.png')
+    await waitFakeTimer()
+
+    expect(fileList.value).toHaveLength(1)
+    expect(fileList.value[0]).toEqual(
+      expect.objectContaining({ name: 'ok.png', status: 'uploading' }),
+    )
   })
 
   it('should be able to get uid at first', () => {

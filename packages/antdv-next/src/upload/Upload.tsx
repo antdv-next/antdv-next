@@ -163,6 +163,17 @@ const InternalUpload = defineComponent<
 
       nextTick(() => {
         emit('update:fileList', cloneList)
+        if (props.fileList === undefined) {
+          return
+        }
+        // The parent has now had a chance to echo this update. If it kept its own
+        // list instead (rejected the change), fall back to the controlled value so
+        // the dropped file cannot keep its callbacks or leak into later updates.
+        nextTick(() => {
+          if (internalFileList.value === cloneList) {
+            internalFileList.value = props.fileList ?? []
+          }
+        })
       })
 
       const changeInfo: UploadChangeParam<UploadFile> = {
