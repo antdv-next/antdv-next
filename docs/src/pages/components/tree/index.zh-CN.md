@@ -61,7 +61,7 @@ demo:
 | expandedKeys | （受控）展开指定的树节点，支持 `v-model:expanded-keys` | string[] | [] | - | × |
 | fieldNames | 自定义节点 title、key、children 的字段 | object | &#123; title: `title`, key: `key`, children: `children` &#125; | - | × |
 | filterAntTreeNode | 按需筛选树节点（高亮），返回 true | function(node) | - | - | × |
-| height | 设置虚拟滚动容器高度，设置后内部节点不再支持横向滚动 | number | - | - | × |
+| height | `height` 为正数时，无论 `virtual` 如何设置，均限制树的纵向滚动区域的最大高度。省略 `height` 或将其设为 `0` 时，树的高度随内容增长。 | number | - | - | × |
 | icon | 在标题之前插入自定义图标。需要设置 `showIcon` 为 true | VueNode \| (props) =&gt; VueNode | - | - | × |
 | loadData | 异步加载数据 | function(node) | - | - | × |
 | loadedKeys | （受控）已经加载的节点，需要配合 `loadData` 使用 | string[] | [] | - | × |
@@ -76,7 +76,7 @@ demo:
 | switcherLoadingIcon | 自定义树节点的加载图标 | VueNode | - | - | × |
 | titleRender | 自定义渲染节点 | (nodeData) =&gt; VueNode | - | - | × |
 | treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一） | array&lt;&#123;key, title, children, [disabled, selectable]&#125;&gt; | - | - | × |
-| virtual | 设置 false 时关闭虚拟滚动 | boolean | true | - | × |
+| virtual | `height` 为正数时是否启用节点的虚拟渲染 | boolean | true | - | × |
 
 #### 事件 {#tree-events}
 
@@ -163,7 +163,7 @@ const { getPath } = useTree(treeData)
 
 ### 虚拟滚动的限制 {#faq-virtual-scroll-limitation}
 
-虚拟滚动通过仅渲染可视区域的元素来提升渲染性能。但由于不会渲染所有节点，所以无法自动拓展横向宽度（比如超长 `title` 的横向滚动条）。
+启用虚拟滚动后，Tree 不会根据节点标题自动计算横向滚动宽度。可通过 `scrollWidth` 以像素为单位指定内容宽度。当内容宽度超出可视区域时，即可横向滚动。
 
 ### `disabled` 节点在树中的关系是什么？ {#faq-disabled-node}
 
