@@ -21,7 +21,7 @@ export interface StatisticTimeEmits {
    * Only to be called when the type is `countdown`.
    */
   finish: () => void
-  change: (value?: valueType) => void
+  change: (value: number) => void
 }
 
 function getTime(value?: valueType) {
