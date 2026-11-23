@@ -58,6 +58,7 @@ const Basic = defineComponent<BasicPropsWithTagName>(
         suffixCls,
         tagName,
         prefixCls: customizePrefixCls,
+        rootClass,
       } = props
       const prefixWithSuffixCls = suffixCls ? `${prefixCls.value}-${suffixCls}` : prefixCls.value
       const { class: _attrClass, ...restAttrs } = attrs as Record<string, any>
@@ -66,6 +67,7 @@ const Basic = defineComponent<BasicPropsWithTagName>(
         ...restAttrs,
         class: classNames(
           customizePrefixCls || prefixWithSuffixCls,
+          rootClass,
           _attrClass,
           hashId.value,
           cssVarCls.value,
