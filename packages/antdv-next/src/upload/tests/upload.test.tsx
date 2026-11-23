@@ -18,6 +18,41 @@ async function waitFakeTimer() {
   }
 }
 
+function mountControlledUpload(
+  customRequest: (options: any) => void,
+  onChange?: (info: UploadChangeParam) => void,
+) {
+  const fileList = ref<UploadFile[]>([])
+  const wrapper = mount({
+    render: () => (
+      <Upload
+        action=""
+        fileList={fileList.value}
+        {...{
+          'onUpdate:fileList': (list: UploadFile[]) => {
+            fileList.value = list
+          },
+        }}
+        customRequest={customRequest}
+        beforeUpload={() => true}
+        onChange={onChange}
+      >
+        <button type="button">upload</button>
+      </Upload>
+    ),
+  })
+  return { wrapper, fileList }
+}
+
+async function pickFile(wrapper: ReturnType<typeof mount>) {
+  const input = wrapper.find('input').element as HTMLInputElement
+  Object.defineProperty(input, 'files', {
+    value: [{ name: 'foo.png' }],
+    writable: true,
+  })
+  await wrapper.find('input').trigger('change')
+}
+
 describe('upload', () => {
   mountTest(Upload)
   rtlTest(Upload)
@@ -342,6 +377,182 @@ describe('upload', () => {
     await nextTick()
     await waitFakeTimer()
     expect(uploadRef.value.fileList).toEqual(fileList.value)
+  })
+
+  it('should finish controlled upload when customRequest calls onSuccess synchronously', async () => {
+    const onChange = vi.fn()
+    const customRequest = vi.fn(({ onProgress, onSuccess }: any) => {
+      onProgress?.({ percent: 50 })
+      onSuccess?.('ok')
+    })
+
+    const { wrapper, fileList } = mountControlledUpload(customRequest, onChange)
+    await pickFile(wrapper)
+    await waitFakeTimer()
+
+    expect(customRequest).toHaveBeenCalledTimes(1)
+    expect(fileList.value).toHaveLength(1)
+    expect(fileList.value[0]).toEqual(expect.objectContaining({ status: 'done', percent: 100 }))
+    expect(onChange.mock.calls.map(([info]) => info.file.status)).toEqual([
+      'uploading',
+      'uploading',
+      'done',
+    ])
+  })
+
+  it('should finish controlled upload when customRequest calls onSuccess in a microtask', async () => {
+    const customRequest = vi.fn(({ onSuccess }: any) => {
+      Promise.resolve().then(() => onSuccess?.('ok'))
+    })
+
+    const { wrapper, fileList } = mountControlledUpload(customRequest)
+    await pickFile(wrapper)
+    await waitFakeTimer()
+
+    expect(fileList.value[0]).toEqual(expect.objectContaining({ status: 'done' }))
+  })
+
+  it('should mark controlled upload as error when customRequest calls onError synchronously', async () => {
+    const onChange = vi.fn()
+    const customRequest = vi.fn(({ onError }: any) => {
+      onError?.(new Error('boom'), 'error response')
+    })
+
+    const { wrapper, fileList } = mountControlledUpload(customRequest, onChange)
+    await pickFile(wrapper)
+    await waitFakeTimer()
+
+    expect(fileList.value).toHaveLength(1)
+    expect(fileList.value[0]).toEqual(expect.objectContaining({ status: 'error' }))
+    expect(onChange).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        file: expect.objectContaining({ status: 'error' }),
+      }),
+    )
+  })
+
+  it('should still finish controlled upload when customRequest resolves onSuccess later', async () => {
+    const customRequest = vi.fn(({ onSuccess }: any) => {
+      setTimeout(() => onSuccess?.('ok'), 100)
+    })
+
+    const { wrapper, fileList } = mountControlledUpload(customRequest)
+    await pickFile(wrapper)
+    await waitFakeTimer()
+
+    expect(fileList.value[0]).toEqual(expect.objectContaining({ status: 'done' }))
+  })
+
+  it('should finish uncontrolled upload when customRequest calls onSuccess synchronously', async () => {
+    const onChange = vi.fn()
+    const uploadRef = ref<any>()
+    const customRequest = vi.fn(({ onSuccess }: any) => {
+      onSuccess?.('ok')
+    })
+
+    const wrapper = mount({
+      render: () => (
+        <Upload
+          ref={uploadRef}
+          action=""
+          customRequest={customRequest}
+          beforeUpload={() => true}
+          onChange={onChange}
+        >
+          <button type="button">upload</button>
+        </Upload>
+      ),
+    })
+
+    await pickFile(wrapper)
+    await waitFakeTimer()
+
+    expect(uploadRef.value?.fileList[0]).toEqual(
+      expect.objectContaining({ status: 'done' }),
+    )
+    expect(onChange).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        file: expect.objectContaining({ status: 'done' }),
+      }),
+    )
+  })
+
+  it('should finish controlled upload with the default request', async () => {
+    const fileList = ref<UploadFile[]>([])
+    const wrapper = mount({
+      render: () => (
+        <Upload
+          action="http://upload.com"
+          fileList={fileList.value}
+          {...{
+            'onUpdate:fileList': (list: UploadFile[]) => {
+              fileList.value = list
+            },
+          }}
+        >
+          <button type="button">upload</button>
+        </Upload>
+      ),
+    })
+
+    await pickFile(wrapper)
+    await waitFakeTimer()
+
+    expect(fileList.value[0]).toEqual(
+      expect.objectContaining({ status: 'done', percent: 100 }),
+    )
+  })
+
+  it('should keep files blocked by beforeUpload in controlled mode', async () => {
+    const customRequest = vi.fn()
+    const fileList = ref<UploadFile[]>([])
+    const wrapper = mount({
+      render: () => (
+        <Upload
+          action=""
+          fileList={fileList.value}
+          {...{
+            'onUpdate:fileList': (list: UploadFile[]) => {
+              fileList.value = list
+            },
+          }}
+          customRequest={customRequest}
+          beforeUpload={() => false}
+        >
+          <button type="button">upload</button>
+        </Upload>
+      ),
+    })
+
+    await pickFile(wrapper)
+    await waitFakeTimer()
+
+    expect(customRequest).not.toHaveBeenCalled()
+    expect(fileList.value).toHaveLength(1)
+    expect(fileList.value[0]).toEqual(expect.objectContaining({ name: 'foo.png' }))
+  })
+
+  it('should not resurrect a controlled file removed by the parent while uploading', async () => {
+    const onChange = vi.fn()
+    let succeed: (() => void) | undefined
+    const customRequest = vi.fn(({ onSuccess }: any) => {
+      succeed = () => onSuccess?.('ok')
+    })
+
+    const { wrapper, fileList } = mountControlledUpload(customRequest, onChange)
+    await pickFile(wrapper)
+    await waitFakeTimer()
+
+    expect(fileList.value[0]).toEqual(expect.objectContaining({ status: 'uploading' }))
+
+    // The parent cancels the upload by clearing its controlled list
+    fileList.value = []
+    await nextTick()
+    succeed?.()
+    await waitFakeTimer()
+
+    expect(fileList.value).toHaveLength(0)
+    expect(onChange).toHaveBeenCalledTimes(1)
   })
 
   it('should be able to get uid at first', () => {

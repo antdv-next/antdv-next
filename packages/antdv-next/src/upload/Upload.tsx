@@ -156,9 +156,10 @@ const InternalUpload = defineComponent<
         cloneList = cloneList.slice(0, maxCount)
       }
 
-      if (props.fileList === undefined) {
-        internalFileList.value = cloneList
-      }
+      // Keep the internal copy in sync even when controlled: customRequest may call
+      // `onSuccess`/`onProgress`/`onError` before the parent echoes `update:fileList`,
+      // and the guards below must see the latest list. Rendering still prefers `props.fileList`.
+      internalFileList.value = cloneList
 
       nextTick(() => {
         emit('update:fileList', cloneList)
@@ -225,7 +226,7 @@ const InternalUpload = defineComponent<
       const objectFileList = filteredFileInfoList.map(info => file2Obj(info.file as VcFile))
 
       // Concat new files with prev files
-      let newFileList = [...mergedFileList.value]
+      let newFileList = [...internalFileList.value]
 
       objectFileList.forEach((fileObj) => {
         // Replace file if exist
@@ -279,7 +280,7 @@ const InternalUpload = defineComponent<
       }
 
       // removed
-      if (!getFileItem(file, mergedFileList.value)) {
+      if (!getFileItem(file, internalFileList.value)) {
         return
       }
 
@@ -289,14 +290,14 @@ const InternalUpload = defineComponent<
       targetItem.response = parsedResponse
       targetItem.xhr = xhr
 
-      const nextFileList = updateFileList(targetItem, mergedFileList.value)
+      const nextFileList = updateFileList(targetItem, internalFileList.value)
 
       onInternalChange(targetItem, nextFileList)
     }
 
     const onProgress = (e: { percent: number }, file: VcFile) => {
       // removed
-      if (!getFileItem(file, mergedFileList.value)) {
+      if (!getFileItem(file, internalFileList.value)) {
         return
       }
 
@@ -304,14 +305,14 @@ const InternalUpload = defineComponent<
       targetItem.status = 'uploading'
       targetItem.percent = e.percent
 
-      const nextFileList = updateFileList(targetItem, mergedFileList.value)
+      const nextFileList = updateFileList(targetItem, internalFileList.value)
 
       onInternalChange(targetItem, nextFileList, e)
     }
 
     const onError = (error: Error, response: any, file: VcFile) => {
       // removed
-      if (!getFileItem(file, mergedFileList.value)) {
+      if (!getFileItem(file, internalFileList.value)) {
         return
       }
 
@@ -320,7 +321,7 @@ const InternalUpload = defineComponent<
       targetItem.response = response
       targetItem.status = 'error'
 
-      const nextFileList = updateFileList(targetItem, mergedFileList.value)
+      const nextFileList = updateFileList(targetItem, internalFileList.value)
 
       onInternalChange(targetItem, nextFileList)
     }
@@ -333,11 +334,11 @@ const InternalUpload = defineComponent<
           return
         }
 
-        const removedFileList = removeFileItem(file, mergedFileList.value)
+        const removedFileList = removeFileItem(file, internalFileList.value)
 
         if (removedFileList) {
           currentFile = { ...file, status: 'removed' }
-          mergedFileList.value?.forEach((item) => {
+          internalFileList.value?.forEach((item) => {
             const matchKey = currentFile.uid !== undefined ? 'uid' : 'name'
             if (item[matchKey] === currentFile[matchKey] && !Object.isFrozen(item)) {
               item.status = 'removed'
