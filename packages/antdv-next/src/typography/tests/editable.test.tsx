@@ -148,6 +148,24 @@ describe('typography.Editable', () => {
     expect(wrapper.find('textarea').exists()).toBe(true)
   })
 
+  it('should trigger onStart once when clicking edit icon with both icon and text triggers', async () => {
+    const onStart = vi.fn()
+    const onClick = vi.fn()
+    const wrapper = mount(Paragraph, {
+      props: {
+        editable: { triggerType: ['icon', 'text'], onStart },
+        onClick,
+      } as any,
+      slots: { default: () => 'Bamboo' },
+    })
+
+    await wrapper.find('.ant-typography-edit').trigger('click')
+
+    expect(onStart).toHaveBeenCalledTimes(1)
+    expect(onClick).toHaveBeenCalledTimes(1)
+    expect(wrapper.find('textarea').element.value).toBe('Bamboo')
+  })
+
   it.each<{ triggerType: ('icon' | 'text')[] }>([
     { triggerType: ['text'] },
     { triggerType: ['icon', 'text'] },

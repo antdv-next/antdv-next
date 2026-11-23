@@ -94,6 +94,9 @@ const Base = defineComponent<
       return val as HTMLElement
     })
     const editIconRef = shallowRef<HTMLButtonElement>()
+    // The edit icon may be teleported, or unmounted by `onStart`, before the root click
+    // handler runs, so remember the event it already handled instead of relying on the DOM.
+    let editClickEvent: MouseEvent | null = null
 
     const {
       prefixCls,
@@ -161,6 +164,9 @@ const Base = defineComponent<
 
     const onEditClick = (e?: MouseEvent) => {
       e?.preventDefault()
+      if (e) {
+        editClickEvent = e
+      }
       triggerEdit(true)
     }
 
@@ -503,7 +509,8 @@ const Base = defineComponent<
       const children = filterEmpty(slots?.default?.())
       childrenNodes.value = children
       const clickHandler = (e: MouseEvent) => {
-        if (triggerType.value.includes('text')) {
+        // Skip if the click event was already handled by the edit icon
+        if (triggerType.value.includes('text') && editClickEvent !== e) {
           onEditClick(e)
         }
         emit('click', e)
