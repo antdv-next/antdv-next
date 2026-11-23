@@ -97,7 +97,11 @@ const DirectoryTree = defineComponent<
       return initExpandedKeys
     }
 
-    const selectedKeys = shallowRef<Key[]>(props?.selectedKeys || props?.defaultSelectedKeys || [])
+    const selectedKeys = shallowRef<Key[]>(props?.defaultSelectedKeys || [])
+
+    const mergedSelectedKeys = computed(() =>
+      props.selectedKeys !== undefined ? props.selectedKeys : selectedKeys.value,
+    )
 
     const expandedKeys = shallowRef<Key[]>(getInitExpandedKeys())
 
@@ -191,7 +195,9 @@ const DirectoryTree = defineComponent<
         cachedSelectedKeys.value = newSelectedKeys
         newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys, fieldNames)
       }
-      selectedKeys.value = newSelectedKeys
+      if (props.selectedKeys === undefined) {
+        selectedKeys.value = newSelectedKeys
+      }
       emit('update:selectedKeys', newSelectedKeys)
       emit('select', newSelectedKeys, newEvent)
     }
@@ -295,7 +301,7 @@ const DirectoryTree = defineComponent<
           class={connectClassName}
           style={style}
           expandedKeys={expandedKeys.value}
-          selectedKeys={selectedKeys.value}
+          selectedKeys={mergedSelectedKeys.value}
           onSelect={onSelect}
           onExpand={onExpand}
           v-slots={slots}
