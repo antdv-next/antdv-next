@@ -292,6 +292,10 @@ const InternalCheckbox = defineComponent<
               {
                 ...{
                   'onChange': (e: any) => {
+                    // Native checkbox activation clears indeterminate before firing change.
+                    if (checkboxRef.value?.input) {
+                      checkboxRef.value.input.indeterminate = !!props.indeterminate
+                    }
                     emit('change', e)
                   },
                   'onUpdate:checked': (checked: boolean) => {

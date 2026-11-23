@@ -160,6 +160,46 @@ describe('checkbox', () => {
     expect(wrapper.find('.ant-checkbox-indeterminate').exists()).toBe(true)
   })
 
+  it.each([undefined, false, true])(
+    'should preserve native indeterminate after activation with checked=%s',
+    async (checked) => {
+      const onChange = vi.fn()
+      const wrapper = mount(() => (
+        <Checkbox indeterminate checked={checked} onChange={onChange}>
+          Partial selection
+        </Checkbox>
+      ), { attachTo: document.body })
+      await nextTick()
+      const input = wrapper.find('input').element as HTMLInputElement
+      expect(input.indeterminate).toBe(true)
+
+      input.click()
+      await nextTick()
+      expect(input.indeterminate).toBe(true)
+      expect(onChange).toHaveBeenCalledTimes(1)
+
+      ;(wrapper.find('label').element as HTMLLabelElement).click()
+      await nextTick()
+      expect(input.indeterminate).toBe(true)
+      expect(onChange).toHaveBeenCalledTimes(2)
+    },
+  )
+
+  it('should allow change handler to clear indeterminate', async () => {
+    const indeterminate = ref(true)
+    const wrapper = mount(() => (
+      <Checkbox indeterminate={indeterminate.value} onChange={() => (indeterminate.value = false)} />
+    ), { attachTo: document.body })
+    await nextTick()
+    const input = wrapper.find('input').element as HTMLInputElement
+
+    input.click()
+    await nextTick()
+    await nextTick()
+    expect(input.checked).toBe(true)
+    expect(input.indeterminate).toBe(false)
+  })
+
   // ============ Custom values ============
 
   it('should support checkedValue and unCheckedValue', async () => {
