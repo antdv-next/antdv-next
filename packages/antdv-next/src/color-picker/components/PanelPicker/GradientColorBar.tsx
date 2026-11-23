@@ -76,8 +76,17 @@ export default defineComponent<GradientColorBarProps>(
     }
 
     const onKeyDelete = (index: number) => {
+      // A gradient needs at least two stops
+      if (colorList.value.length <= 2) {
+        return
+      }
+
       const nextColors = [...colorList.value]
       nextColors.splice(index, 1)
+
+      if (props.activeIndex >= nextColors.length) {
+        props.onActive(nextColors.length - 1)
+      }
 
       const nextColor = new AggregationColor(nextColors)
 

@@ -115,6 +115,76 @@ describe('color-picker gradient', () => {
     expect(cssValue).toContain('rgb(0,255,0)')
   })
 
+  // https://github.com/ant-design/ant-design/pull/59837
+  it.each(['Delete', 'Backspace'])('keeps at least two gradient stops on %s', async (key) => {
+    const onChange = vi.fn()
+    const onChangeComplete = vi.fn()
+    mount(ColorPicker, {
+      attachTo: document.body,
+      props: {
+        mode: 'gradient',
+        defaultValue: [
+          { color: '#ff0000', percent: 0 },
+          { color: '#0000ff', percent: 100 },
+        ],
+        open: true,
+        onChange,
+        onChangeComplete,
+      },
+    })
+    await flushColorPickerTimer()
+
+    document.querySelectorAll<HTMLElement>('.ant-color-picker-gradient-slider [role="slider"]').forEach((handle) => {
+      handle.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true }))
+    })
+    await flushColorPickerTimer()
+
+    expect(document.querySelectorAll('.ant-color-picker-gradient-slider [role="slider"]')).toHaveLength(2)
+    expect(onChange).not.toHaveBeenCalled()
+    expect(onChangeComplete).not.toHaveBeenCalled()
+  })
+
+  it('can delete the last of three stops and keep editing the remaining gradient', async () => {
+    const onChange = vi.fn()
+    const onChangeComplete = vi.fn()
+    mount(ColorPicker, {
+      attachTo: document.body,
+      props: {
+        mode: 'gradient',
+        defaultValue: [
+          { color: '#ff0000', percent: 0 },
+          { color: '#00ff00', percent: 50 },
+          { color: '#0000ff', percent: 100 },
+        ],
+        open: true,
+        onChange,
+        onChangeComplete,
+      },
+    })
+    await flushColorPickerTimer()
+
+    const lastHandle = document.querySelector<HTMLElement>('.ant-slider-handle-3')!
+    lastHandle.focus()
+    await flushColorPickerTimer()
+    lastHandle.dispatchEvent(new KeyboardEvent('keydown', { key: 'Delete', bubbles: true }))
+    await flushColorPickerTimer()
+
+    expect(document.querySelectorAll('.ant-color-picker-gradient-slider [role="slider"]')).toHaveLength(2)
+    // @ts-expect-error esnext
+    expect(onChange.mock.calls.at(-1)?.[1]).toBe('linear-gradient(90deg, rgb(255,0,0) 0%, rgb(0,255,0) 50%)')
+    // @ts-expect-error esnext
+    expect(onChangeComplete.mock.calls.at(-1)?.[0].getColors()).toHaveLength(2)
+
+    const hexInput = document.querySelector<HTMLInputElement>('.ant-color-picker-hex-input input')!
+    hexInput.value = 'ffffff'
+    hexInput.dispatchEvent(new Event('input', { bubbles: true }))
+    hexInput.dispatchEvent(new Event('change', { bubbles: true }))
+    await flushColorPickerTimer()
+
+    // @ts-expect-error esnext
+    expect(onChange.mock.calls.at(-1)?.[1]).toBe('linear-gradient(90deg, rgb(255,0,0) 0%, rgb(255,255,255) 50%)')
+  })
+
   it('falls back to gradient mode when only gradient is configured', async () => {
     mount(ColorPicker, {
       attachTo: document.body,
