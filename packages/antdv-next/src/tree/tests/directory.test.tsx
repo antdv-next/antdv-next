@@ -304,6 +304,48 @@ describe('directory Tree', () => {
     wrapper.unmount()
   })
 
+  it('keeps controlled selectedKeys when the parent ignores onSelect', async () => {
+    const onSelect = vi.fn()
+    const onUpdateSelectedKeys = vi.fn()
+    const treeData = [
+      {
+        key: '0-0',
+        title: 'parent 0',
+        children: [
+          { key: '0-0-0', title: 'child 0-0' },
+          { key: '0-0-1', title: 'child 0-1' },
+        ],
+      },
+      {
+        key: '0-1',
+        title: 'parent 1',
+        children: [
+          { key: '0-1-0', title: 'child 1-0' },
+          { key: '0-1-1', title: 'child 1-1' },
+        ],
+      },
+    ]
+    const wrapper = mount(DirectoryTree, {
+      props: {
+        defaultExpandAll: true,
+        selectedKeys: ['0-0-0'],
+        treeData,
+        onSelect,
+        'onUpdate:selectedKeys': onUpdateSelectedKeys,
+      },
+    })
+    await waitFakeTimer(0, 1)
+
+    const nodes = wrapper.findAll('.ant-tree-node-content-wrapper')
+    await nodes[2]!.trigger('click')
+    await waitFakeTimer(0, 1)
+
+    expect(onUpdateSelectedKeys).toHaveBeenCalledWith(['0-0-1'])
+    expect(onSelect).toHaveBeenCalledWith(['0-0-1'], expect.objectContaining({ selected: true }))
+    expect(wrapper.findComponent({ name: 'ATree' }).props('selectedKeys')).toEqual(['0-0-0'])
+    wrapper.unmount()
+  })
+
   it('group select', async () => {
     const onSelect = vi.fn()
     const treeData = [
