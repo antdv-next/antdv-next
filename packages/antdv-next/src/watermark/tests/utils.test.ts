@@ -48,4 +48,11 @@ describe('watermark content lines', () => {
     expect(getCanvasFont(baseFont, 2, 64)).toBe('normal normal normal 32px/64px sans-serif')
     expect(getFontSize(baseFont, 2)).toBe(32)
   })
+
+  // https://github.com/ant-design/ant-design/pull/59855
+  it('getCanvasFont keeps a valid font when fontStyle is none', () => {
+    expect(getCanvasFont({ ...baseFont, fontStyle: 'none', fontWeight: 400, fontSize: 20 })).toBe(
+      'normal normal 400 20px sans-serif',
+    )
+  })
 })
