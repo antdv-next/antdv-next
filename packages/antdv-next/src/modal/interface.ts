@@ -60,6 +60,7 @@ interface ModalCommonProps
     | 'modalRender'
     | 'rootStyle'
     | 'style'
+    | 'closable'
     | OmitFocusType
   >
 {
