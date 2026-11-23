@@ -60,13 +60,13 @@ const Basic = defineComponent<BasicPropsWithTagName>(
         prefixCls: customizePrefixCls,
         rootClass,
       } = props
-      const prefixWithSuffixCls = suffixCls ? `${prefixCls.value}-${suffixCls}` : prefixCls.value
       const { class: _attrClass, ...restAttrs } = attrs as Record<string, any>
 
       return createVNode(tagName, {
         ...restAttrs,
         class: classNames(
-          customizePrefixCls || prefixWithSuffixCls,
+          customizePrefixCls,
+          suffixCls ? `${prefixCls.value}-${suffixCls}` : prefixCls.value,
           rootClass,
           _attrClass,
           hashId.value,
