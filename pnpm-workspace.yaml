@@ -170,7 +170,7 @@ catalogs:
     '@v-c/textarea': ^1.2.1
     '@v-c/tooltip': ^1.1.5
     '@v-c/tour': ^1.1.7
-    '@v-c/tree': ^1.2.5
+    '@v-c/tree': ^1.2.6
     '@v-c/tree-select': ^1.1.4
     '@v-c/trigger': ^1.1.7
     '@v-c/upload': ^1.1.3
