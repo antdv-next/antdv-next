@@ -59,12 +59,16 @@ export interface SortState<RecordType = AnyObject> {
 function collectSortStates<RecordType extends AnyObject = AnyObject>(columns: ColumnsType<RecordType>, init: boolean, pos?: string): SortState<RecordType>[] {
   let sortStates: SortState<RecordType>[] = []
 
-  const pushState = (column: ColumnsType<RecordType>[number], columnPos: string) => {
+  const pushState = (
+    column: ColumnsType<RecordType>[number],
+    columnPos: string,
+    sortOrder: SortOrder = column.sortOrder!,
+  ) => {
     sortStates.push({
       column,
       key: getColumnKey<RecordType>(column, columnPos),
       multiplePriority: getMultiplePriority<RecordType>(column),
-      sortOrder: column.sortOrder!,
+      sortOrder,
     })
   }
 
@@ -74,6 +78,10 @@ function collectSortStates<RecordType extends AnyObject = AnyObject>(columns: Co
       if ('sortOrder' in column) {
         // Controlled
         pushState(column, columnPos)
+      }
+      else if (init && column.sorter && column.defaultSortOrder) {
+        // Default sorter
+        pushState(column, columnPos, column.defaultSortOrder)
       }
       sortStates = [
         ...sortStates,
@@ -91,12 +99,7 @@ function collectSortStates<RecordType extends AnyObject = AnyObject>(columns: Co
       }
       else if (init && column.defaultSortOrder) {
         // Default sorter
-        sortStates.push({
-          column,
-          key: getColumnKey(column, columnPos),
-          multiplePriority: getMultiplePriority<RecordType>(column),
-          sortOrder: column.defaultSortOrder!,
-        })
+        pushState(column, columnPos, column.defaultSortOrder)
       }
     }
   })

@@ -155,6 +155,28 @@ describe('table sorter', () => {
     expect(cells[0]!.text()).toBe('42')
   })
 
+  // https://github.com/ant-design/ant-design/issues/30791
+  it('works with defaultSortOrder on a grouping column', () => {
+    const columns = [
+      {
+        title: 'group',
+        key: 'group',
+        sorter: (a: any, b: any) => a.age - b.age,
+        defaultSortOrder: 'descend' as const,
+        children: [
+          { title: 'Name', dataIndex: 'name', key: 'name' },
+          { title: 'Age', dataIndex: 'age', key: 'age' },
+        ],
+      },
+    ]
+    const wrapper = mount(Table, {
+      props: { columns, dataSource: data, pagination: false },
+    })
+    const names = wrapper.findAll('tbody tr').map(row => row.findAll('td')[0]!.text())
+    expect(names).toEqual(['Jim', 'John', 'Joe', 'Jerry'])
+    expect(wrapper.find('th[aria-sort]').attributes('aria-sort')).toBe('descending')
+  })
+
   // https://github.com/ant-design/ant-design/issues/32847
   it('defaultSortOrder still applies when column is hidden by responsive', () => {
     // The matchMedia mock only matches `max-width` queries, so a column with
