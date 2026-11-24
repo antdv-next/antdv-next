@@ -5,6 +5,7 @@ import * as components from './components'
 import version from './version'
 
 export { useResponsive } from './_util/hooks/useResponsive'
+export type { Breakpoint } from './_util/responsiveObserver'
 
 export * from './components'
 
@@ -39,7 +40,7 @@ export default {
   version,
 } as Plugin
 
-export type { GlobalToken } from './theme'
+export type { GlobalToken, MappingAlgorithm } from './theme'
 
 export { default as theme } from './theme'
 

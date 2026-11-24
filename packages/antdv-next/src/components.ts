@@ -105,7 +105,7 @@ export type {
   ValueType as InputNumberValueType,
 } from './input-number'
 export { default as Layout, LayoutContent, LayoutFooter, LayoutHeader, LayoutSider, useLayoutSider } from './layout'
-export type { LayoutProps } from './layout'
+export type { LayoutProps, SiderProps } from './layout'
 export { default as Listy } from './listy'
 export type {
   ListyClassNames,
@@ -128,11 +128,13 @@ export type {
   MentionsStylesType,
 } from './mentions'
 export { default as Menu, MenuDivider, MenuItem, MenuItemGroup, SubMenu } from './menu'
-export type { MenuEmits, MenuInfo, MenuItemGroupProps, MenuItemProps, MenuItemType, MenuProps, MenuRef, MenuSlots, SelectInfo, SubMenuProps } from './menu'
+export type { MenuEmits, MenuInfo, MenuItemGroupProps, MenuItemProps, MenuItemType, MenuProps, MenuRef, MenuSlots, MenuTheme, SelectInfo, SubMenuProps } from './menu'
 export { default as message, useMessage } from './message'
+export type { ArgsProps as MessageArgsProps } from './message'
 export { default as Modal, useModal } from './modal'
-export type { ModalEmits, ModalProps, ModalSlots } from './modal'
+export type { ModalEmits, ModalFuncProps, ModalLocale, ModalProps, ModalSlots } from './modal'
 export { default as notification, useNotification } from './notification'
+export type { ArgsProps as NotificationArgsProps } from './notification'
 export { default as Pagination } from './pagination'
 export type {
   PaginationClassNamesType,
@@ -293,4 +295,4 @@ export type {
 export { default as Upload, UploadDragger } from './upload'
 export type { UploadChangeParam, DraggerProps as UploadDraggerProps, UploadEmits, UploadFile, UploadProps, UploadRef, UploadSlots } from './upload'
 export { default as Watermark } from './watermark'
-export type { WatermarkEmits, WatermarkProps, WatermarkRef, WatermarkSlots } from './watermark'
+export type { WatermarkContent, WatermarkEmits, WatermarkFont, WatermarkProps, WatermarkRef, WatermarkSlots, WatermarkText } from './watermark'
