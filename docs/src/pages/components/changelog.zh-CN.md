@@ -2,6 +2,67 @@
 title: 组件更新日志
 ---
 
+## V1.8.3
+
+发布日期：2026-11-24
+
+本次是补丁版本，以问题修复为主。Form 的 `FormInstance` 改为泛型，可以从 model 推导字段和返回值类型；`getFieldsValue` 支持按字段 meta 过滤，`setFieldsValue` 更新嵌套对象时改为深合并。`Select.Option` 子组件写法和 AutoComplete 的 `dataSource` 恢复渲染下拉项。Upload、Transfer、DirectoryTree 在受控模式下不再和外部状态不一致。根入口补齐一批从 antd 迁移时常用的类型导出。同时包含一批从 Ant Design 同步的修复，并升级全部 `@v-c/*` 基础组件。
+
+**✨ 新功能 Features**
+
+* feat(form)：`getFieldsValue` 支持 `getFieldsValue(nameList, filterFunc)` 和 `getFieldsValue({ filter })`，按字段 meta 过滤（[#1128](https://github.com/antdv-next/antdv-next/pull/1128)）。注意：按 `nameList` 查询父路径时，只返回其下已注册的字段，与 Ant Design 一致；`getFieldsValue(true)` 仍返回包含未注册字段的完整数据
+* feat(slider)：新增 `startPoint` 属性，设置单滑块模式下高亮轨道的起点（#59877）
+
+**🐞 问题修复 Fixes**
+
+* fix(form)：`setFieldsValue` 更新嵌套对象时深合并，不再丢失未传入的同级字段（[#1106](https://github.com/antdv-next/antdv-next/pull/1106)）；`FormInstance` 改为泛型，`useForm`、`model`、`name`、`getFieldsValue()`、`validateFields()` 可以推导出 model 类型，未指定泛型时保持原有类型（[#1126](https://github.com/antdv-next/antdv-next/pull/1126)）
+* fix(select, auto-complete)：`Select.Option` 子组件写法和 AutoComplete 的 `dataSource` 恢复渲染下拉项（[#1105](https://github.com/antdv-next/antdv-next/pull/1105)）
+* fix(upload)：受控 `fileList` 下，`customRequest` 同步或在微任务中调用 `onProgress` / `onSuccess` / `onError` 不再被丢弃，文件不会一直停在上传中（[#1155](https://github.com/antdv-next/antdv-next/pull/1155)）；`linkProps` 不是合法的 JSON 字符串时给出开发警告（#59323）
+* fix(transfer)：受控 `selectedKeys` 在 `dataSource` 临时清空或过滤后恢复时，保留原有选中项（[#1137](https://github.com/antdv-next/antdv-next/pull/1137)）
+* fix(tree)：DirectoryTree 受控 `selectedKeys` 时，父级不更新则选中项保持不变（[#1146](https://github.com/antdv-next/antdv-next/pull/1146)）
+* fix(config-provider)：替换 `getPopupContainer`、`getTargetContainer` 回调后，已挂载的弹层组件和 Anchor 使用新回调（[#1123](https://github.com/antdv-next/antdv-next/pull/1123)）；message、notification 和 `Modal.confirm` 静态方法中，`holderRender` 返回的 ConfigProvider 优先于全局配置（[#1111](https://github.com/antdv-next/antdv-next/pull/1111)）
+* fix(modal)：`Modal.useModal()` 中 `confirm()` 之后立即调用 `update()` / `destroy()` 能够生效（[#1124](https://github.com/antdv-next/antdv-next/pull/1124)）
+* fix(modal, drawer)：`closable.closeIcon` 为 `null` 时不再渲染报错，Modal 保留无图标的关闭按钮，Drawer 不显示关闭按钮（[#1107](https://github.com/antdv-next/antdv-next/pull/1107)）
+* fix(message)：容器挂载前就被关闭的静态 message，返回的 Promise 也会 resolve（#59942）
+* fix(table)：固定表头且可横向滚动时，表头与表体列对齐（#59963）；自定义 `filterSearch` 收到用户原始输入，不再被去空格和转小写（#59735）；分组列的 `defaultSortOrder` 生效（#59611）
+* fix(menu)：`expandIcon` 传入渲染函数时正确渲染，不再把函数源码显示为文本（[#1110](https://github.com/antdv-next/antdv-next/pull/1110)）
+* fix(layout)：Header、Content、Footer 支持 `rootClass`（#59697）；使用自定义 `prefixCls` 时保留 `-header` 等带后缀的类名（#59935）
+* fix(typography)：浏览器缩放时，未省略的文本不再弹出省略 Tooltip（#59661）；`editable.triggerType` 同时包含 `icon` 和 `text` 时，点击编辑图标只触发一次 `onStart`（#59629）
+* fix(button)：布局变化（如出现 loading 图标、切换尺寸）不再带过渡动画（#59886）
+* fix(tabs)：卡片式 Tabs 拖拽排序时不再滞后（#59854）
+* fix(input-number)：`mode="spinner"` 时 `prefix` 和 `suffix` 与两侧按钮之间保留间距（#59572）
+* fix(segmented)：选项图标在任意字号下都与文字垂直居中（[#1115](https://github.com/antdv-next/antdv-next/pull/1115)）
+* fix(checkbox)：点击后保留 `indeterminate` 半选状态，原生 input 与样式保持一致（#59859）
+* fix(color-picker)：删除渐变色标时至少保留两个，不再产生非法渐变（#59837）
+* fix(calendar)：`validRange` 边界带时刻时，边界当天可以选择（#59947）
+* fix(mentions)：识别位于行首的提及（#59948）
+* fix(steps)：`items[].icon` 为 `0` 时正常显示（#59977）
+* fix(watermark)：`font.fontStyle` 为 `none` 时字号、字重等设置不再失效（#59855）
+* fix(statistic)：`StatisticTimer` 的 `change` 事件参数类型改为 `number`（#59903）
+* fix(badge)：ref 通过 `nativeElement` 暴露根元素，并导出 `BadgeRef` 类型（[#1116](https://github.com/antdv-next/antdv-next/pull/1116)）。注意：原来的 `badgeRef` 不再暴露，请改用 `ref.nativeElement`
+* fix(types)：根入口导出 `Breakpoint`、`SiderProps`、`MenuTheme`、`MessageArgsProps`、`ModalFuncProps`、`ModalLocale`、`NotificationArgsProps`、`MappingAlgorithm`、`WatermarkContent`、`WatermarkFont`、`WatermarkText`（[#1164](https://github.com/antdv-next/antdv-next/pull/1164)）以及 `BorderBeamItem`（[#1117](https://github.com/antdv-next/antdv-next/pull/1117)）
+
+**📖 文档 Documentation**
+
+* docs(blog)：新增博客，介绍移动端组件库 `@antdv-next/mobile`（[#1104](https://github.com/antdv-next/antdv-next/pull/1104)）
+* docs(table)：新增点击行选中的示例（[#1109](https://github.com/antdv-next/antdv-next/pull/1109)）
+* docs(button)：补充 `icon` 属性，说明 `variant="solid"` 时 `color` 默认为 `primary`（[#1129](https://github.com/antdv-next/antdv-next/pull/1129)）
+* docs(avatar)：补充 `default` 插槽，AvatarGroup API 与 Ant Design 对齐（[#1108](https://github.com/antdv-next/antdv-next/pull/1108)）
+* docs(tree)：说明 `height` 与虚拟滚动的关系（#59937）
+* docs：修正中文文档中带 `-cn` 后缀和尾部斜杠、跳转后 404 的站内链接（[#1125](https://github.com/antdv-next/antdv-next/pull/1125)）
+
+**🛠 重构与维护 Refactor & Maintenance**
+
+* perf(tree)：DirectoryTree 范围选择时不再重复遍历节点（#59944）
+* perf(descriptions)：计算行之前跳过多余的过滤（#59893）
+* refactor：移除 Table 分页回调中未使用的信息（#59900）、MenuItem 中多余的 span 判断（#59820）、Skeleton 中未使用的圆形图片样式（#59672）、Slider 中多余的 Tooltip raf 取消（#59914）、Affix 中多余的测量状态（#59796）
+* chore(sync)：ant-design 上游跟踪推进到 `844a147e7`
+
+**🧰 基础设施与依赖 Infrastructure & Dependencies**
+
+* chore(deps)：升级全部 `@v-c/*`，修正 `node16` / `nodenext` 模块解析下的类型导入。其中 `@v-c/picker` 1.7.3 支持解析带时区偏移的 dayjs 值；`@v-c/color-picker` 1.1.0 改进键盘操作和读屏支持；`@v-c/tabs` 1.4.5 修复相同 key 替换 `items` 后面板内容不刷新；`@v-c/input` 1.3.2、`@v-c/menu` 1.4.9、`@v-c/tour` 1.1.7 可以渲染 `0` 等零值；`@v-c/image` 1.1.5、`@v-c/slider` 1.1.7、`@v-c/virtual-list` 1.1.8 的触摸拖动不再带动页面滚动；`@v-c/tree` 1.2.6 恢复受控 key 的守卫，配合 DirectoryTree 的修复，受控 `selectedKeys` 不再被组件自行改写
+* ci：新增 `vue-tsc` 类型检查（[#1127](https://github.com/antdv-next/antdv-next/pull/1127)）
+
 ## V1.8.2
 
 发布日期：2026-11-16

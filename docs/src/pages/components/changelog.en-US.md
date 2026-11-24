@@ -2,6 +2,67 @@
 title: Component Changelog
 ---
 
+## V1.8.3
+
+Release Date: 2026-11-24
+
+This is a patch release that mostly fixes bugs. Form's `FormInstance` is now generic, so field names and return values can be typed from the model; `getFieldsValue` can filter by field meta, and `setFieldsValue` deep-merges nested objects. `Select.Option` children and the AutoComplete `dataSource` render their options again. Upload, Transfer and DirectoryTree no longer drift away from their controlled state. The root entry exports a set of types commonly used when migrating from antd. It also includes a round of fixes synced from Ant Design, and upgrades every `@v-c/*` package.
+
+**✨ Features**
+
+* feat(form): `getFieldsValue` accepts `getFieldsValue(nameList, filterFunc)` and `getFieldsValue({ filter })` to filter by field meta ([#1128](https://github.com/antdv-next/antdv-next/pull/1128)). Note that a parent path in `nameList` now returns only the registered fields below it, as in Ant Design; `getFieldsValue(true)` still returns the whole store, unregistered fields included
+* feat(slider): add `startPoint` to set where the highlighted track starts in single mode (#59877)
+
+**🐞 Fixes**
+
+* fix(form): `setFieldsValue` deep-merges nested objects and no longer drops the sibling fields it was not given ([#1106](https://github.com/antdv-next/antdv-next/pull/1106)); `FormInstance` is generic, so `useForm`, `model`, `name`, `getFieldsValue()` and `validateFields()` carry the model type, and untyped usage keeps the previous types ([#1126](https://github.com/antdv-next/antdv-next/pull/1126))
+* fix(select, auto-complete): `Select.Option` children and the AutoComplete `dataSource` render their options again ([#1105](https://github.com/antdv-next/antdv-next/pull/1105))
+* fix(upload): with a controlled `fileList`, `onProgress` / `onSuccess` / `onError` called synchronously or in a microtask from `customRequest` are no longer dropped, so files no longer get stuck uploading ([#1155](https://github.com/antdv-next/antdv-next/pull/1155)); warn in development when `linkProps` is not a valid JSON string (#59323)
+* fix(transfer): a controlled `selectedKeys` keeps its selection when `dataSource` is briefly cleared or filtered and then restored ([#1137](https://github.com/antdv-next/antdv-next/pull/1137))
+* fix(tree): with a controlled `selectedKeys`, DirectoryTree keeps its selection unless the parent updates it ([#1146](https://github.com/antdv-next/antdv-next/pull/1146))
+* fix(config-provider): mounted popups and Anchor use the new callback after `getPopupContainer` or `getTargetContainer` is replaced ([#1123](https://github.com/antdv-next/antdv-next/pull/1123)); in the message, notification and `Modal.confirm` static methods, a ConfigProvider returned by `holderRender` takes precedence over the global config ([#1111](https://github.com/antdv-next/antdv-next/pull/1111))
+* fix(modal): `update()` / `destroy()` called right after `confirm()` from `Modal.useModal()` take effect ([#1124](https://github.com/antdv-next/antdv-next/pull/1124))
+* fix(modal, drawer): no render error when `closable.closeIcon` is `null`; Modal keeps a close button without an icon and Drawer shows no close button ([#1107](https://github.com/antdv-next/antdv-next/pull/1107))
+* fix(message): the promise of a static message closed before its holder mounts now resolves (#59942)
+* fix(table): headers stay aligned with the body when a fixed header scrolls horizontally (#59963); a custom `filterSearch` receives the raw input instead of a trimmed, lowercased one (#59735); `defaultSortOrder` works on grouping columns (#59611)
+* fix(menu): a render function passed to `expandIcon` is rendered instead of showing its source as text ([#1110](https://github.com/antdv-next/antdv-next/pull/1110))
+* fix(layout): Header, Content and Footer accept `rootClass` (#59697); with a custom `prefixCls` they keep the suffixed classes such as `-header` (#59935)
+* fix(typography): text that is not truncated no longer shows the ellipsis tooltip when the browser is zoomed (#59661); with both `icon` and `text` in `editable.triggerType`, clicking the edit icon calls `onStart` once (#59629)
+* fix(button): layout changes, such as the loading icon appearing or the size changing, are no longer animated (#59886)
+* fix(tabs): dragging card tabs to reorder them no longer lags (#59854)
+* fix(input-number): with `mode="spinner"`, `prefix` and `suffix` keep their spacing from the step buttons (#59572)
+* fix(segmented): option icons are centered on the label at any icon size ([#1115](https://github.com/antdv-next/antdv-next/pull/1115))
+* fix(checkbox): keep the `indeterminate` state after a click, so the native input matches the styling (#59859)
+* fix(color-picker): deleting gradient stops keeps at least two, so the gradient stays valid (#59837)
+* fix(calendar): boundary dates of a `validRange` with a time of day can be selected (#59947)
+* fix(mentions): recognize mentions at the start of a line (#59948)
+* fix(steps): an `items[].icon` of `0` is displayed (#59977)
+* fix(watermark): font size and weight still apply when `font.fontStyle` is `none` (#59855)
+* fix(statistic): the `change` event of `StatisticTimer` is typed as `number` (#59903)
+* fix(badge): the ref exposes the root element as `nativeElement`, and the `BadgeRef` type is exported ([#1116](https://github.com/antdv-next/antdv-next/pull/1116)). Note that `badgeRef` is no longer exposed; use `ref.nativeElement` instead
+* fix(types): export `Breakpoint`, `SiderProps`, `MenuTheme`, `MessageArgsProps`, `ModalFuncProps`, `ModalLocale`, `NotificationArgsProps`, `MappingAlgorithm`, `WatermarkContent`, `WatermarkFont` and `WatermarkText` ([#1164](https://github.com/antdv-next/antdv-next/pull/1164)), and `BorderBeamItem` ([#1117](https://github.com/antdv-next/antdv-next/pull/1117)) from the root entry
+
+**📖 Documentation**
+
+* docs(blog): introduce the mobile component library `@antdv-next/mobile` ([#1104](https://github.com/antdv-next/antdv-next/pull/1104))
+* docs(table): add a demo that selects a row by clicking it ([#1109](https://github.com/antdv-next/antdv-next/pull/1109))
+* docs(button): document the `icon` prop, and that `color` defaults to `primary` when `variant="solid"` ([#1129](https://github.com/antdv-next/antdv-next/pull/1129))
+* docs(avatar): document the `default` slot and align the AvatarGroup API with Ant Design ([#1108](https://github.com/antdv-next/antdv-next/pull/1108))
+* docs(tree): clarify how `height` relates to virtual scrolling (#59937)
+* docs: fix internal links in the Chinese docs that carried a `-cn` suffix or a trailing slash and led to a 404 ([#1125](https://github.com/antdv-next/antdv-next/pull/1125))
+
+**🛠 Refactor & Maintenance**
+
+* perf(tree): avoid repeated scans during DirectoryTree range selection (#59944)
+* perf(descriptions): skip redundant filtering before calculating rows (#59893)
+* refactor: remove the unused pagination callback info in Table (#59900), the redundant span check in MenuItem (#59820), the unused image circle styles in Skeleton (#59672), the redundant tooltip raf cancellation in Slider (#59914) and the redundant measurement status in Affix (#59796)
+* chore(sync): advance ant-design upstream tracking to `844a147e7`
+
+**🧰 Infrastructure & Dependencies**
+
+* chore(deps): upgrade every `@v-c/*` package, fixing type imports under `node16` / `nodenext` module resolution. Among them, `@v-c/picker` 1.7.3 parses dayjs values with a UTC offset; `@v-c/color-picker` 1.1.0 improves keyboard and screen reader support; `@v-c/tabs` 1.4.5 refreshes the panel content when `items` are replaced with the same keys; `@v-c/input` 1.3.2, `@v-c/menu` 1.4.9 and `@v-c/tour` 1.1.7 render zero values such as `0`; touch dragging in `@v-c/image` 1.1.5, `@v-c/slider` 1.1.7 and `@v-c/virtual-list` 1.1.8 no longer scrolls the page; `@v-c/tree` 1.2.6 restores the controlled-key guards, so together with the DirectoryTree fix a controlled `selectedKeys` is no longer rewritten by the component
+* ci: add a `vue-tsc` type check ([#1127](https://github.com/antdv-next/antdv-next/pull/1127))
+
 ## V1.8.2
 
 Release Date: 2026-11-16
