@@ -114,7 +114,7 @@ function renderFilterItems(options: RenderFilterItemsOptions): Required<MenuProp
     }
     if (normalizedSearchValue) {
       if (typeof filterSearch === 'function') {
-        return filterSearch(normalizedSearchValue, filter) ? item : null
+        return filterSearch(searchValue, filter) ? item : null
       }
       return searchValueMatched(normalizedSearchValue, filter.text) ? item : null
     }
