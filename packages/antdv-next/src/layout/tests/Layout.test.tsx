@@ -136,6 +136,22 @@ describe('layout', () => {
     expect(wrapper.find('.ant-layout-footer').classes()).toContain('footer-root')
   })
 
+  // https://github.com/ant-design/ant-design/pull/59935
+  it('should keep suffixed classes with a custom prefixCls', () => {
+    const wrapper = mount(() => (
+      <Layout prefixCls="custom-layout">
+        <LayoutHeader prefixCls="custom-layout">Header</LayoutHeader>
+        <LayoutContent prefixCls="custom-layout">Content</LayoutContent>
+        <LayoutFooter prefixCls="custom-layout">Footer</LayoutFooter>
+      </Layout>
+    ))
+    const header = wrapper.find('header')
+    expect(header.classes()).toContain('custom-layout')
+    expect(header.classes()).toContain('custom-layout-header')
+    expect(wrapper.find('main').classes()).toContain('custom-layout-content')
+    expect(wrapper.find('footer').classes()).toContain('custom-layout-footer')
+  })
+
   describe('attrs passthrough', () => {
     it('should pass style and class on layout', () => {
       const wrapper = mount(() => <Layout class="custom-cls" style={{ color: 'red' }} />)
