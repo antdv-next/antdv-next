@@ -23,11 +23,11 @@
           "description": "Ant Design React 主组件库 -> antdv-next 主包"
         }
       ],
-      "last_synced_commit": "3e81ebe4023588dc46f218d9531fb0cf760b6466",
-      "last_synced_commit_short": "3e81ebe40",
-      "last_synced_at": "2026-11-22T12:28:37Z",
+      "last_synced_commit": "57969fe446a8016fa312298614be480d4b440676",
+      "last_synced_commit_short": "57969fe44",
+      "last_synced_at": "2026-11-23T12:24:47Z",
       "last_synced_tag": "6.7.1",
-      "sync_count": 53
+      "sync_count": 54
     },
     {
       "name": "cssinjs",
