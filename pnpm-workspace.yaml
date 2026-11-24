@@ -166,7 +166,7 @@ catalogs:
     '@v-c/steps': ^1.0.5
     '@v-c/switch': ^1.0.2
     '@v-c/table': ^1.3.8
-    '@v-c/tabs': ^1.4.4
+    '@v-c/tabs': ^1.4.5
     '@v-c/textarea': ^1.2.1
     '@v-c/tooltip': ^1.1.5
     '@v-c/tour': ^1.1.7
