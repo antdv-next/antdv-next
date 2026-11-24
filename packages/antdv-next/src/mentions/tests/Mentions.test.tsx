@@ -231,6 +231,19 @@ describe('mentions', () => {
       ])
     })
 
+    // https://github.com/ant-design/ant-design/pull/59948
+    it('extracts mentions from separate lines of a textarea', () => {
+      expect(Mentions.getMentions('Review:\n@alice\r\n@bob #release', { prefix: ['@', '#'] })).toEqual([
+        { prefix: '@', value: 'alice' },
+        { prefix: '@', value: 'bob' },
+        { prefix: '#', value: 'release' },
+      ])
+      expect(Mentions.getMentions('@Mary Jane|@Ada', { split: '|' })).toEqual([
+        { prefix: '@', value: 'Mary Jane' },
+        { prefix: '@', value: 'Ada' },
+      ])
+    })
+
     it('returns empty array for no mentions', () => {
       const mentions = Mentions.getMentions('hello world')
       expect(mentions).toEqual([])
