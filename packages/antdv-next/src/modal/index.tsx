@@ -40,7 +40,7 @@ Modal.config = modalGlobalConfig
   app.component(Modal.name, Modal)
 }
 
-export type { ModalEmits, ModalSlots } from './interface'
+export type { ModalEmits, ModalFuncProps, ModalLocale, ModalSlots } from './interface'
 export type ModalProps = InternalModalProps
 export { useModalHook as useModal }
 
