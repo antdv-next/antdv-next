@@ -347,6 +347,10 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
             },
         },
 
+        [`> tr > ${componentCls}-cell-scrollbar`]: {
+          paddingInline: 0,
+        },
+
         '> tr:not(:last-child) > th[colspan]': {
           borderBottom: 0,
         },
