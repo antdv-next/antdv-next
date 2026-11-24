@@ -236,8 +236,10 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
       const mergedDisabledDate = computed(() => {
         return (date: DateType) => {
           const notInRange = props.validRange
-            ? generateConfig.isAfter(props.validRange[0], date)
-            || generateConfig.isAfter(date, props.validRange[1])
+            ? (generateConfig.isAfter(props.validRange[0], date)
+              && !isSameDate(date, props.validRange[0], generateConfig))
+            || (generateConfig.isAfter(date, props.validRange[1])
+              && !isSameDate(date, props.validRange[1], generateConfig))
             : false
           return notInRange || !!props.disabledDate?.(date)
         }
