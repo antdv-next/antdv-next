@@ -10,10 +10,10 @@ export function setup() {
       // eslint-disable-next-line ts/no-this-alias
       const self = this
       setTimeout(() => {
+        self.readyState = 4
+        self.status = 200
+        self.responseText = '{"success": true}'
         if (self.onreadystatechange) {
-          self.readyState = 4
-          self.status = 200
-          self.responseText = '{"success": true}'
           self.onreadystatechange()
         }
         if (self.onload) {
