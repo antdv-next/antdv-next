@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { calcRangeKeys } from '../utils/dictUtil'
+import { calcRangeKeys, convertDirectoryKeysToNodes } from '../utils/dictUtil'
 import SwitcherIconCom from '../utils/iconUtil'
 import { mount } from '/@tests/utils'
 
@@ -43,6 +43,13 @@ describe('tree util', () => {
     })
   })
 
+  // https://github.com/ant-design/ant-design/pull/59944
+  it('returns selected directory nodes in tree order with distinct numeric and string keys', () => {
+    const first = { key: 1 }
+    const child = { key: '1' }
+    const tree = [first, { key: 'folder', children: [child] }]
+    expect(convertDirectoryKeysToNodes(tree as any, ['1', 'missing', 1])).toEqual([first, child])
+  })
   describe('switcherIconCom', () => {
     const prefixCls = 'tree'
     it('returns a loading icon when loading', () => {
