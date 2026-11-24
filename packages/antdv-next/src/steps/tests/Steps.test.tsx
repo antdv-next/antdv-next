@@ -614,4 +614,16 @@ describe('steps', () => {
     ))
     expect(wrapper.element).toMatchSnapshot()
   })
+
+  // https://github.com/ant-design/ant-design/pull/59977
+  it.each(['wait', 'process', 'finish', 'error'] as const)('preserves a zero icon for status %s', (status) => {
+    const wrapper = mount(Steps, {
+      props: { items: [{ title: 'Step', icon: 0, status }] },
+    })
+
+    expect(wrapper.find('.ant-steps-item-icon').text()).toBe('0')
+    expect(wrapper.find('.ant-steps-item-icon-number').exists()).toBe(false)
+    expect(wrapper.find('.ant-steps-item-icon-finish').exists()).toBe(false)
+    expect(wrapper.find('.ant-steps-item-icon-error').exists()).toBe(false)
+  })
 })

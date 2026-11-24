@@ -8,6 +8,7 @@ import VcSteps from '@v-c/steps'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent, getCurrentInstance, toRef } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
+import { isRenderable } from '../_util/is'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
 import Wave from '../_util/wave'
@@ -343,7 +344,7 @@ const Steps = defineComponent<
         const { status, icon } = item
 
         let iconContent: any
-        if (isDot.value || icon) {
+        if (isDot.value || isRenderable(icon)) {
           iconContent = icon
         }
         else {
