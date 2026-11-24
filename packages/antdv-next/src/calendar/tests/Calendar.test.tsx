@@ -117,6 +117,24 @@ describe('calendar', () => {
     expect(wrapper.find('.ant-picker-cell-disabled').exists()).toBe(true)
   })
 
+  // https://github.com/ant-design/ant-design/pull/59947
+  it('allows both boundary days when validRange includes a time of day', async () => {
+    const onSelect = vi.fn()
+    const wrapper = mount(Calendar, {
+      props: {
+        defaultValue: dayjs('2018-02-10T12:00:00'),
+        validRange: [dayjs('2018-02-02T23:59:00'), dayjs('2018-02-18T00:01:00')],
+        onSelect,
+      },
+    })
+    for (const day of ['01', '02', '18', '19']) {
+      await wrapper.find(`[title="2018-02-${day}"]`).trigger('click')
+    }
+    expect(onSelect.mock.calls.map(([date]) => date.format('YYYY-MM-DD'))).toEqual([
+      '2018-02-02',
+      '2018-02-18',
+    ])
+  })
   it('should render header with year and month select', () => {
     const wrapper = mount(Calendar)
     expect(wrapper.find('.ant-picker-calendar-header').exists()).toBe(true)
