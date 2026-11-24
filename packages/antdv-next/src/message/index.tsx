@@ -274,6 +274,7 @@ function open(config: ArgsProps): MessageType {
       }
       else {
         task.skipped = true
+        resolve()
       }
     }
   })
@@ -306,6 +307,7 @@ function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
       }
       else {
         task.skipped = true
+        resolve()
       }
     }
   })
