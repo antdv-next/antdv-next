@@ -44,9 +44,19 @@ describe('locale cs_CZ', () => {
 })
 
 // https://github.com/ant-design/ant-design/pull/59978
+// https://github.com/ant-design/ant-design/pull/59982
 describe('locale ko_KR', () => {
   it('provides Korean clear and OTP cell labels', () => {
     expect(koKR.global?.clear).toBe('지우기')
     expect(koKR.Input?.otpCell).toBe('${total}자 중 ${index}번째 문자')
+  })
+
+  it('uses natural word order and particles in form validation messages', () => {
+    const messages = koKR.Form?.defaultValidateMessages as any
+    expect(messages.required).toBe('${label}을(를) 입력해 주세요')
+    expect(messages.types.email).toBe('${label}은(는) 유효한 ${type}이(가) 아닙니다')
+    expect(messages.string.range).toBe('${label}은(는) ${min}~${max}자 사이여야 합니다')
+    expect(messages.array.len).toBe('${label}은(는) ${len}개여야 합니다')
+    expect(messages.pattern.mismatch).toBe('${label}이(가) ${pattern} 패턴과 일치하지 않습니다')
   })
 })
