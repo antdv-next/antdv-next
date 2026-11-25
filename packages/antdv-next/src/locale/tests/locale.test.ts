@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import csCZ from '../cs_CZ'
 import esUS from '../es_US'
+import koKR from '../ko_KR'
 import neNP from '../ne_NP'
 import zhTW from '../zh_TW'
 
@@ -39,5 +40,13 @@ describe('locale cs_CZ', () => {
     expect((csCZ as any).Text?.collapse).toBe('Sbalit')
 
     expect(csCZ.Input?.otpCell).toBe('Znak ${index} z ${total}')
+  })
+})
+
+// https://github.com/ant-design/ant-design/pull/59978
+describe('locale ko_KR', () => {
+  it('provides Korean clear and OTP cell labels', () => {
+    expect(koKR.global?.clear).toBe('지우기')
+    expect(koKR.Input?.otpCell).toBe('${total}자 중 ${index}번째 문자')
   })
 })
