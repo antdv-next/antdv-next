@@ -81,18 +81,25 @@ const DirectoryTree = defineComponent<
         fieldNames: props.fieldNames,
       })
 
+      if (props.expandedKeys !== undefined) {
+        const controlledKeys = props.expandedKeys ?? []
+        return props.autoExpandParent || defaultExpandParent
+          ? conductExpandParent(controlledKeys, keyEntities)
+          : controlledKeys
+      }
+
       let initExpandedKeys: Key[]
       if (defaultExpandAll) {
         initExpandedKeys = Object.values(keyEntities).map(({ key }) => key)
       }
       else if (defaultExpandParent) {
         initExpandedKeys = conductExpandParent(
-          props.expandedKeys || props?.defaultExpandedKeys || [],
+          props.defaultExpandedKeys || [],
           keyEntities,
         )
       }
       else {
-        initExpandedKeys = props?.expandedKeys || props?.defaultExpandedKeys || []
+        initExpandedKeys = props.defaultExpandedKeys || []
       }
       return initExpandedKeys
     }
@@ -291,7 +298,7 @@ const DirectoryTree = defineComponent<
         <Tree
           ref={treeRef}
           {...restAttrs}
-          {...omit(otherProps, ['prefixCls'])}
+          {...omit(otherProps, ['prefixCls', 'defaultExpandAll'])}
           {...onAttrs as any}
           icon={props?.icon ?? getIcon}
           blockNode={props?.blockNode ?? true}
