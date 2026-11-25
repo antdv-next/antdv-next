@@ -408,8 +408,8 @@ catalogs:
       specifier: ^1.0.7
       version: 1.0.7
     '@v-c/select':
-      specifier: ^1.3.1
-      version: 1.3.1
+      specifier: ^1.3.2
+      version: 1.3.2
     '@v-c/slick':
       specifier: ^1.0.4
       version: 1.0.4
@@ -417,8 +417,8 @@ catalogs:
       specifier: ^1.1.7
       version: 1.1.7
     '@v-c/steps':
-      specifier: ^1.0.5
-      version: 1.0.5
+      specifier: ^1.0.6
+      version: 1.0.6
     '@v-c/switch':
       specifier: ^1.0.2
       version: 1.0.2
@@ -908,7 +908,7 @@ importers:
         version: 1.0.7(vue@3.5.42(typescript@5.9.3))
       '@v-c/select':
         specifier: catalog:vc
-        version: 1.3.1(vue@3.5.42(typescript@5.9.3))
+        version: 1.3.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/slick':
         specifier: catalog:vc
         version: 1.0.4(vue@3.5.42(typescript@5.9.3))
@@ -917,7 +917,7 @@ importers:
         version: 1.1.7(vue@3.5.42(typescript@5.9.3))
       '@v-c/steps':
         specifier: catalog:vc
-        version: 1.0.5(vue@3.5.42(typescript@5.9.3))
+        version: 1.0.6(vue@3.5.42(typescript@5.9.3))
       '@v-c/switch':
         specifier: catalog:vc
         version: 1.0.2(vue@3.5.42(typescript@5.9.3))
@@ -3365,6 +3365,11 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
+  '@v-c/select@1.3.2':
+    resolution: {integrity: sha512-c/nnqD2hp3bvHcMADoQwpx/UIHiw5s8JFGZgthxAHTZZjOlfAtd1VdNZxYYkVdxQlaxdr5l+xURsKEuaD80iQA==}
+    peerDependencies:
+      vue: ^3.0.0
+
   '@v-c/slick@1.0.4':
     resolution: {integrity: sha512-5DO0Au6OwTze8CgzrmrmEah/ndjc9S2yXSZj6nZddgtK8TB6JO6scgpfFSNGm90WRuoAQ3MbjyBJ3ydzeVeWuw==}
     peerDependencies:
@@ -3377,6 +3382,11 @@ packages:
 
   '@v-c/steps@1.0.5':
     resolution: {integrity: sha512-ClsxyfsKhRRatAax7p07tZ0RBISPXYEx/oZT2fgNf2ZYKJcl3+bb6njdrCu26LsFEyxe24q9z7f5U+/Cd8fh3g==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/steps@1.0.6':
+    resolution: {integrity: sha512-hP0Rd++mhgv8XD1l991BhTY+Zq2OTVXizkTXabFdwM0QRXtbfJHqLi4tfFgHj5p3lxtnw8hmjY4e/hJ9yaCqPQ==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -3412,11 +3422,6 @@ packages:
 
   '@v-c/tree-select@1.1.4':
     resolution: {integrity: sha512-HivoI1+CCT1roArVvlVwJC1BMyTQNDiWYgL/696eWCAEIPZw5QHfHOPsSr4c9jj6Bb9vlfU6kzkhYr1UqwR83A==}
-    peerDependencies:
-      vue: ^3.0.0
-
-  '@v-c/tree@1.2.5':
-    resolution: {integrity: sha512-Mf9pAFgScQlO+r+CIFkviMM6/wRoPZfY+FBnIVDHkGkHETvEX5GpB87jhmoQ+mUCJ3zTDQC/Axfuz0D174zw1g==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -9269,7 +9274,7 @@ snapshots:
 
   '@v-c/cascader@1.1.7(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/select': 1.3.1(vue@3.5.42(typescript@5.9.3))
+      '@v-c/select': 1.3.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/tree': 1.2.6(vue@3.5.42(typescript@5.9.3))
       '@v-c/trigger': 1.1.7(vue@3.5.42(typescript@5.9.3))
       '@v-c/util': 1.4.2(vue@3.5.42(typescript@5.9.3))
@@ -9447,6 +9452,14 @@ snapshots:
       '@v-c/virtual-list': 1.1.8(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
+  '@v-c/select@1.3.2(vue@3.5.42(typescript@5.9.3))':
+    dependencies:
+      '@v-c/overflow': 1.1.3(vue@3.5.42(typescript@5.9.3))
+      '@v-c/trigger': 1.1.7(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.4.2(vue@3.5.42(typescript@5.9.3))
+      '@v-c/virtual-list': 1.1.8(vue@3.5.42(typescript@5.9.3))
+      vue: 3.5.42(typescript@5.9.3)
+
   '@v-c/slick@1.0.4(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.4.2(vue@3.5.42(typescript@5.9.3))
@@ -9459,6 +9472,11 @@ snapshots:
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/steps@1.0.5(vue@3.5.42(typescript@5.9.3))':
+    dependencies:
+      '@v-c/util': 1.4.2(vue@3.5.42(typescript@5.9.3))
+      vue: 3.5.42(typescript@5.9.3)
+
+  '@v-c/steps@1.0.6(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.4.2(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
@@ -9506,15 +9524,9 @@ snapshots:
 
   '@v-c/tree-select@1.1.4(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/select': 1.3.1(vue@3.5.42(typescript@5.9.3))
+      '@v-c/select': 1.3.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/tree': 1.2.6(vue@3.5.42(typescript@5.9.3))
       '@v-c/util': 1.4.2(vue@3.5.42(typescript@5.9.3))
-      vue: 3.5.42(typescript@5.9.3)
-
-  '@v-c/tree@1.2.5(vue@3.5.42(typescript@5.9.3))':
-    dependencies:
-      '@v-c/util': 1.4.2(vue@3.5.42(typescript@5.9.3))
-      '@v-c/virtual-list': 1.1.8(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/tree@1.2.6(vue@3.5.42(typescript@5.9.3))':
@@ -9982,7 +9994,7 @@ snapshots:
       '@v-c/textarea': 1.2.1(vue@3.5.42(typescript@5.9.3))
       '@v-c/tooltip': 1.1.5(vue@3.5.42(typescript@5.9.3))
       '@v-c/tour': 1.1.7(vue@3.5.42(typescript@5.9.3))
-      '@v-c/tree': 1.2.5(vue@3.5.42(typescript@5.9.3))
+      '@v-c/tree': 1.2.6(vue@3.5.42(typescript@5.9.3))
       '@v-c/tree-select': 1.1.4(vue@3.5.42(typescript@5.9.3))
       '@v-c/trigger': 1.1.7(vue@3.5.42(typescript@5.9.3))
       '@v-c/upload': 1.1.3(vue@3.5.42(typescript@5.9.3))
