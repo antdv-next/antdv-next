@@ -461,11 +461,11 @@ describe('select', () => {
         </ConfigProvider>
       )))
       const getAutoComplete = () => wrapper.find('input').attributes('autocomplete')
-      expect(getAutoComplete()).toBe('new-password')
-
-      config.value = { autoComplete: 'off' }
-      await nextTick()
       expect(getAutoComplete()).toBe('off')
+
+      config.value = { autoComplete: 'new-password' }
+      await nextTick()
+      expect(getAutoComplete()).toBe('new-password')
 
       autoComplete.value = 'on'
       await nextTick()
@@ -473,11 +473,11 @@ describe('select', () => {
 
       autoComplete.value = undefined
       await nextTick()
-      expect(getAutoComplete()).toBe('off')
+      expect(getAutoComplete()).toBe('new-password')
 
       config.value = undefined
       await nextTick()
-      expect(getAutoComplete()).toBe('new-password')
+      expect(getAutoComplete()).toBe('off')
       wrapper.unmount()
     },
   )

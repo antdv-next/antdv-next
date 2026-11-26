@@ -23,7 +23,7 @@ exports[`select > rtl render > component should be rendered correctly in RTL dir
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="new-password"
+        autocomplete="off"
         class="ant-select-input"
         id="test-id"
         readonly=""
