@@ -89,9 +89,9 @@
       ]
     },
     "./time-picker/locale/*": {
-      "types": "./dist/date-picker/locale/*.d.ts",
-      "import": "./dist/date-picker/locale/*.js",
-      "default": "./dist/date-picker/locale/*.js"
+      "types": "./dist/time-picker/locale/*.d.ts",
+      "import": "./dist/time-picker/locale/*.js",
+      "default": "./dist/time-picker/locale/*.js"
     },
     "./date-picker/generate": {
       "types": "./dist/date-picker/generate/index.d.ts",
