@@ -33,13 +33,24 @@ export default defineComponent<SingleNumberProps>(
       prevCount.value = countNumber.value
     }
 
+    const isUnchanged = computed(() => prevValue.value === valueNumber.value
+      || Number.isNaN(valueNumber.value)
+      || Number.isNaN(prevValue.value))
+
     watch(
-      [valueNumber, countNumber],
+      [valueNumber, countNumber, isUnchanged],
       () => {
         if (fallbackTimer.value) {
           clearTimeout(fallbackTimer.value)
           fallbackTimer.value = null
         }
+        // Nothing to animate, so no `transitionend` will fire. Sync right away to
+        // keep the scroll direction of the next change based on the latest count.
+        if (isUnchanged.value) {
+          onTransitionEnd()
+          return
+        }
+        // Fallback if transition events are not supported
         fallbackTimer.value = setTimeout(onTransitionEnd, 1000)
       },
       { immediate: true },
@@ -83,7 +94,7 @@ export default defineComponent<SingleNumberProps>(
       let unitNodes
       let offsetStyle: CSSProperties | undefined
 
-      if (previousValue === value || Number.isNaN(value) || Number.isNaN(previousValue)) {
+      if (isUnchanged.value) {
         unitNodes = [renderUnit(props.value, 0, true, value)]
         offsetStyle = { transition: 'none' }
       }
