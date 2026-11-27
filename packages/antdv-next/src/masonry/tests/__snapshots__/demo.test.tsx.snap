@@ -416,321 +416,317 @@ exports[`masonry demo > renders _semantic correctly 1`] = `
 
 exports[`masonry demo > renders basic correctly 1`] = `
 <div
-  data-v-app=""
+  class="ant-masonry css-var-root"
+  style="height: 0px;"
 >
-  <div
-    class="ant-masonry css-var-root"
-    style="height: 0px;"
+  <transition-group-stub
+    appear="true"
+    css="true"
+    enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
+    enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
+    entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
+    leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+    leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
+    leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+    moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
+    name="ant-masonry-item-fade"
+    persisted="false"
   >
-    <transition-group-stub
-      appear="true"
-      css="true"
-      enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
-      enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
-      entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
-      leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
-      leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
-      leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
-      moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
-      name="ant-masonry-item-fade"
-      persisted="false"
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
     >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 150px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 150px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            1
-          </div>
-          <!---->
+          1
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 50px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 50px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            2
-          </div>
-          <!---->
+          2
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 90px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 90px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            3
-          </div>
-          <!---->
+          3
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 70px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 70px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            4
-          </div>
-          <!---->
+          4
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
       >
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          class="ant-card-cover"
         >
-          <!---->
+          <img
+            alt="food"
+            src="https://images.unsplash.com/photo-1491961865842-98f7befd1a60?w=523&auto=format"
+          />
+        </div>
+        <div
+          class="ant-card-body"
+        >
           <div
-            class="ant-card-cover"
+            class="ant-card-meta"
           >
-            <img
-              alt="food"
-              src="https://images.unsplash.com/photo-1491961865842-98f7befd1a60?w=523&auto=format"
-            />
-          </div>
-          <div
-            class="ant-card-body"
-          >
+            <!---->
             <div
-              class="ant-card-meta"
+              class="ant-card-meta-section"
             >
-              <!---->
               <div
-                class="ant-card-meta-section"
+                class="ant-card-meta-title"
               >
-                <div
-                  class="ant-card-meta-title"
-                >
-                  I'm Special
-                </div>
-                <div
-                  class="ant-card-meta-description"
-                >
-                  Let's have a meal
-                </div>
+                I'm Special
+              </div>
+              <div
+                class="ant-card-meta-description"
+              >
+                Let's have a meal
               </div>
             </div>
           </div>
-          <!---->
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 150px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 150px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            6
-          </div>
-          <!---->
+          6
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 130px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 130px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            7
-          </div>
-          <!---->
+          7
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 80px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 80px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            8
-          </div>
-          <!---->
+          8
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 50px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 50px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            9
-          </div>
-          <!---->
+          9
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 90px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 90px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            10
-          </div>
-          <!---->
+          10
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 100px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 100px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            11
-          </div>
-          <!---->
+          11
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 150px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 150px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            12
-          </div>
-          <!---->
+          12
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 60px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 60px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            13
-          </div>
-          <!---->
+          13
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 50px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 50px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            14
-          </div>
-          <!---->
+          14
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 80px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 80px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            15
-          </div>
-          <!---->
+          15
         </div>
+        <!---->
       </div>
-    </transition-group-stub>
-  </div>
+    </div>
+  </transition-group-stub>
 </div>
 `;
 
@@ -1536,779 +1532,767 @@ exports[`masonry demo > renders dynamic correctly 1`] = `
 
 exports[`masonry demo > renders fresh correctly 1`] = `
 <div
-  data-v-app=""
+  class="ant-masonry css-var-root"
+  style="height: 0px;"
 >
-  <div
-    class="ant-masonry css-var-root"
-    style="height: 0px;"
+  <transition-group-stub
+    appear="true"
+    css="true"
+    enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
+    enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
+    entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
+    leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+    leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
+    leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+    moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
+    name="ant-masonry-item-fade"
+    persisted="false"
   >
-    <transition-group-stub
-      appear="true"
-      css="true"
-      enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
-      enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
-      entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
-      leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
-      leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
-      leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
-      moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
-      name="ant-masonry-item-fade"
-      persisted="false"
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
     >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 150px; transition: height 0.3s;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 150px; transition: height 0.3s;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            1 - Click
-          </div>
-          <!---->
+          1 - Click
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 50px; transition: height 0.3s;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 50px; transition: height 0.3s;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            2 - Click
-          </div>
-          <!---->
+          2 - Click
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 90px; transition: height 0.3s;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 90px; transition: height 0.3s;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            3 - Click
-          </div>
-          <!---->
+          3 - Click
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 70px; transition: height 0.3s;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 70px; transition: height 0.3s;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            4 - Click
-          </div>
-          <!---->
+          4 - Click
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 110px; transition: height 0.3s;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 110px; transition: height 0.3s;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            5 - Click
-          </div>
-          <!---->
+          5 - Click
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 150px; transition: height 0.3s;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 150px; transition: height 0.3s;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            6 - Click
-          </div>
-          <!---->
+          6 - Click
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 130px; transition: height 0.3s;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 130px; transition: height 0.3s;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            7 - Click
-          </div>
-          <!---->
+          7 - Click
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 80px; transition: height 0.3s;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 80px; transition: height 0.3s;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            8 - Click
-          </div>
-          <!---->
+          8 - Click
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 50px; transition: height 0.3s;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 50px; transition: height 0.3s;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            9 - Click
-          </div>
-          <!---->
+          9 - Click
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 90px; transition: height 0.3s;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 90px; transition: height 0.3s;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            10 - Click
-          </div>
-          <!---->
+          10 - Click
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 100px; transition: height 0.3s;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 100px; transition: height 0.3s;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            11 - Click
-          </div>
-          <!---->
+          11 - Click
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 150px; transition: height 0.3s;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 150px; transition: height 0.3s;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            12 - Click
-          </div>
-          <!---->
+          12 - Click
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 60px; transition: height 0.3s;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 60px; transition: height 0.3s;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            13 - Click
-          </div>
-          <!---->
+          13 - Click
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 50px; transition: height 0.3s;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 50px; transition: height 0.3s;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            14 - Click
-          </div>
-          <!---->
+          14 - Click
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 80px; transition: height 0.3s;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 80px; transition: height 0.3s;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            15 - Click
-          </div>
-          <!---->
+          15 - Click
         </div>
+        <!---->
       </div>
-    </transition-group-stub>
-  </div>
+    </div>
+  </transition-group-stub>
 </div>
 `;
 
 exports[`masonry demo > renders image correctly 1`] = `
 <div
-  data-v-app=""
+  class="ant-masonry css-var-root"
+  style="height: 0px;"
 >
-  <div
-    class="ant-masonry css-var-root"
-    style="height: 0px;"
+  <transition-group-stub
+    appear="true"
+    css="true"
+    enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
+    enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
+    entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
+    leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+    leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
+    leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+    moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
+    name="ant-masonry-item-fade"
+    persisted="false"
   >
-    <transition-group-stub
-      appear="true"
-      css="true"
-      enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
-      enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
-      entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
-      leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
-      leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
-      leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
-      moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
-      name="ant-masonry-item-fade"
-      persisted="false"
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
     >
-      <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
-      >
-        <img
-          alt="sample"
-          src="https://images.unsplash.com/photo-1510001618818-4b4e3d86bf0f?w=523&auto=format"
-          style="width: 100%;"
-        />
-      </div>
-      <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
-      >
-        <img
-          alt="sample"
-          src="https://images.unsplash.com/photo-1507513319174-e556268bb244?w=523&auto=format"
-          style="width: 100%;"
-        />
-      </div>
-      <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
-      >
-        <img
-          alt="sample"
-          src="https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?w=523&auto=format"
-          style="width: 100%;"
-        />
-      </div>
-      <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
-      >
-        <img
-          alt="sample"
-          src="https://images.unsplash.com/photo-1492778297155-7be4c83960c7?w=523&auto=format"
-          style="width: 100%;"
-        />
-      </div>
-      <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
-      >
-        <img
-          alt="sample"
-          src="https://images.unsplash.com/photo-1508062878650-88b52897f298?w=523&auto=format"
-          style="width: 100%;"
-        />
-      </div>
-      <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
-      >
-        <img
-          alt="sample"
-          src="https://images.unsplash.com/photo-1506158278516-d720e72406fc?w=523&auto=format"
-          style="width: 100%;"
-        />
-      </div>
-      <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
-      >
-        <img
-          alt="sample"
-          src="https://images.unsplash.com/photo-1552203274-e3c7bd771d26?w=523&auto=format"
-          style="width: 100%;"
-        />
-      </div>
-      <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
-      >
-        <img
-          alt="sample"
-          src="https://images.unsplash.com/photo-1528163186890-de9b86b54b51?w=523&auto=format"
-          style="width: 100%;"
-        />
-      </div>
-      <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
-      >
-        <img
-          alt="sample"
-          src="https://images.unsplash.com/photo-1727423304224-6d2fd99b864c?w=523&auto=format"
-          style="width: 100%;"
-        />
-      </div>
-      <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
-      >
-        <img
-          alt="sample"
-          src="https://images.unsplash.com/photo-1675090391405-432434e23595?w=523&auto=format"
-          style="width: 100%;"
-        />
-      </div>
-      <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
-      >
-        <img
-          alt="sample"
-          src="https://images.unsplash.com/photo-1554196967-97a8602084d9?w=523&auto=format"
-          style="width: 100%;"
-        />
-      </div>
-      <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
-      >
-        <img
-          alt="sample"
-          src="https://images.unsplash.com/photo-1491961865842-98f7befd1a60?w=523&auto=format"
-          style="width: 100%;"
-        />
-      </div>
-      <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
-      >
-        <img
-          alt="sample"
-          src="https://images.unsplash.com/photo-1721728613411-d56d2ddda959?w=523&auto=format"
-          style="width: 100%;"
-        />
-      </div>
-      <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
-      >
-        <img
-          alt="sample"
-          src="https://images.unsplash.com/photo-1731901245099-20ac7f85dbaa?w=523&auto=format"
-          style="width: 100%;"
-        />
-      </div>
-      <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
-      >
-        <img
-          alt="sample"
-          src="https://images.unsplash.com/photo-1617694455303-59af55af7e58?w=523&auto=format"
-          style="width: 100%;"
-        />
-      </div>
-      <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
-      >
-        <img
-          alt="sample"
-          src="https://images.unsplash.com/photo-1709198165282-1dab551df890?w=523&auto=format"
-          style="width: 100%;"
-        />
-      </div>
-    </transition-group-stub>
-  </div>
+      <img
+        alt="sample"
+        src="https://images.unsplash.com/photo-1510001618818-4b4e3d86bf0f?w=523&auto=format"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
+      <img
+        alt="sample"
+        src="https://images.unsplash.com/photo-1507513319174-e556268bb244?w=523&auto=format"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
+      <img
+        alt="sample"
+        src="https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?w=523&auto=format"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
+      <img
+        alt="sample"
+        src="https://images.unsplash.com/photo-1492778297155-7be4c83960c7?w=523&auto=format"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
+      <img
+        alt="sample"
+        src="https://images.unsplash.com/photo-1508062878650-88b52897f298?w=523&auto=format"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
+      <img
+        alt="sample"
+        src="https://images.unsplash.com/photo-1506158278516-d720e72406fc?w=523&auto=format"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
+      <img
+        alt="sample"
+        src="https://images.unsplash.com/photo-1552203274-e3c7bd771d26?w=523&auto=format"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
+      <img
+        alt="sample"
+        src="https://images.unsplash.com/photo-1528163186890-de9b86b54b51?w=523&auto=format"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
+      <img
+        alt="sample"
+        src="https://images.unsplash.com/photo-1727423304224-6d2fd99b864c?w=523&auto=format"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
+      <img
+        alt="sample"
+        src="https://images.unsplash.com/photo-1675090391405-432434e23595?w=523&auto=format"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
+      <img
+        alt="sample"
+        src="https://images.unsplash.com/photo-1554196967-97a8602084d9?w=523&auto=format"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
+      <img
+        alt="sample"
+        src="https://images.unsplash.com/photo-1491961865842-98f7befd1a60?w=523&auto=format"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
+      <img
+        alt="sample"
+        src="https://images.unsplash.com/photo-1721728613411-d56d2ddda959?w=523&auto=format"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
+      <img
+        alt="sample"
+        src="https://images.unsplash.com/photo-1731901245099-20ac7f85dbaa?w=523&auto=format"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
+      <img
+        alt="sample"
+        src="https://images.unsplash.com/photo-1617694455303-59af55af7e58?w=523&auto=format"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+    >
+      <img
+        alt="sample"
+        src="https://images.unsplash.com/photo-1709198165282-1dab551df890?w=523&auto=format"
+        style="width: 100%;"
+      />
+    </div>
+  </transition-group-stub>
 </div>
 `;
 
 exports[`masonry demo > renders responsive correctly 1`] = `
 <div
-  data-v-app=""
+  class="ant-masonry css-var-root"
+  style="height: 0px;"
 >
-  <div
-    class="ant-masonry css-var-root"
-    style="height: 0px;"
+  <transition-group-stub
+    appear="true"
+    css="true"
+    enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
+    enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
+    entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
+    leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+    leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
+    leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+    moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
+    name="ant-masonry-item-fade"
+    persisted="false"
   >
-    <transition-group-stub
-      appear="true"
-      css="true"
-      enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
-      enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
-      entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
-      leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
-      leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
-      leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
-      moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
-      name="ant-masonry-item-fade"
-      persisted="false"
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
     >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 120px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 120px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            1
-          </div>
-          <!---->
+          1
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 55px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 55px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            2
-          </div>
-          <!---->
+          2
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 85px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 85px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            3
-          </div>
-          <!---->
+          3
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 160px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 160px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            4
-          </div>
-          <!---->
+          4
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 95px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 95px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            5
-          </div>
-          <!---->
+          5
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 140px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 140px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            6
-          </div>
-          <!---->
+          6
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 75px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 75px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            7
-          </div>
-          <!---->
+          7
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 110px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 110px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            8
-          </div>
-          <!---->
+          8
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 65px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 65px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            9
-          </div>
-          <!---->
+          9
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 130px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 130px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            10
-          </div>
-          <!---->
+          10
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 90px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 90px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            11
-          </div>
-          <!---->
+          11
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 145px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 145px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            12
-          </div>
-          <!---->
+          12
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 55px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 55px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            13
-          </div>
-          <!---->
+          13
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 100px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 100px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            14
-          </div>
-          <!---->
+          14
         </div>
+        <!---->
       </div>
+    </div>
+    <div
+      class="ant-masonry-item"
+      style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+    >
       <div
-        class="ant-masonry-item"
-        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+        class="ant-card ant-card-bordered ant-card-small css-var-root"
+        style="height: 80px;"
       >
+        <!---->
+        <!---->
         <div
-          class="ant-card ant-card-bordered ant-card-small css-var-root"
-          style="height: 80px;"
+          class="ant-card-body"
         >
-          <!---->
-          <!---->
-          <div
-            class="ant-card-body"
-          >
-            15
-          </div>
-          <!---->
+          15
         </div>
+        <!---->
       </div>
-    </transition-group-stub>
-  </div>
+    </div>
+  </transition-group-stub>
 </div>
 `;
 
@@ -2336,6 +2320,7 @@ exports[`masonry demo > renders style-class correctly 1`] = `
     </h4>
     <div
       class="ant-masonry custom-masonry-root css-var-root"
+      data-v-79026958=""
       style="height: 260px; border-radius: 12px; padding: 20px; background-color: rgba(250, 250, 250, 0.5);"
     >
       <transition-group-stub
@@ -2531,6 +2516,7 @@ exports[`masonry demo > renders style-class correctly 1`] = `
     </h4>
     <div
       class="ant-masonry custom-masonry-root css-var-root"
+      data-v-79026958=""
       style="height: 280px; border: 2px solid rgb(24, 144, 255); padding: 20px; background-color: rgba(240, 248, 255, 0.6);"
     >
       <transition-group-stub

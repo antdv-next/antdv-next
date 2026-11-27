@@ -23,6 +23,7 @@ exports[`image demo > renders _semantic correctly 1`] = `
         >
           <div
             class="ant-image css-var-v-0 ant-image-css-var semantic-mark-root"
+            data-v-dfc8ebef=""
             role="button"
             style="width: 200px;"
             tabindex="0"
@@ -1801,6 +1802,7 @@ exports[`image demo > renders toolbarRender correctly 1`] = `
   <div
     aria-label="image-0"
     class="ant-image css-var-root ant-image-css-var"
+    data-v-01799a9c=""
     role="button"
     style="width: 200px;"
     tabindex="0"
@@ -1822,6 +1824,7 @@ exports[`image demo > renders toolbarRender correctly 1`] = `
   <div
     aria-label="image-1"
     class="ant-image css-var-root ant-image-css-var"
+    data-v-01799a9c=""
     role="button"
     style="width: 200px;"
     tabindex="0"

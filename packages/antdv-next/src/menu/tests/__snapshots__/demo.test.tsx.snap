@@ -81,6 +81,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
           <ul
             class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-var-v-0 ant-menu-css-var semantic-mark-root"
             data-menu-list="true"
+            data-v-dfc8ebef=""
             role="menu"
             style="width: 480px;"
             tabindex="0"
@@ -1465,6 +1466,7 @@ exports[`menu demo > renders custom-popup-render correctly 1`] = `
   <ul
     class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-var-v-0 ant-menu-css-var"
     data-menu-list="true"
+    data-v-940e9e96=""
     role="menu"
     tabindex="0"
   >
@@ -3593,6 +3595,7 @@ exports[`menu demo > renders slot-render correctly 1`] = `
   <ul
     class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-root ant-menu-css-var"
     data-menu-list="true"
+    data-v-bf6f9cf7=""
     role="menu"
     style="width: 320px;"
     tabindex="0"

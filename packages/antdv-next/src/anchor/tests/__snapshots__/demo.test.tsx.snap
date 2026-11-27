@@ -15,6 +15,7 @@ exports[`anchor demo > renders _semantic correctly 1`] = `
     >
       <div
         class="css-var-v-0 ant-anchor-css-var ant-anchor-wrapper semantic-mark-root"
+        data-v-dfc8ebef=""
         style="max-height: 100vh;"
       >
         <div

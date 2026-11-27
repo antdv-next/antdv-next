@@ -63,6 +63,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
         </div>
         <div
           class="ant-picker ant-picker-outlined css-var-v-0 ant-picker-css-var semantic-mark-root"
+          data-v-dfc8ebef=""
         >
           <div
             class="ant-picker-prefix semantic-mark-prefix"
@@ -6615,6 +6616,7 @@ exports[`date-picker demo > renders style-class correctly 1`] = `
 >
   <div
     class="ant-picker ant-picker-outlined css-var-root ant-picker-css-var custom-datepicker-root"
+    data-v-c6e89a28=""
   >
     <!---->
     <div
@@ -6661,6 +6663,7 @@ exports[`date-picker demo > renders style-class correctly 1`] = `
   <!---->
   <div
     class="ant-picker ant-picker-large ant-picker-outlined css-var-root ant-picker-css-var custom-datepicker-root"
+    data-v-c6e89a28=""
     style="border-color: rgb(114, 46, 209);"
   >
     <!---->

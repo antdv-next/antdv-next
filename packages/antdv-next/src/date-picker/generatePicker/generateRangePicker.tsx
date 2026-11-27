@@ -11,7 +11,7 @@ import { getTransitionName } from '@v-c/util/dist/utils/transition'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { ContextIsolator } from '../../_util/ContextIsolator'
 import fallbackProp from '../../_util/fallbackProp'
-import { getAttrStyleAndClass, useZIndex } from '../../_util/hooks'
+import { getAttrStyleAndClass, useScopeIdOnElement, useZIndex } from '../../_util/hooks'
 import { isNonNullable } from '../../_util/is'
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../../_util/tools'
@@ -157,6 +157,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
       )
 
       const innerRef = shallowRef<PickerRef>()
+      useScopeIdOnElement(() => innerRef.value?.nativeElement)
 
       const [variant, enableVariantCls] = useVariants('rangePicker', customVariant, bordered)
 

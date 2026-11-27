@@ -454,6 +454,7 @@ exports[`float-button demo > renders _semantic_group correctly 1`] = `
     >
       <div
         class="ant-float-btn-group css-var-v-0 ant-float-btn-css-var semantic-mark-root ant-float-btn-pure ant-float-btn-group-top ant-float-btn-group-menu-mode"
+        data-v-dfc8ebef=""
       >
         <transition-stub
           appear="true"

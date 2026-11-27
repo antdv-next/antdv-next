@@ -10,7 +10,7 @@ import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, createVNode, defineComponent, isVNode, shallowRef } from 'vue'
-import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
+import { useMergeSemantic, useScopeIdOnElement, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import initCollapseMotion from '../_util/motion.ts'
 import { toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning.ts'
@@ -318,6 +318,7 @@ const InternalMenu = defineComponent<
     }))
 
     const menuRef = shallowRef<any>()
+    useScopeIdOnElement(() => menuRef.value?.list)
     expose({
       menu: menuRef,
     })

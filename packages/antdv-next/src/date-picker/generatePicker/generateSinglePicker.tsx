@@ -11,7 +11,7 @@ import { getTransitionName } from '@v-c/util/dist/utils/transition'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { ContextIsolator } from '../../_util/ContextIsolator'
 import fallbackProp from '../../_util/fallbackProp'
-import { getAttrStyleAndClass, useZIndex } from '../../_util/hooks'
+import { getAttrStyleAndClass, useScopeIdOnElement, useZIndex } from '../../_util/hooks'
 import { omitUndefined } from '../../_util/omitUndefined'
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../../_util/tools'
@@ -171,6 +171,7 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
         )
 
         const innerRef = shallowRef<PickerRef>()
+        useScopeIdOnElement(() => innerRef.value?.nativeElement)
 
         const [variant, enableVariantCls] = useVariants('datePicker', customVariant, bordered)
 

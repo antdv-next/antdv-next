@@ -22,7 +22,7 @@ const SplitterDemo = defineComponent<{ items?: PanelProps[] } & SplitterProps>((
 })
 
 async function resizeSplitter(wrapper: ReturnType<typeof mount>) {
-  const splitter = wrapper.element.querySelector('.ant-splitter') as HTMLElement
+  const splitter = wrapper.get('.ant-splitter').element as HTMLElement
   triggerResize(splitter)
   await nextTick()
   await Promise.resolve()

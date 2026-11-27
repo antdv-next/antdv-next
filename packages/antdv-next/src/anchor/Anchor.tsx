@@ -13,6 +13,7 @@ import { computed, defineComponent, nextTick, ref, shallowRef, watch, watchEffec
 import getScroll from '../_util/getScroll'
 import {
   useMergeSemantic,
+  useScopeIdOnElement,
   useSemanticRootStyle,
   useToArr,
   useToProps,
@@ -151,6 +152,7 @@ const Anchor = defineComponent<
     const rawActiveLink = shallowRef(activeLink.value)
 
     const wrapperRef = shallowRef<HTMLElement>()
+    useScopeIdOnElement(wrapperRef)
     const spanLinkNode = shallowRef<HTMLSpanElement>()
 
     const animatingRef = shallowRef(false)

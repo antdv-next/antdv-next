@@ -14,7 +14,7 @@ import enUS from '@v-c/pagination/locale/en_US'
 import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, h } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useScopeIdAttrs, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -58,6 +58,7 @@ const Pagination = defineComponent<
   SlotsType<PaginationSlots>
 >(
   (props, { slots, attrs, emit }) => {
+    const scopeIdAttrs = useScopeIdAttrs()
     const {
       getPrefixCls,
       prefixCls,
@@ -292,6 +293,7 @@ const Pagination = defineComponent<
         <>
           {token.value.wireframe && <BorderedStyle prefixCls={prefixCls.value} />}
           <VcPagination
+            {...scopeIdAttrs}
             {...restProps}
             {...restAttrs}
             prefixCls={prefixCls.value}

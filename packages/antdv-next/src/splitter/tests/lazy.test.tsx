@@ -126,7 +126,7 @@ describe('splitter lazy', () => {
   })
 
   async function resizeSplitter(wrapper: ReturnType<typeof mount>) {
-    const splitter = wrapper.element.querySelector('.ant-splitter') as HTMLElement
+    const splitter = wrapper.get('.ant-splitter').element as HTMLElement
     triggerResize(splitter)
     await waitFakeTimer(0, 1)
   }

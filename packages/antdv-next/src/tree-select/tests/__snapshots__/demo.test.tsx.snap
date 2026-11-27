@@ -67,6 +67,7 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
         <!---->
         <div
           class="ant-select ant-tree-select ant-select-outlined semantic-mark-root css-var-v-0 ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow ant-select-open ant-select-show-search"
+          data-v-dfc8ebef=""
           style="width: 300px;"
         >
           <div
