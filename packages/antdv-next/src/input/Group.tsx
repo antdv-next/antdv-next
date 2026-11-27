@@ -5,7 +5,7 @@ import { clsx } from '@v-c/util'
 import { computed, defineComponent } from 'vue'
 import { getAttrStyleAndClass } from '../_util/hooks'
 import { devUseWarning, isDev } from '../_util/warning'
-import { useConfig } from '../config-provider/context'
+import { useComponentBaseConfig } from '../config-provider/context'
 import { useFormItemInputContext, useFormItemInputContextProvider } from '../form/context.tsx'
 import { SpaceCompact } from '../space'
 import useStyle from './style'
@@ -28,10 +28,9 @@ const InputGroup = defineComponent<
       warning.deprecated(false, 'Input.Group', 'Space.Compact')
     }
 
-    const configContext = useConfig()
-    const prefixCls = computed(() => configContext.value.getPrefixCls('input-group', props.prefixCls))
+    const { prefixCls, direction, getPrefixCls } = useComponentBaseConfig('input', props, [], 'input-group')
     // Group styles live in the Input style, so register it with the input prefix (same as antd).
-    const inputPrefixCls = computed(() => configContext.value.getPrefixCls('input'))
+    const inputPrefixCls = computed(() => getPrefixCls('input'))
     const [hashId, cssVarCls] = useStyle(inputPrefixCls)
 
     const formItemContext = useFormItemInputContext()
@@ -52,7 +51,7 @@ const InputGroup = defineComponent<
           [`${prefixCls.value}-lg`]: size === 'large',
           [`${prefixCls.value}-sm`]: size === 'small',
           [`${prefixCls.value}-compact`]: compact,
-          [`${prefixCls.value}-rtl`]: configContext.value.direction === 'rtl',
+          [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
         },
         hashId.value,
         rootClass,

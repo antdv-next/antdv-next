@@ -106,6 +106,25 @@ describe('input.Group', () => {
     expect(wrapper.find('.ant-input-group').classes()).toContain('ant-input-group-rtl')
   })
 
+  it('should support prefixCls from props and ConfigProvider', () => {
+    const wrapper = mount(() => (
+      <div>
+        <InputGroup prefixCls="custom-group" class="by-prop">
+          <Input />
+        </InputGroup>
+        <ConfigProvider prefixCls="foo">
+          <InputGroup class="by-config">
+            <Input />
+          </InputGroup>
+        </ConfigProvider>
+      </div>
+    ))
+    expect(wrapper.find('.by-prop').classes()).toContain('custom-group')
+    expect(wrapper.find('.by-prop').classes()).not.toContain('ant-input-group')
+    expect(wrapper.find('.by-config').classes()).toContain('foo-input-group')
+    expect(wrapper.find('.by-config input').classes()).toContain('foo-input')
+  })
+
   it('should keep Form.Item status but not mark children as the Form.Item input', async () => {
     const wrapper = mount(() => (
       <Form>
