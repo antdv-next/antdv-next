@@ -143,6 +143,7 @@ exports[`typography demo > renders _semantic correctly 1`] = `
               >
                 <h5
                   class="ant-typography css-var-root"
+                  data-v-dfc8ebef=""
                   style="margin: 0px;"
                 >
                   <!---->
@@ -241,6 +242,7 @@ exports[`typography demo > renders _semantic correctly 1`] = `
             </div>
             <div
               class="ant-typography css-var-root"
+              data-v-dfc8ebef=""
               style="margin: 0px; font-size: 12px;"
             >
               <!---->
@@ -273,6 +275,7 @@ exports[`typography demo > renders _semantic correctly 1`] = `
               >
                 <h5
                   class="ant-typography css-var-root"
+                  data-v-dfc8ebef=""
                   style="margin: 0px;"
                 >
                   <!---->
@@ -371,6 +374,7 @@ exports[`typography demo > renders _semantic correctly 1`] = `
             </div>
             <div
               class="ant-typography css-var-root"
+              data-v-dfc8ebef=""
               style="margin: 0px; font-size: 12px;"
             >
               <!---->
@@ -403,6 +407,7 @@ exports[`typography demo > renders _semantic correctly 1`] = `
               >
                 <h5
                   class="ant-typography css-var-root"
+                  data-v-dfc8ebef=""
                   style="margin: 0px;"
                 >
                   <!---->
@@ -501,6 +506,7 @@ exports[`typography demo > renders _semantic correctly 1`] = `
             </div>
             <div
               class="ant-typography css-var-root"
+              data-v-dfc8ebef=""
               style="margin: 0px; font-size: 12px;"
             >
               <!---->
@@ -533,6 +539,7 @@ exports[`typography demo > renders _semantic correctly 1`] = `
               >
                 <h5
                   class="ant-typography css-var-root"
+                  data-v-dfc8ebef=""
                   style="margin: 0px;"
                 >
                   <!---->
@@ -631,6 +638,7 @@ exports[`typography demo > renders _semantic correctly 1`] = `
             </div>
             <div
               class="ant-typography css-var-root"
+              data-v-dfc8ebef=""
               style="margin: 0px; font-size: 12px;"
             >
               <!---->
@@ -2181,45 +2189,37 @@ exports[`typography demo > renders ellipsis-controlled correctly 1`] = `
 `;
 
 exports[`typography demo > renders ellipsis-middle correctly 1`] = `
-<div
-  data-v-app=""
+<span
+  aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of "
+  class="ant-typography ant-typography-ellipsis css-var-root"
+  style="max-width: 100%;"
 >
-  <span
-    aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of "
-    class="ant-typography ant-typography-ellipsis css-var-root"
-    style="max-width: 100%;"
-  >
-    <!---->
-    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of 
-    <!---->
-    development.
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-  </span>
-</div>
+  <!---->
+  In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of 
+  <!---->
+  development.
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+</span>
 `;
 
 exports[`typography demo > renders shimmer correctly 1`] = `
-<div
-  data-v-app=""
+<span
+  aria-busy="true"
+  class="ant-typography ant-typography-shimmer css-var-root"
+  style="--ant-typography-shimmer-motion-time: 1; --ant-typography-shimmer-wait-time: 1;"
 >
-  <span
-    aria-busy="true"
-    class="ant-typography ant-typography-shimmer css-var-root"
-    style="--ant-typography-shimmer-motion-time: 1; --ant-typography-shimmer-wait-time: 1;"
-  >
-    <!---->
-     Thinking... 
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-  </span>
-</div>
+  <!---->
+   Thinking... 
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+</span>
 `;
 
 exports[`typography demo > renders suffix correctly 1`] = `
