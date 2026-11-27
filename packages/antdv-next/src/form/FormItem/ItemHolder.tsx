@@ -104,7 +104,7 @@ const ItemHolder = defineComponent<ItemHolderProps>(
             {/* Label */}
             <FormItemLabel
               {...props}
-              htmlFor={props.htmlFor ?? fieldId}
+              htmlFor={props.htmlFor === undefined ? fieldId : props.htmlFor}
               requiredMark={formContext.value?.requiredMark}
               required={required ?? isRequired}
               prefixCls={prefixCls!}

@@ -613,6 +613,9 @@ const InternalFormItem = defineComponent<
       currentFieldId?: string,
       isRequiredMark?: boolean,
     ) {
+      // The id the control actually renders with: the child's own `id` when it
+      // provides one, otherwise the generated field id.
+      let controlId: string | undefined
       // 判断children是否为单一的元素，如果是则塞入onBlur用以触发校验
       if (Array.isArray(baseChildren) && baseChildren.length === 1 && isVNode(baseChildren[0])) {
         const child = baseChildren[0]
@@ -685,6 +688,7 @@ const InternalFormItem = defineComponent<
         if (props.required ?? isRequiredMark) {
           newChildProps['aria-required'] = 'true'
         }
+        controlId = newChildProps.id
         // Keep the array shape stable across renders (see issue #762).
         baseChildren = [createVNode(child, newChildProps)]
       }
@@ -730,9 +734,16 @@ const InternalFormItem = defineComponent<
         }
       }
 
+      // The label should point at the id the control actually renders with.
+      // A user provided `htmlFor` always takes precedence, including
+      // `htmlFor={null}` which turns the association off, so only `undefined`
+      // falls back.
+      const mergedHtmlFor = props.htmlFor === undefined ? (controlId ?? currentFieldId) : props.htmlFor
+
       return (
         <ItemHolder
           {...omit(props, ['preserve'])}
+          htmlFor={mergedHtmlFor}
           tooltip={mergedTooltip}
           label={getSlotPropsFnRun(slots, props, 'label')}
           extra={getSlotPropsFnRun(slots, props, 'extra')}
