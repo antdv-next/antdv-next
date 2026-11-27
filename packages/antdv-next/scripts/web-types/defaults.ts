@@ -63,7 +63,8 @@ export const supplements: SupplementDefinition[] = [
     doc: 'input',
     description: { zh: '输入框组合。已废弃，请使用 Space.Compact 代替。', en: 'Input group. Deprecated, use Space.Compact instead.' },
     attributes: [
-      { name: 'size', description: 'Size of the grouped controls.', type: '`large` | `middle` | `small`', default: 'middle' },
+      { name: 'compact', description: 'Whether to use compact style.', type: 'boolean', default: 'false' },
+      { name: 'size', description: 'Size of the group. Applied by style only, not forwarded to the grouped controls.', type: '`large` | `default` | `small`', default: 'default' },
     ],
     slots: [{ name: 'default', description: 'Grouped controls.' }],
   },

@@ -1,21 +1,21 @@
 import type { SlotsType } from 'vue'
 import type { EmptyEmit } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context'
-import type { SizeType } from '../config-provider/SizeContext.tsx'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent } from 'vue'
 import { getAttrStyleAndClass } from '../_util/hooks'
 import { devUseWarning, isDev } from '../_util/warning'
-import { useComponentBaseConfig } from '../config-provider/context'
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
+import { useConfig } from '../config-provider/context'
 import { useFormItemInputContext, useFormItemInputContextProvider } from '../form/context.tsx'
 import { SpaceCompact } from '../space'
-import useStyle, { useSharedStyle } from './style'
+import useStyle from './style'
 
 export interface InputGroupProps extends ComponentBaseProps {
-  size?: SizeType
+  size?: 'large' | 'small' | 'default'
+  compact?: boolean
 }
 
+/** @deprecated Please use `Space.Compact` */
 const InputGroup = defineComponent<
   InputGroupProps,
   EmptyEmit,
@@ -28,11 +28,11 @@ const InputGroup = defineComponent<
       warning.deprecated(false, 'Input.Group', 'Space.Compact')
     }
 
-    const { getPrefixCls, direction } = useComponentBaseConfig('input', props)
-    const prefixCls = computed(() => getPrefixCls('input-group', props.prefixCls))
-    const rootCls = useCSSVarCls(prefixCls)
-    const [hashId, cssVarCls] = useSharedStyle(prefixCls, computed(() => props.rootClass))
-    useStyle(prefixCls, rootCls)
+    const configContext = useConfig()
+    const prefixCls = computed(() => configContext.value.getPrefixCls('input-group', props.prefixCls))
+    // Group styles live in the Input style, so register it with the input prefix (same as antd).
+    const inputPrefixCls = computed(() => configContext.value.getPrefixCls('input'))
+    const [hashId, cssVarCls] = useStyle(inputPrefixCls)
 
     const formItemContext = useFormItemInputContext()
     const groupFormContext = computed(() => ({
@@ -41,32 +41,30 @@ const InputGroup = defineComponent<
     }))
     useFormItemInputContextProvider(groupFormContext)
 
-    const { style, restAttrs } = getAttrStyleAndClass(attrs)
+    return () => {
+      const { size, compact, rootClass } = props
+      const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
 
-    const cls = clsx(
-      prefixCls.value,
-      cssVarCls.value,
-      hashId.value,
-      {
-        [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
-        [`${prefixCls.value}-lg`]: props.size === 'large',
-        [`${prefixCls.value}-sm`]: props.size === 'small',
-        [`${prefixCls.value}-compact`]: true,
-      },
-      props.rootClass,
-      (attrs as any).class,
-    )
+      const cls = clsx(
+        prefixCls.value,
+        cssVarCls.value,
+        {
+          [`${prefixCls.value}-lg`]: size === 'large',
+          [`${prefixCls.value}-sm`]: size === 'small',
+          [`${prefixCls.value}-compact`]: compact,
+          [`${prefixCls.value}-rtl`]: configContext.value.direction === 'rtl',
+        },
+        hashId.value,
+        rootClass,
+        className,
+      )
 
-    return (
-      <SpaceCompact
-        {...restAttrs}
-        class={cls}
-        style={style}
-        size={props.size}
-      >
-        {slots.default?.()}
-      </SpaceCompact>
-    ) as any
+      return (
+        <SpaceCompact {...restAttrs} class={cls} style={style}>
+          {slots.default?.()}
+        </SpaceCompact>
+      )
+    }
   },
   {
     name: 'AInputGroup',
