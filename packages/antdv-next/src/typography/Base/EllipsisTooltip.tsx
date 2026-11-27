@@ -1,5 +1,6 @@
 import type { SlotsType } from 'vue'
 import type { TooltipProps } from '../../tooltip'
+import { filterEmpty } from '@v-c/util/dist/props-util'
 import { defineComponent } from 'vue'
 
 import Tooltip from '../../tooltip'
@@ -36,7 +37,10 @@ const EllipsisTooltip = defineComponent<
   setup(props, { slots }) {
     return () => {
       if (!props.tooltipProps?.title || !props.enableEllipsis) {
-        return slots.default?.()
+        // Keep a single root vnode (no Fragment) so Vue can pass the parent's
+        // scoped CSS id (`data-v-*`) down to the typography element.
+        const children = filterEmpty(slots.default?.() ?? [])
+        return children.length === 1 ? children[0] : children
       }
 
       return (
