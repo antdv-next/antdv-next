@@ -5,13 +5,15 @@ import Switch from '../../switch'
 import { mount } from '/@tests/utils'
 
 const labelSelector = '.ant-form-item-label > label'
+// `id` is not declared in InputProps, it is passed through as a fallthrough attr
+const customId = { id: 'custom-account' } as any
 
 describe('form item label association', () => {
   it('should associate label with the explicit id of the control', () => {
     const wrapper = mount(() => (
       <Form model={{ account: '' }}>
         <FormItem name="account" label="Account" extra="Account identifier">
-          <Input id="custom-account" />
+          <Input {...customId} />
         </FormItem>
       </Form>
     ), { attachTo: document.body })
@@ -48,7 +50,7 @@ describe('form item label association', () => {
     const wrapper = mount(() => (
       <Form model={{ account: '' }}>
         <FormItem name="account" label="Account" htmlFor="custom-html-for">
-          <Input id="custom-account" />
+          <Input {...customId} />
         </FormItem>
       </Form>
     ))
@@ -78,7 +80,7 @@ describe('form item label association', () => {
     const wrapper = mount(() => (
       <Form model={{ account: '' }}>
         <FormItem name="account" label="Account" htmlFor={undefined}>
-          <Input id="custom-account" />
+          <Input {...customId} />
         </FormItem>
       </Form>
     ))
@@ -92,7 +94,7 @@ describe('form item label association', () => {
     const wrapper = mount(() => (
       <Form model={{ account: '' }}>
         <FormItem name="account" label="Account">
-          <Input id="custom-account" />
+          <Input {...customId} />
           <span>suffix</span>
         </FormItem>
       </Form>
