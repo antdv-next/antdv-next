@@ -1,7 +1,7 @@
 import type { SlotsType } from 'vue'
 import type { BlockProps, CopyConfig, EditConfig, EllipsisConfig, ShimmerConfig, TypographyBaseEmits, TypographyClassNamesType, TypographySlots, TypographyStylesType } from '../interface'
 import { EditOutlined } from '@antdv-next/icons'
-import ResizeObserver from '@v-c/resize-observer'
+import { useResizeObserver } from '@v-c/resize-observer'
 import { classNames } from '@v-c/util'
 import useDelayState from '@v-c/util/dist/hooks/useDelayState'
 import { filterEmpty } from '@v-c/util/dist/props-util'
@@ -87,6 +87,12 @@ const Base = defineComponent<
 >(
   (props, { slots, attrs, emit }) => {
     const typographyRef = shallowRef<HTMLElement | { el?: HTMLElement }>()
+    // A function ref is assigned synchronously during patch (object refs are
+    // deferred), so the resize observer below attaches within the same flush
+    // as the mount instead of one tick later.
+    const setTypographyRef = (instance: any) => {
+      typographyRef.value = instance
+    }
     const typographyDom = computed(() => {
       const val = typographyRef.value as any
       if (val && typeof val === 'object' && 'el' in val)
@@ -306,6 +312,11 @@ const Base = defineComponent<
     const onResize = ({ offsetWidth }: { offsetWidth: number }) => {
       ellipsisWidth.value = offsetWidth
     }
+
+    // Observe through the hook instead of the `ResizeObserver` component: the
+    // component renders a Fragment root, which stops Vue from passing the
+    // parent's scoped CSS id (`data-v-*`) down to the typography element.
+    useResizeObserver(mergedEnableEllipsis, typographyDom, onResize)
 
     const onJsEllipsis = (jsEllipsis: boolean) => {
       const changed = isJsEllipsis.value !== jsEllipsis
@@ -559,71 +570,69 @@ const Base = defineComponent<
         )
       }
       return (
-        <ResizeObserver onResize={onResize} disabled={!mergedEnableEllipsis.value}>
-          <EllipsisTooltip
-            tooltipProps={tooltipProps.value}
-            enableEllipsis={mergedEnableEllipsis.value}
-            isEllipsis={isMergedEllipsis.value}
-            disabled={isHoveringOperations.value}
+        <EllipsisTooltip
+          tooltipProps={tooltipProps.value}
+          enableEllipsis={mergedEnableEllipsis.value}
+          isEllipsis={isMergedEllipsis.value}
+          disabled={isHoveringOperations.value}
+        >
+          <Typography
+            class={mergedClassName}
+            prefixCls={prefixCls.value}
+            style={mergedStyle as any}
+            component={props.component as any}
+            ref={setTypographyRef}
+            direction={mergedDirection.value}
+            onClick={clickHandler}
+            title={props.title!}
+            aria-label={topAriaLabel.value as any}
+            aria-busy={enableShimmer.value ? !props.disabled : undefined}
+            aria-disabled={enableShimmer.value && props.disabled ? true : undefined}
+            rootClass={props.rootClass}
+            {...{ id: props.id } as any}
+            {...restAttrs}
           >
-            <Typography
-              class={mergedClassName}
-              prefixCls={prefixCls.value}
-              style={mergedStyle as any}
-              component={props.component as any}
-              ref={typographyRef}
-              direction={mergedDirection.value}
-              onClick={clickHandler}
-              title={props.title!}
-              aria-label={topAriaLabel.value as any}
-              aria-busy={enableShimmer.value ? !props.disabled : undefined}
-              aria-disabled={enableShimmer.value && props.disabled ? true : undefined}
-              rootClass={props.rootClass}
-              {...{ id: props.id } as any}
-              {...restAttrs}
+            <Ellipsis
+              enableMeasure={mergedEnableEllipsis.value && !cssEllipsis.value}
+              text={children}
+              rows={rows.value}
+              width={ellipsisWidth.value}
+              {
+                ...{
+                  onEllipsis: onJsEllipsis,
+                } as any
+              }
+              expanded={expanded.value}
+              miscDeps={[
+                copied.value,
+                expanded.value,
+                copyLoading.value,
+                enableEdit.value,
+                enableCopy.value,
+                textLocale?.value,
+                ...DECORATION_PROPS.map(key => (props as any)[key]),
+              ]}
             >
-              <Ellipsis
-                enableMeasure={mergedEnableEllipsis.value && !cssEllipsis.value}
-                text={children}
-                rows={rows.value}
-                width={ellipsisWidth.value}
-                {
-                  ...{
-                    onEllipsis: onJsEllipsis,
-                  } as any
-                }
-                expanded={expanded.value}
-                miscDeps={[
-                  copied.value,
-                  expanded.value,
-                  copyLoading.value,
-                  enableEdit.value,
-                  enableCopy.value,
-                  textLocale?.value,
-                  ...DECORATION_PROPS.map(key => (props as any)[key]),
-                ]}
-              >
-                {(node: any, canEllipsis: any) => {
-                  return wrapperDecorations(
-                    props,
-                    <>
-                      {placement.value === 'start' ? renderOperations(canEllipsis) : null}
-                      {node.length > 0 && canEllipsis && !expanded.value && topAriaLabel.value
-                        ? (
-                            <span key="show-content" aria-hidden>
-                              {node}
-                            </span>
-                          )
-                        : node}
-                      <>{renderEllipsis(canEllipsis)}</>
-                      {placement.value === 'start' ? null : renderOperations(canEllipsis)}
-                    </>,
-                  )
-                }}
-              </Ellipsis>
-            </Typography>
-          </EllipsisTooltip>
-        </ResizeObserver>
+              {(node: any, canEllipsis: any) => {
+                return wrapperDecorations(
+                  props,
+                  <>
+                    {placement.value === 'start' ? renderOperations(canEllipsis) : null}
+                    {node.length > 0 && canEllipsis && !expanded.value && topAriaLabel.value
+                      ? (
+                          <span key="show-content" aria-hidden>
+                            {node}
+                          </span>
+                        )
+                      : node}
+                    <>{renderEllipsis(canEllipsis)}</>
+                    {placement.value === 'start' ? null : renderOperations(canEllipsis)}
+                  </>,
+                )
+              }}
+            </Ellipsis>
+          </Typography>
+        </EllipsisTooltip>
       )
     }
   },
