@@ -17,5 +17,5 @@ export function getStatusClassNames(prefixCls: string, status?: ValidateStatus, 
 }
 
 export function getMergedStatus(contextStatus?: ValidateStatus, customStatus?: InputStatus) {
-  return customStatus || contextStatus
+  return customStatus ?? contextStatus
 }
